@@ -1,0 +1,55 @@
+\subsection{Worked Derivation: Lagrange’s Method and Kepler’s Law}
+
+Consider a dynamical system described by two generalized coordinates:
+\[
+q_1 = \text{radial coordinate}, \quad q_2 = \text{angular coordinate}
+\]
+
+Assume the kinetic energy has the form:
+\[
+T = \frac{1}{2} m \left( \left( \frac{dq_1}{dt} \right)^2 + a(q_1)^2 \left( \frac{dq_2}{dt} \right)^2 \right)
+\]
+and let the potential energy depend only on \( q_1 \): \( V = V(q_1) \). Then the Lagrangian is:
+\[
+L(q_1, q_2, \dot{q}_1, \dot{q}_2) = T - V = \frac{1}{2} m \left( \dot{q}_1^2 + a(q_1)^2 \dot{q}_2^2 \right) - V(q_1)
+\]
+
+Now apply Lagrange’s equation for each generalized coordinate:
+\[
+\frac{d}{dt} \left( \frac{dL}{d\dot{q}_i} \right) - \frac{dL}{dq_i} = 0
+\]
+
+For \( q_2 \):
+
+Since \( q_2 \) does not appear in \( L \), we have:
+\[
+\frac{dL}{dq_2} = 0 \quad \Rightarrow \quad \frac{d}{dt} \left( \frac{dL}{d\dot{q}_2} \right) = 0
+\]
+
+Compute:
+\[
+\frac{dL}{d\dot{q}_2} = m a(q_1)^2 \dot{q}_2
+\quad \Rightarrow \quad
+\frac{d}{dt} \left( m a(q_1)^2 \dot{q}_2 \right) = 0
+\]
+
+Therefore:
+\[
+m a(q_1)^2 \dot{q}_2 = \text{constant}
+\]
+
+This expression is the conserved momentum conjugate to the angular coordinate \( q_2 \), and in planetary motion, it corresponds to **angular momentum**.
+
+Now consider the infinitesimal area \( dA \) swept out in time \( dt \):
+
+\[
+dA \propto a(q_1)^2 \dot{q}_2 \, dt \quad \Rightarrow \quad \frac{dA}{dt} \propto a(q_1)^2 \dot{q}_2
+\]
+
+Thus:
+\[
+\frac{dA}{dt} = \text{constant}
+\]
+
+Which is precisely **Kepler’s Second Law**.
+

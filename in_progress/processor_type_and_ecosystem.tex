@@ -1,0 +1,239 @@
+\section{Processor Type and Ecosystem: Why Hardware Shapes the Network You Build}
+
+We’ve talked about training cost, information geometry, and the economics of model design. But there’s an even more fundamental question:
+
+\textbf{What kind of neural network should you build in the first place?}
+
+The answer is not just “whatever gives good accuracy.” It depends — heavily — on the kind of processor you’re deploying to. And not just in terms of FLOPs per second. We're talking about deep architectural compatibility: whether your network plays to the strengths of the hardware, or fights it at every layer.
+\subsection{A Brief History of Processors: From Von Neumann to Neural Engines}
+
+Before diving into which processor is best for which model, it helps to understand how we got here. The story of hardware isn’t just about speed or size—it’s about architectural philosophy, economics, and even gaming culture.
+
+\medskip
+
+\noindent\textbf{It all began in the 1940s with two competing visions:} the \textbf{Von Neumann architecture} (1945) and the \textbf{Harvard architecture} (1944). The key difference lies in how they handle memory. Von Neumann systems use a single memory space for both instructions and data, while Harvard systems keep them separate. In theory, Harvard architectures can be faster and safer, but Von Neumann machines were simpler to build and more flexible.
+
+Eventually, Von Neumann won out—especially in the world of general-purpose computing. Intel based its processors on this model, and by the 1990s, the \textbf{x86 instruction set architecture} had become the de facto standard for consumer and enterprise CPUs. Alternatives like SPARC (1987) and MIPS (1985) had their day, but market forces and software momentum favored x86. For decades, the future of computing looked like a straight line—smaller transistors, faster clocks, better CPUs.
+
+\medskip
+
+\noindent\textbf{Then came the smartphone boom in the late 2000s.} Suddenly, power consumption mattered. You couldn’t just make a chip faster—you had to make it efficient. That’s where the Harvard-style design returned, now reborn in \textbf{ARM processors}. These chips, with their low power draw and instruction simplicity, were perfect for mobile devices. ARM’s architecture began in the 1980s (Acorn RISC Machine, 1985) but came into dominance with the smartphone era around 2007–2010. Today, most smartphones—whether Android or iPhone—run on chips built around some variant of ARM’s Harvard-inspired architecture.
+
+\medskip
+
+\noindent\textbf{Meanwhile, another revolution was brewing—in pixels.} Graphics Processing Units (GPUs) were originally designed to render high-resolution visuals for video games. NVIDIA launched its first GPU in 1999 (the GeForce 256), and by the early 2000s, GPUs were becoming essential for gaming. At first, they were a niche product—mostly for gamers, many of whom were willing to spend lavishly for smoother frame rates and sharper textures.
+
+\textbf{Then came crypto.} Around 2013–2017, the rise of cryptocurrency introduced a new motive: \textbf{squeezing every last drop of performance out of your hardware}. GPU sales exploded. And just as the crypto wave hit, another opportunity arrived: deep learning.
+
+It turned out that what made GPUs good at graphics—\textbf{massively parallel matrix multiplication}—was also exactly what made them perfect for training neural networks. The deep learning boom of 2012 (with AlexNet) aligned perfectly with NVIDIA’s CUDA platform (introduced in 2006), which made GPUs programmable for general-purpose computing. NVIDIA, in particular, was well positioned to capitalize on this shift.
+
+\medskip
+
+\noindent\textbf{Then came Apple.} Seeking more control over their hardware and user experience, Apple began designing its own processors with the launch of the \textbf{A-series chips}. Starting with the \textbf{A11 Bionic} in 2017, Apple introduced the \textbf{Neural Engine}—a dedicated hardware block specifically optimized for machine learning tasks. This was designed to accelerate on-device intelligence like Face ID, Animoji, and Siri's voice recognition, all while preserving battery life.
+
+\medskip
+
+\noindent Each new chip iteration expanded the capabilities of the Neural Engine:
+
+\begin{itemize}
+    \item \textbf{A11 Bionic (2017):} First appearance of the Neural Engine (2 cores, up to 600 billion operations per second)
+    \item \textbf{A12 Bionic (2018):} Improved Neural Engine (8 cores, 5 trillion operations per second)
+    \item \textbf{A13 Bionic (2019):} Even faster inference, better integration with the CPU and GPU
+    \item \textbf{A14 Bionic (2020):} 16-core Neural Engine, enabling real-time ML tasks across apps
+    \item \textbf{A15–A17 (2021–2023):} Continued improvements in ML throughput, energy efficiency, and integration with custom ISP and Secure Enclave
+\end{itemize}
+
+\noindent These chips didn’t just boost performance—they marked the beginning of a new category of processor: one where machine learning wasn’t an add-on but a \textbf{first-class architectural concern}. Apple’s A-series Neural Engine sparked an industry-wide response. Soon, other manufacturers followed suit with processors explicitly designed for deep learning:
+
+\begin{itemize}
+    \item \textbf{Google Tensor SoC (2021–present):} Designed for Pixel smartphones, includes a custom TPU variant for on-device inference, enabling real-time translation, image segmentation, and voice recognition.
+    
+    \item \textbf{Huawei Ascend Series (2018–present):} Includes the Ascend 310 (edge) and Ascend 910 (data center), featuring dedicated AI cores optimized for matrix multiplication and low-precision arithmetic.
+    
+    \item \textbf{NVIDIA A100 (2020) and H100 (2022):} Built on the Ampere and Hopper architectures respectively, these GPUs include \textbf{Tensor Cores} specialized for deep learning, supporting mixed-precision training and massive parallelism.
+    
+    \item \textbf{AMD Instinct MI250 and MI300 (2021–2023):} High-performance accelerators built with AMD's CDNA architecture, targeting large-scale training workloads with support for BF16 and matrix-optimized pipelines.
+\end{itemize}
+
+\noindent For NVIDIA, the inflection point came in \textbf{2017} with the launch of the \textbf{Volta architecture}. This was the first time \textbf{Tensor Cores}—dedicated hardware units for deep learning—were introduced. While earlier GPUs had been repurposed for AI, Volta made deep learning acceleration a native hardware feature. It marked the transition from general-purpose compute devices to \textbf{AI-first silicon}.
+
+\medskip
+
+\noindent These processors weren’t just faster—they were smarter, architected from the ground up to accelerate the kinds of workloads that define modern machine learning: tensor operations, attention mechanisms, and large-scale dataflow graphs. What began as a design decision in mobile devices evolved into an industry-wide shift across edge, desktop, and data center hardware.
+
+\noindent Looking ahead, Huawei is exploring even more radical architectural directions—including a \textbf{ternary logic processor}, which operates on three discrete states instead of the traditional binary “0” and “1.” If successful, ternary processors could offer advantages in both \textbf{energy efficiency} and \textbf{information density}, potentially representing values using fewer gates and reducing switching power. For machine learning workloads, this could mean faster low-precision inference, better support for quantized models, and even new forms of neural network architectures designed natively for three-state computation. While still experimental, it signals a future where the very logic underlying our chips might evolve to meet the demands of AI.
+
+
+Machine learning had gone mainstream—into your camera, your keyboard, and your pocket.
+
+\noindent The result? We’re no longer just choosing between “fast” and “cheap.” We’re choosing between entire ecosystems—each with its own compiler stack, memory layout, debugging tools, and architectural assumptions. And that’s why the neural network you design has to match the substrate it runs on.
+
+In the next sections, we’ll walk through those substrates—CPU, GPU, TPU, and edge—and explore how to design networks that play to their strengths, not their bottlenecks.
+
+
+% Insert this where you want the comic to appear
+\begin{figure}[H]
+\centering
+
+% === First row ===
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\begin{tikzpicture}
+  \comicpanel{0}{0}
+    {Apple Engineer}
+    {}
+    {We need a to track facial expressions... for a talking poop emoji.}
+    {(0,-1.2)}
+\end{tikzpicture}
+\caption*{Apple: Innovating for animated excrement.}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\begin{tikzpicture}
+  \comicpanel{0}{0}
+    {Google Exec}
+    {}
+    {If Apple gets poop emojis, we get Tensor emojis. Launch the SoC division.}
+    {(0,-0.8)}
+\end{tikzpicture}
+\caption*{Google: Never missing a branding opportunity.}
+\end{subfigure}
+
+\vspace{1em}
+
+% === Second row ===
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\begin{tikzpicture}
+  \comicpanel{0}{0}
+    {NVIDIA Intern}
+    {}
+    {We optimized GAN latency so you can deepfake that girl you like.}
+    {(0,-1.4)}
+\end{tikzpicture}
+\caption*{NVIDIA: Accelerating the porn industry.}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\begin{tikzpicture}
+  \comicpanel{0}{0}
+    {Huawei R\&D}
+    {}
+    {Our new ternary chip predicts which TikTok filter you'll choose.}
+    {(0,-1.2)}
+\end{tikzpicture}
+\caption*{Huawei: Destroying genZ one filter at a time.}
+\end{subfigure}
+
+\caption{The true reason your phone works faster than your laptop.}
+\end{figure}
+
+
+
+\subsection{CPUs: Good for Structured Models and Sparse Attention}
+
+CPUs are general-purpose and memory-friendly. They're great at control flow, branching, and operations that depend on data locality.
+
+\textbf{Networks that pair well with CPUs:}
+\begin{itemize}
+    \item Recurrent Neural Networks (RNNs), GRUs, LSTMs — especially when the sequence length is variable
+    \item Transformer variants with sparse or local attention (e.g., Longformer, Reformer)
+    \item Decision-tree hybrids (e.g., deep ensembles with GBDTs on tabular data)
+\end{itemize}
+
+\textbf{Why it works:}  
+CPUs handle irregular workloads and cache-based memory access efficiently. Vectorized execution (AVX/NEON) is useful when the data layout can be controlled. RNN-style architectures can outperform transformers on CPUs when batching isn't feasible.
+
+\subsection{GPUs: Ideal for Dense, Parallel Workloads}
+
+GPUs want work that is embarrassingly parallel — batched, dense, regular, and with minimal branching.
+
+\textbf{Networks that thrive on GPUs:}
+\begin{itemize}
+    \item CNNs — image models (ResNet, EfficientNet, UNet)
+    \item Dense transformers (BERT, GPT)
+    \item GANs with large convolutional or deconvolutional layers
+\end{itemize}
+
+\textbf{Why it works:}  
+When data is batched and shape-regular, GPU tensor cores and memory coalescing can execute extremely efficiently. Layer fusions and mixed-precision training make this even more performant.
+
+\subsection{TPUs: Specialized for Static Graphs and Giant Matmuls}
+
+TPUs want your model to look like one giant matrix operation. If you can express it as a fused, static graph with predictable control flow, TPUs will love you.
+
+\textbf{Best matches for TPUs:}
+\begin{itemize}
+    \item Transformer language models with fixed input sizes (T5, GPT-J, PaLM)
+    \item Vision Transformers (ViTs) where tokenization and positional encodings are regular
+    \item Physics-informed networks when they're expressed as fully vectorized tensor ops
+\end{itemize}
+
+\textbf{Where they struggle:}
+\begin{itemize}
+    \item Dynamic control flow (e.g., conditionals, data-dependent branches)
+    \item Variable-length sequences
+    \item Small batch sizes (underutilizes MXUs)
+\end{itemize}
+
+\subsection{ASICs, FPGAs, and Edge: When Customization Is the Feature}
+
+Some models are built to run in environments where power and latency matter more than generality. That’s where application-specific hardware (ASICs) and field-programmable gate arrays (FPGAs) shine.
+
+\textbf{Best-fit models:}
+\begin{itemize}
+    \item Quantized models (e.g., MobileNet, TinyML variants)
+    \item Fixed-weight networks for inference-only workloads
+    \item Neural ODE solvers for physical control systems
+\end{itemize}
+
+\textbf{Design constraint:}  
+You must design for the hardware from the start — or be prepared to pay an extreme cost for conversion and debugging. Toolchains are narrow and fragile. Compilation to RTL or Verilog is nontrivial.
+
+\subsection{Ecosystem Matters: Compiler Stack, Memory Hierarchy, and Debugging}
+
+Choosing a processor isn't just about silicon. It's about the software and tooling around it:
+
+\begin{itemize}
+    \item \textbf{CUDA vs ROCm vs SYCL:} Determines your build system, profiler, and driver support
+    \item \textbf{ONNX vs XLA vs TVM:} Affects what transformations you can do on the graph
+    \item \textbf{Debugger quality:} JAX+TPU has a steep learning curve; PyTorch+CUDA is easier to inspect
+    \item \textbf{Memory hierarchy:} L3 cache on CPUs, HBM on GPUs, shared memory on TPUs — your batch size and tensor layout must match
+\end{itemize}
+
+\subsection{A Decision Table: Which Model for Which Hardware?}
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Model Type} & \textbf{Best On} & \textbf{Why} \\
+\hline
+CNN (e.g., ResNet) & GPU & Batching, spatial convolution, shared weights \\
+\hline
+Transformer (e.g., GPT) & TPU & Fused matmuls, static shapes, high throughput \\
+\hline
+Sparse Attention (e.g., Reformer) & CPU & Control flow, variable sequence handling \\
+\hline
+LSTM / RNN & CPU & Sequential ops, cache efficiency \\
+\hline
+Quantized MobileNet & Edge ASIC / FPGA & Power efficiency, fixed shape \\
+\hline
+Physics-Informed NN & TPU / GPU & Matrix solvers, statically compiled PDE kernels \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Final Thought: You Don’t Just Choose a Network. You Choose a Substrate.}
+
+When you pick an architecture, you're also picking an ecosystem:
+
+\begin{quote}
+\textit{Do you want dynamic debugging or maximum throughput? Fine-grained control or massive parallelism? Static graphs or runtime freedom?}
+\end{quote}
+
+The choice of hardware sets constraints on how the information in your model flows — and how much that flow will cost, both computationally and economically. Optimization isn't just in the math. It’s in the silicon.
+
+\vspace{1em}
+In the next section, we’ll connect this insight to neural architecture design — and how to prototype with hardware-awareness from the very beginning.

@@ -1,0 +1,67 @@
+\subsection{Fail-Safes: Because You Shouldn’t Need a War Room at 3AM}
+
+\textbf{Act I: The Launch}
+
+At a large e-commerce company (let’s call it \textit{Rainforest Prime}), a new recommender model was greenlit for production.
+
+It had passed all the checks — in staging.\\
+CI was green. Dashboards were calm. Champagne was metaphorically uncorked.
+
+Five minutes after deployment, every product page was proudly showcasing:\\
+\textbf{\$700 HDMI cables} as “Most Relevant.”
+
+\vspace{1em}
+\textbf{Act II: The Root Cause}
+
+Turns out, a bug in the price normalization logic had skewed the entire ranking layer.\\
+High prices = high scores.\\
+Cables were the new meta.
+
+By the time someone traced it:
+\begin{itemize}
+    \item Customer trust had taken a hit
+    \item Twitter had opinions
+    \item A VP was angrily refreshing the dashboard and yelling “\textsc{ROLL IT BACK}” into Zoom
+\end{itemize}
+
+\vspace{1em}
+\textbf{Act III: The Void}
+
+There was no:
+\begin{itemize}
+    \item Fallback model
+    \item Circuit breaker
+    \item Shadow deployment
+\end{itemize}
+
+No gradual rollout. No kill switch.\\
+Just a full send into the void.
+
+The only contingency plan was raw panic.
+
+\vspace{1em}
+\textbf{Act IV: The 3AM War Room}
+
+An emergency Zoom was spun up.\\
+Everyone was paged. Everyone was tired.
+
+DevOps raced to find the last working model.\\
+Marketing drafted an apology tweet.\\
+Legal hovered nearby.
+
+By sunrise, the issue was fixed.\\
+But the memory would linger.
+
+\vspace{1em}
+\textbf{Epilogue: Why Fail-Safes Matter}
+
+Even the best models go sideways.
+
+Maybe it’s a bad feature.\\
+Maybe it’s upstream data corruption.\\
+Maybe it’s just Tuesday.
+
+But without an escape hatch — a known-good backup, a rollback plan, a sanity check on output distributions —\\
+you’re one bug away from a PR disaster and an all-nighter.
+
+Plan for failure. So you don’t have to wake up at 3AM to handle it.

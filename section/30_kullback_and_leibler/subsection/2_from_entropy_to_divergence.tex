@@ -1,0 +1,252 @@
+\subsection{From Entropy to Divergence}
+
+KL divergence builds directly on Shannon’s idea of entropy. Recall:
+\[
+H(P) = -\sum_x P(x) \log P(x)
+\]
+
+Now consider the expected number of bits required to encode samples from \( P \) using an encoding scheme optimized for \( Q \). That quantity is called cross-entropy and is defined by the equation
+\[
+H(P, Q) = -\sum_x P(x) \log Q(x)
+\]
+
+Qualitatively, cross-entropy tells us how "surprised" our encoding scheme is when the actual data comes from \( P \), but we’re using a code that assumes the data follows \( Q \). If \( Q \) assigns low probability to outcomes that actually occur frequently in \( P \), we’ll need more bits to represent those outcomes — meaning our code is inefficient.
+
+
+\begin{quote}
+\emph{Cross-entropy is what happens when your model confidently misunderstands the world, and you get charged for every misplaced bit.}
+\end{quote}
+
+
+So you can think of cross-entropy as the \textbf{cost of being wrong} about the true distribution. The closer \( Q \) is to \( P \), the lower the cross-entropy. In the best case — when \( Q = P \) — the cross-entropy equals the entropy \( H(P) \), which is the theoretical limit of optimal compression. Anything worse than that is the price you pay for assuming the wrong model.
+
+\vspace{1em}
+
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  every node/.style={font=\small},
+  explanation/.style={draw=none, font=\small\itshape, align=center},
+  arrow/.style={->, thick}
+]
+
+% Equation
+\node at (0,0) (eq) {\huge \( H(P, Q) = -\sum_x P(x) \log Q(x) \)};
+
+% Explanation: meaning of whole RHS
+\node[explanation, above=1.4cm of eq, xshift=-3.3cm] (meaning)
+{Cross-entropy:\\
+average number of bits\\
+to encode data from \( P \)\\
+using a model trained on \( Q \)};
+\draw[arrow] (meaning.south)  -- (-3.3,.75); 
+% → points to entire RHS: -\sum_x P(x) \log Q(x)
+
+% Explanation: consequence of mismatch
+\node[explanation, below=1.5cm of eq, xshift=3.5cm] (mismatch)
+{If \( Q \neq P \) then you pay\\ an "ignorance tax"\\
+in wasted bits};
+\draw[arrow] (mismatch.north) -- (3.5cm, -.75); 
+% → points to \log Q(x), the model-dependent part
+
+% Explanation: meaning of summand
+\node[explanation, left=-11cm of eq, yshift=3.5cm] (summand)
+{cost of encoding one\\
+possible outcome of \( x \),\\
+weighted by how likely it is};
+\draw[arrow] (summand.south) -- (2.5cm,.75); 
+% → points to the summand: P(x) \log Q(x)
+
+% Explanation: minus sign
+\node[explanation, right=-9cm of eq, yshift=-3cm] (minus)
+{The minus sign:\\
+ensures total cost\\
+is positive, since\\
+log-probs are negative};
+\draw[arrow] (minus.north) -- (-1cm,-0.75); 
+% → points to the minus sign in front of the sum
+
+% Explanation: summation symbol
+\node[explanation, above right=4cm and -7.75cm of eq] (sum)
+{The sum over \( x \): accumulates the total cost\\
+across all possible outcomes};
+\draw[arrow] (sum.south) -- (0,0.75); 
+% → points to \sum_x
+
+% Explanation: P(x)
+\node[explanation, below left=3.5cm and -7.5cm of eq] (px)
+{how often outcome \( x \)\\
+actually occurs};
+\draw[arrow] (px.north) -- (1.25cm,-.75); 
+% → points to P(x)
+
+\end{tikzpicture}
+}
+\caption{
+Cross-entropy quantifies the average number of bits needed to encode data from \( P \) using a code optimized for \( Q \). Each part plays a role: \( P(x) \) weights the cost by how often each outcome occurs, \( \log Q(x) \) reflects the assumed encoding cost, the summation accumulates total cost, and the minus sign ensures the result is positive.
+}
+\end{figure}
+
+\vspace{1em}
+
+
+The KL divergence is the difference between this quantity and the true entropy:
+\[
+D_{\mathrm{KL}}(P \parallel Q) = H(P, Q) - H(P)
+\]
+
+The KL divergence measures how much \emph{extra surprise} we incur when we encode data using the wrong distribution.
+
+\begin{itemize}
+	\item The term \( H(P) \) is the \textbf{true entropy}—the lowest possible average number of bits needed to encode outcomes from \( P \) using an optimal code.
+	\item The term \( H(P, Q) \) is the \textbf{cross-entropy}—the average number of bits needed to encode outcomes from \( P \) using a code optimized for \( Q \).
+\end{itemize}
+
+So the KL divergence is the \textbf{penalty} for coding reality \( P \) as if it were \( Q \). It quantifies the inefficiency, the wasted effort, and the cost of a wrong assumption.
+
+\vspace{1em}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  every node/.style={font=\small},
+  explanation/.style={draw=none, font=\small\itshape, align=center},
+  arrow/.style={->, thick}
+]
+
+% Equation
+\node at (0,0) (eq) {\huge \( D_{\mathrm{KL}}(P \parallel Q) = H(P, Q) - H(P) \)};
+
+% KL divergence label
+\node[explanation, above=1.4cm of eq.west, xshift=1.2cm] (kl) 
+{KL divergence:\\
+extra bits when encoding\\
+with wrong distribution};
+\draw[arrow] (kl.south) -- ++(0,-0.2) -- (-5.4,0.3);
+
+% H(P, Q) explanation
+\node[explanation, above=1.4cm of eq, xshift=-0.2cm] (cross) 
+{Cross-entropy:\\
+bits required using \( Q \)\\
+to encode samples from \( P \)};
+\draw[arrow] (cross.south) -- ++(0,-0.2) -- (-1.4,0.3);
+
+% H(P) explanation
+\node[explanation, below=1.4cm of eq, xshift=3.3cm] (entropy) 
+{True entropy:\\
+optimal bits needed\\
+to encode samples from \( P \)};
+\draw[arrow] (entropy.north) -- ++(0,0.2) -- (3.6,-0.3);
+
+\end{tikzpicture}
+\caption{
+KL divergence is the difference between the cross-entropy and the true entropy: how many extra bits we pay, on average, when using an encoding scheme optimized for \( Q \) instead of the true distribution \( P \).
+}
+\end{figure}
+
+\vspace{1em}
+
+
+So what does KL divergence really tell us? At its core, KL divergence answers a deceptively simple question:
+
+\begin{quote}
+\emph{If I believe the world behaves like \( Q \), but it actually behaves like \( P \), how much does that cost me?}
+\end{quote}
+
+And the answer is measured in \textbf{bits}.
+
+Think of it like this:  You’re a cryptographer, or a data scientist, or just someone trying to transmit messages efficiently. You design your system around a probability distribution \( Q \), expecting certain outcomes to be common and others rare. But in reality, the data is drawn from \( P \). Every time you guess wrong—every time you use a code optimized for \( Q \) but get a result from \( P \)—you waste space. You use too many bits. Over time, this adds up.
+
+\begin{quote}
+\[
+D_{\mathrm{KL}}(P \parallel Q) =
+\begin{array}{l}
+\text{extra cost per symbol} \\
+\text{when using the wrong model} \\
+\text{to encode the right data}
+\end{array}
+\]
+\end{quote}
+
+Imagine you're using a package delivery service to send a large batch of items across the country. You can’t fit everything into one box, so you have to pack your items into many boxes, choosing the sizes based on what you expect the items to be. If your expectations \( Q \) are wrong—say, you think the items are small but in reality \( P \) they’re bulky—you’ll end up using more boxes, wasting space, and paying extra in shipping costs. 
+
+
+\vspace{1em}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  every node/.style={font=\small},
+  box/.style={draw, thick, minimum height=3cm, minimum width=3cm, align=center},
+  smallitem/.style={draw, fill=blue!20, circle, minimum size=0.7cm},
+  largeitem/.style={draw, fill=red!20, circle, minimum size=1.4cm},
+  label/.style={font=\itshape\small, align=center},
+  arrow/.style={->, thick}
+]
+
+% Q's box and expectation
+\node[box, label=above:\( Q \): Assumed Distribution] (qbox) at (0,0) {};
+\node[smallitem] (qitem1) at (-0.8,0.5) {};
+\node[smallitem] (qitem2) at (0.8,-0.5) {};
+\node[label, below=2.2cm of qbox] (qexplain) {Expected small messages};
+
+% P's box and reality
+\node[box, label=above:\( P \): True Distribution] (pbox) at (8,0) {};
+\node[largeitem] (pitem1) at (7.4,0.6) {};
+\node[largeitem] (pitem2) at (8.6,-0.6) {};
+\node[label, below=2.2cm of pbox] (pexplain) {Actual large messages};
+
+% Arrow between
+\draw[arrow] (qbox.east) -- node[above, align=center]
+  {KL divergence = \\ cost of mismatch} (pbox.west);
+
+\end{tikzpicture}
+\caption{KL divergence: the cost of using the wrong model. You designed your system assuming small messages (\( Q \)), but reality delivered large ones (\( P \)). The wasted space, over time, is what KL quantifies.}
+\end{figure}
+
+\vspace{1em}
+
+
+KL divergence captures the price you pay for being wrong—not in theory, but in practice. It tells you how much extra effort, space, and cost you incur when your assumptions about the world don’t match reality. It’s a measure of inefficiency that accumulates with every decision based on the wrong model. The farther your expectations \( Q \) are from the truth \( P \), the more boxes you waste, the more fuel you burn, and the more your system strains under the weight of bad assumptions.
+
+\begin{quote}
+KL divergence doesn’t just tell us that two distributions are different. It tells us how much it \emph{hurts} to believe one when the other is true.
+\end{quote}
+
+\begin{example}[title=Extra Bits from the Wrong Model]
+Suppose a message source emits symbols \texttt{A}, \texttt{B}, and \texttt{C} with true probabilities:
+\[
+P = \{ \texttt{A}: 0.5,\ \texttt{B}: 0.3,\ \texttt{C}: 0.2 \}
+\]
+Now suppose you assume the wrong model:
+\[
+Q = \{ \texttt{A}: 0.4,\ \texttt{B}: 0.4,\ \texttt{C}: 0.2 \}
+\]
+Then the \textbf{true entropy} of the source is:
+\[
+H(P) = -\sum_x P(x) \log_2 P(x) = 1.485\ \text{bits}
+\]
+The \textbf{cross-entropy} under the incorrect model \( Q \) is:
+\[
+H(P, Q) = -\sum_x P(x) \log_2 Q(x) = 1.571\ \text{bits}
+\]
+So the \textbf{KL divergence} is:
+\[
+D_{\mathrm{KL}}(P \parallel Q) = H(P, Q) - H(P) = 0.086\ \text{bits}
+\]
+\textbf{Interpretation:} If you encode messages from \( P \) as if they came from \( Q \), you waste 0.086 bits per symbol on average.
+\end{example}
+
+\vspace{1em}
+
+\paragraph{In signal transmission.} Using the wrong probability model is like trying to pack a suitcase for a trip you misunderstood. Every assumption you get wrong means wasted space, extra baggage fees, or worse—missing the essentials. In digital terms, this means longer transmissions, more energy burned, and sluggish systems. KL divergence helps engineers quantify exactly how much inefficiency comes from assuming the wrong distribution. It's the silent cost of ignorance—measured bit by bit.
+
+\paragraph{In cryptography.} The stakes are even higher. Imagine watching a stream of seemingly random numbers. To the untrained eye, it's noise. But a cryptanalyst with the right model can pick up on subtle patterns—tells, leaks, repetitions. If your model is off, you see chaos and walk away. If it’s right, you see a message hidden in plain sight. KL divergence becomes the compass for detecting structure where others see randomness. It's not just about math—it's about not getting fooled.
+
+\paragraph{In statistical modeling and machine learning.} KL divergence is how we tell if our models are aligned with reality or just hallucinating confidently. A model that minimizes KL divergence is one that doesn't just fit the data—it respects the truth behind it. It's the difference between a weather app that says “probably sunny” because it always says that, and one that actually listens to the clouds. In this domain, KL divergence is more than a number. It's a penalty for arrogance and a reward for humility. It helps us build models that reflect the world, not just approximate it.
+
+
+
+
+

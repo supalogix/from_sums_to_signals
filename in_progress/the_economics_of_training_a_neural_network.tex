@@ -1,0 +1,123 @@
+\section{The Economic Geometry of Training Neural Networks}
+
+Let’s face it: training a neural network isn’t just a mathematical problem — it’s an economic one.
+
+Every parameter costs time. Every pass burns electricity. Every decision in architecture, precision, and parallelization has a financial consequence. And in large-scale systems — from language models to trading models — this cost can determine the feasibility of an entire research pipeline.
+
+\textbf{So how do we price intelligence?}
+
+We’re going to treat neural network training as a measurable process with real-world economic consequences — and build a framework for estimating its cost using basic, composable variables.
+
+\subsection{Step 1: Define the Training Objective}
+
+Before we talk dollars, we talk design:
+
+\begin{itemize}
+    \item \textbf{What’s the target accuracy?}
+    \item \textbf{How much data is needed to reach it?}
+    \item \textbf{How many parameters will your network require?}
+\end{itemize}
+
+Each of these variables defines the shape of your training curve — and the budget required to climb it.
+
+\subsection{Step 2: Break Training into Cost Components}
+
+We model total training cost as:
+
+\[
+C_{\text{train}} = C_{\text{compute}} + C_{\text{memory}} + C_{\text{data}} + C_{\text{iteration}} + C_{\text{infrastructure}}
+\]
+
+Each component can be broken down as follows:
+
+\begin{itemize}
+  \item \textbf{Compute Cost:} 
+    \[
+    C_{\text{compute}} = t_{\text{train}} \times \text{Power Draw} \times \text{Cost per kWh}
+    \]
+
+  \item \textbf{Memory Cost:} 
+    \[
+    \text{VRAM usage} \times \text{Bandwidth bottlenecks} \times \text{Efficiency penalty}
+    \]
+
+  \item \textbf{Data Cost:} 
+    \[
+    \text{Data acquisition} + \text{Preprocessing time} + \text{I/O penalties}
+    \]
+
+  \item \textbf{Iteration Cost:} 
+    \[
+    \text{Epochs} \times \text{Pass Time} \times \text{Precision Factor} \times \text{Complexity Ratio}
+    \]
+
+  \item \textbf{Infrastructure Cost:} 
+    \[
+    \text{GPU rental} + \text{Storage} + \text{Cooling overhead}
+    \]
+\end{itemize}
+
+\subsection{Step 3: Estimate Training Time Using Fermi Parameters}
+
+Reuse your earlier estimation formula and expand it:
+
+\[
+t_{\text{train}} = \text{epochs} \times \text{pass time} \times \text{iterations/epoch} \times \text{data precision factor} \times \text{complexity ratio}
+\]
+
+Here’s how each term connects back to real-world cost:
+
+\begin{itemize}
+    \item \textbf{Epochs:} Determined by convergence behavior.
+    \item \textbf{Pass Time:} Forward + backward + physics/residual components.
+    \item \textbf{Iterations per Epoch:} Dataset size vs batch size.
+    \item \textbf{Data Precision Factor:} More bits = more flops.
+    \item \textbf{Complexity Ratio:} 
+      \[
+      \frac{\text{Network Depth} \times \text{Width}}{\text{Parallelism} \times \text{Memory Bandwidth}}
+      \]
+\end{itemize}
+
+\subsection{Step 4: Assign Dollar Values (or Tokenized Resources)}
+
+Now we turn the training pipeline into a financial model.
+
+You can estimate:
+
+\begin{itemize}
+  \item \textbf{Cost per parameter trained}
+  \item \textbf{Cost per inference sample}
+  \item \textbf{Cost per accuracy point gained}
+\end{itemize}
+
+Bonus: if you're operating in a decentralized or tokenized system (e.g., edge compute, federated learning), you can express cost in:
+
+\begin{itemize}
+    \item Carbon tokens
+    \item Bandwidth credits
+    \item Smart-contract denominated incentives
+\end{itemize}
+
+\subsection{Step 5: Model Return on Training Investment (RTI)}
+
+We close with a simple ratio:
+
+\[
+\text{RTI} = \frac{\text{Economic Value of Model}}{\text{Total Training Cost}}
+\]
+
+Where the numerator might be:
+
+\begin{itemize}
+    \item Performance gains (e.g. \$ value from HFT predictions)
+    \item Efficiency improvements (e.g. throughput per watt)
+    \item Strategic leverage (e.g. reduced human intervention)
+\end{itemize}
+
+\begin{quote}
+\textit{Training a model isn’t just about achieving accuracy — it’s about making the economics work. The moment intelligence becomes measurable, it becomes accountable.}
+\end{quote}
+
+\vspace{1em}
+\noindent
+Next, we’ll walk through worked examples for different architectures — from compact classifiers to massive transformers — and see how to plug in real values.

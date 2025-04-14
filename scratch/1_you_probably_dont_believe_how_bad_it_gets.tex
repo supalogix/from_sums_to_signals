@@ -1,0 +1,60 @@
+\subsection{You Probably Don’t Believe How Bad It Gets}
+
+\subsubsection{Flexible ML Pipelines: Engineering for Change}
+
+Most people don’t believe how dysfunctional real-world machine learning pipelines are...  until they’ve been paged at 3am because the model broke and no one knows why.
+
+
+Let’s borrow a lesson from traditional software systems: good systems are designed to evolve. So what makes an ML pipeline flexible enough to keep up with a changing world?
+
+Here’s the checklist — feel free to expand on each:
+
+\begin{itemize}
+    \item \textbf{Modularity}: Each stage (ingestion, preprocessing, training, evaluation, deployment) should be separable and swappable. Think DAGs, not monoliths.
+
+    \item \textbf{Versioning}: Data, models, and code should all be versioned — and tightly coupled. Reproducibility is non-negotiable.
+
+    \item \textbf{Configurable Interfaces}: Avoid hardcoding parameters. Use configs or schemas that let you inject new components without rewriting core logic.
+
+    \item \textbf{Observability}: Logs, metrics, and alerts for every step. Drift isn’t always visible in accuracy. You need to watch data distributions, latency, confidence, and edge cases.
+
+    \item \textbf{Continuous Integration + Deployment (CI/CD)}: Yes, for ML. Automated tests, retraining hooks, deployment gates based on metrics. MLOps isn’t buzz—it’s ops.
+
+    \item \textbf{Feedback Loops}: Human-in-the-loop or automatic feedback ingestion. Label drift and concept drift are not the same — your system should distinguish them.
+
+    \item \textbf{Fail-Safes}: Fallback models, circuit breakers, and shadow deployments help contain damage when things go wrong — and they will.
+\end{itemize}
+
+
+\vspace{1em}
+
+\subsubsection{The Checklist as a Risk Offset}
+
+Each item in the ML pipeline checklist acts as a hedge against systemic collapse:
+
+\begin{itemize}
+    \item \textbf{Modularity} isolates failure domains.
+    \item \textbf{Versioning} creates rollback points.
+    \item \textbf{Configurable Interfaces} allow rapid pivoting.
+    \item \textbf{Observability} turns drift from a mystery into a metric.
+    \item \textbf{CI/CD} ensures changes propagate safely.
+    \item \textbf{Feedback Loops} make the system antifragile.
+    \item \textbf{Fail-Safes} contain blast radius when everything goes sideways.
+\end{itemize}
+
+Each is a small tax you pay now to avoid catastrophic debt later. If your pipeline isn't engineered like a nervous system — with reflexes, memory, and fallbacks — you're not doing ML. You're cosplaying it.
+
+\vspace{1em}
+
+\begin{quote}
+\textit{Machine learning without systems thinking is just an expensive way to overfit to the past.}
+\end{quote}
+
+
+
+So let’s be clear: this checklist isn’t just a nice-to-have. It’s a set of survival tools. You need to invest in each of them, because the kinds of disasters that follow? They’re not hypotheticals. They’re Tuesday.
+
+The rest of this section is a tour through exactly why each piece matters (with real, horrifying examples). If you don’t already have a healthy fear of ML in production, you will.
+
+
+

@@ -1,0 +1,219 @@
+\section{John von Neumann and the Monte Carlo Revolution: From Nuclear Physics to Neural Networks (1946)}
+
+
+\subsection{From Logic to Hardware: The Birth of the Computer}
+
+Before Stan Ulam could gamble with integrals, before Monte Carlo could roll its first digital dice, something else had to be invented: the computer.
+
+And it began—not with circuits—but with tea.
+
+\medskip
+
+\noindent\textbf{Spring, 1943. Bell Labs Cafeteria.} A young Claude Shannon sits across from a visiting British mathematician named Alan Turing. They talk cryptography. They talk logic. Turing pulls out a copy of a paper he published in 1936.
+
+In it, he describes something strange: a theoretical machine that can compute anything computable—just by manipulating strings of 0s and 1s.
+
+\begin{quote}
+\textit{“A machine which, when given a set of rules, can simulate any algorithm... All we need is tape, symbols, and logic.”}
+\end{quote}
+
+Shannon is intrigued. He’s been thinking about logic circuits—how to build electrical relays that mimic Boolean algebra. But Turing gives him something deeper: a formal proof that any computation is, at heart, symbol manipulation.
+
+Shannon realizes something profound:  
+\textbf{Logic gates are Turing machines in disguise.}  
+And if you wire them correctly, you don’t just build a machine—you build a general-purpose thinker.
+
+\medskip
+
+Later, Shannon shares this idea with \textbf{John von Neumann}, who has been working on the theoretical foundations of computing and numerical simulation at the Institute for Advanced Study. Von Neumann immediately sees the implications.
+
+\begin{itemize}
+  \item Turing supplies the theory: computation as symbolic logic.
+  \item Shannon supplies the hardware: logic circuits built from relays and switches.
+  \item Von Neumann supplies the architecture: store the program \emph{in} memory and let the machine modify itself.
+\end{itemize}
+
+This trinity of ideas becomes the foundation of the \textbf{von Neumann architecture}—a design used by nearly every computer today.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\begin{tikzpicture}
+  \comicpanel{0}{0}
+    {Turing}
+    {}
+    {\footnotesize A machine of pure logic. Symbols in. Symbols out. Anything computable.}
+    {(0,-0.6)}
+\end{tikzpicture}
+\caption*{The theorist: universal computation.}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\begin{tikzpicture}
+  \comicpanel{0}{0}
+    {Shannon}
+    {}
+    {\footnotesize Boolean algebra, implemented by relays. Logic made physical.}
+    {(0,-0.6)}
+\end{tikzpicture}
+\caption*{The engineer: logic as hardware.}
+\end{subfigure}
+
+\vspace{1em}
+
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\begin{tikzpicture}
+  \comicpanel{0}{0}
+    {von Neumann}
+    {}
+    {\footnotesize What if the instructions were data? What if the machine could rewrite itself?}
+    {(0,-0.6)}
+\end{tikzpicture}
+\caption*{The architect: stored programs.}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.45\textwidth}
+\centering
+\begin{tikzpicture}
+  \comicpanel{0}{0}
+    {ENIAC}
+    {}
+    {\footnotesize Vacuum tubes. Memory registers. A room-sized machine with a future-sized mind.}
+    {(0,-0.6)}
+\end{tikzpicture}
+\caption*{The prototype: the first programmable computer.}
+\end{subfigure}
+
+\caption{From idea to machine: how theory became hardware.}
+\end{figure}
+
+\medskip
+
+By 1945, this collaboration produces one of the first electronic general-purpose computers: \textbf{ENIAC}. It’s enormous. It’s unreliable. It crashes often.
+
+But it works.
+
+And in 1946, Ulam and von Neumann use it to simulate something never simulated before: neutron diffusion inside a nuclear bomb. The integrals are monstrous. The physics, stochastic. The analytic methods? Useless.
+
+So von Neumann loads the problem into ENIAC, tells it to sample random trajectories, and takes the average.
+
+Monte Carlo is born.
+
+\begin{quote}
+\textit{Without Turing’s logic, there is no theory.\\
+Without Shannon’s circuits, there is no machine.\\
+Without von Neumann’s architecture, there is no ENIAC.\\
+And without ENIAC, Monte Carlo stays in Vegas.}
+\end{quote}
+
+This is how the history of computing became the foundation of modern inference—by simulating uncertainty, one random bit at a time.
+
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, title=Historical Sidebar: Descartes and the Symbolic Mind]
+
+  \textbf{In the early 1600s, René Descartes proposed a radical idea:} the essence of human consciousness was not sensation, memory, or even will—it was \emph{symbolic thought}. The mind, he argued, is a formal system that represents and manipulates internal ideas like variables in an equation.
+
+  \medskip
+
+  For Descartes, thinking was not just \emph{experiencing}; it was \emph{calculating}. In his famous \emph{Discourse on the Method}, he wrote: “I think, therefore I am.” But in his unpublished notes and correspondence, he went further—suggesting that cognition consists of applying rules to mental representations, like logic operating over signs.
+
+  \medskip
+
+  \textbf{This proto-computational view of mind} anticipated what Alan Turing and Claude Shannon would formalize centuries later: that reasoning could be modeled as the manipulation of discrete symbols according to deterministic rules. Descartes didn’t have digital machines, but he imagined something eerily similar: an internal system of thought that behaved like a well-structured algorithm.
+
+  \medskip
+
+  Of course, Descartes still believed in a soul. But in trying to explain how thinking worked, he built a blueprint for symbolic cognition—a view that quietly undergirds everything from Turing machines to artificial intelligence.
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, title=Historical Sidebar: Descartes and the Symbolic Soul]
+
+  \textbf{René Descartes is best known for his declaration, “I think, therefore I am.”} But what did he mean by “think”? Not just sensing or feeling—he meant \emph{manipulating internal symbols}. For Descartes, the mind was a reasoning machine: it represented ideas, applied rules, and drew conclusions—just like an algebraic system.
+
+  \medskip
+
+  \textbf{This symbolic view of consciousness emerged directly from his dualism.} Descartes argued that the body was a mechanical system, made of matter and governed by physical laws—like a clock or a pump. But the mind was immaterial, and its essence was thought: a non-physical process of rule-based symbol manipulation.
+
+  \medskip
+
+  This raised a serious problem: \emph{how does a non-physical mind control a physical body?} Descartes speculated (somewhat desperately) that the interface was the pineal gland—a tiny organ in the brain that supposedly coordinated between spirit and flesh.
+
+  \medskip
+
+  Today, we laugh at the pineal gland theory—but Descartes’ broader insight still matters. His vision of the mind as a formal, logical processor laid the philosophical groundwork for modern computational models of thought. In many ways, Descartes invented the idea of the mind as software running on biological hardware—even if he insisted the software was ghostly.
+
+\end{tcolorbox}
+
+
+
+\subsection{The Final Bridge: From Lebesgue to GPUs}
+
+Lebesgue gave us a new definition of integration: break the domain into measurable sets, assign values over those sets, and add it all up. This abstraction unlocked a whole new world of functions we could “integrate”—even wild, spiky ones like the Dirichlet function.
+
+But when it comes time to \emph{compute} an integral, all that beautiful theory crashes into a wall. And that wall has a name: \textbf{linear algebra}.
+
+
+\begin{figure}[H]
+  \centering
+  
+  % === First row ===
+  \begin{subfigure}[t]{0.45\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \comicpanel{0}{0}
+      {Alan Turing}
+      {}
+      {\footnotesize Imagine a machine that manipulates symbols to do any calculation. Nothing but 0s and 1s.}
+      {(0,-0.6)}
+  \end{tikzpicture}
+  \caption*{1936: The blueprint of universal computation.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.45\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \comicpanel{0}{0}
+      {Claude Shannon}
+      {}
+      {\footnotesize That’s beautiful. I’ve been trying to minimize noise using Boolean circuits.}
+      {(0,-0.6)}
+  \end{tikzpicture}
+  \caption*{1943: A chance encounter at Bell Labs.}
+  \end{subfigure}
+  
+  \vspace{1em}
+  
+  % === Second row ===
+  \begin{subfigure}[t]{0.45\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \comicpanel{0}{0}
+      {Turing}
+      {}
+      {\footnotesize Your circuits could *be* that machine. The logic is already there.}
+      {(0,-0.6)}
+  \end{tikzpicture}
+  \caption*{The epiphany: computation in hardware.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.45\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \comicpanel{0}{0}
+      {Narrator}
+      {}
+      {\footnotesize From that conversation came a revolution: bits, entropy, and the blueprint for the internet.}
+      {(0,-0.6)}
+  \end{tikzpicture}
+  \caption*{The aftermath: the information age begins.}
+  \end{subfigure}
+  
+  \caption{When Turing met Shannon: A wartime tea break becomes the foundation of digital communication.}
+\end{figure}
+
+

@@ -1,0 +1,78 @@
+\subsection{Cryptographers, Codebreakers, and the Cost of Being Wrong}
+
+In the early days of the Cold War, deep inside the codebreaking halls of the U.S. government, two mathematicians were working on more than just abstract formulas—they were helping build the mathematical machinery of espionage.
+
+\textbf{Solomon Kullback}, a cryptanalyst at the newly-formed NSA and veteran of the VENONA project, had spent World War II breaking enemy codes and tracking encrypted Soviet communications. Alongside him was \textbf{Richard Leibler}, a mathematician working on the theoretical underpinnings of signal detection and probability. Their work wasn’t just academic—it was tactical. The stakes were high, and information wasn’t just power—it was national security.
+
+Amid this backdrop of secrecy and surveillance, they asked a deceptively simple question:
+
+\begin{quote}
+If one probability distribution reflects your expectation, and another reflects reality, how far apart are they?
+\end{quote}
+
+In 1951, they proposed a now-famous answer. Building on Claude Shannon’s new theory of entropy, they introduced a measure that would become central to statistics, machine learning, and information theory: the \textbf{Kullback-Leibler divergence}.
+
+It isn’t a distance in the geometric sense, but it quantifies something just as powerful: the price of being wrong.
+
+\[
+D_{\mathrm{KL}}(P \parallel Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}
+\]
+
+This expression tells us how much information is lost when we use a distribution \( Q \) (a model, a guess, a simplification) to approximate the true distribution \( P \) (the reality, the source, the signal). It is a measure of asymmetry—of how much one side ``knows'' that the other doesn't. It is zero only when \( P \) and \( Q \) are identical.
+
+In an age where misinformation could mean the difference between war and peace, this was more than just math.
+
+\vspace{1em}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  every node/.style={font=\small},
+  explanation/.style={draw=none, font=\small\itshape, align=center},
+  arrow/.style={->, thick}
+]
+
+% Equation
+\node at (0,0) (eq) {\huge \( D_{\mathrm{KL}}(P \parallel Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)} \)};
+
+% Explanations with arrows pointing into terms
+% KL divergence label
+\node[explanation, above=1.4cm of eq.west, xshift=-1cm] (kl) 
+{KL divergence:\\
+asymmetry between two\\
+probability distributions};
+\draw[arrow] (kl.south) -- ++(0,-0.2) -- ++(-0.1,-0.3) -- (-6.6,0.3);
+
+% Sum over x
+\node[explanation, below=1.4cm of eq, xshift=-2cm] (sumx) 
+{Sum over all outcomes:\\
+computing expected value};
+\draw[arrow] (sumx.north) -- ++(0,-0.2) -- (-3.5,0.3);
+
+% P(x) - left term
+\node[explanation, above=1.4cm of eq, xshift=0.5cm] (px1) 
+{\( P(x) \):\\
+true distribution\\
+(generating data)};
+\draw[arrow] (px1.south) -- ++(0,0.2) -- (-1.6,-0.25);
+
+% log fraction
+\node[explanation, above=1.4cm of eq, xshift=5cm] (log) 
+{Log ratio:\\
+information gain per\\
+outcome (in bits)};
+\draw[arrow] (log.south) -- ++(0,-0.2) -- (0.2,0.25);
+
+% Q(x)
+\node[explanation, below=1.4cm of eq, xshift=1.8cm] (qx) 
+{\( Q(x) \):\\
+model or guess\\
+approximating \( P \)};
+\draw[arrow] (qx.north) -- ++(0,0.2) -- (1.7,-0.25);
+
+\end{tikzpicture}
+\caption{
+Each component of the KL divergence formula describes an aspect of informational asymmetry:
+the log difference measures surprise; \( P(x) \) weighs outcomes by true likelihood; the sum averages this across all possibilities.
+}
+\end{figure}

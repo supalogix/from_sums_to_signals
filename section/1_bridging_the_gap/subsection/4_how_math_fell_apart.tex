@@ -1,0 +1,68 @@
+\subsection{How Math Fell Apart, Got Rebuilt, and Accidentally Invented AI}
+
+Let’s set the stage.
+
+It’s the late 1800s. Mathematicians think they’ve basically solved calculus. Riemann integration has been formalized. Everything makes sense. The world is neat, orderly, and quantifiable.
+
+And then—everything breaks.
+
+It starts innocently enough. Mathematicians begin playing with exotic functions—things that spike, jitter, or behave wildly. They construct sets that are uncountably infinite but take up zero space. They discover functions that are continuous everywhere but differentiable nowhere. The kind of stuff that makes you stare into the void and question whether numbers ever loved you to begin with.
+
+These weren’t just curiosities. They were warning signs. Riemann’s integration method—stacking rectangles under curves—starts to fall apart. Entire classes of functions, many of which show up in probability and analysis, simply aren’t Riemann integrable. 
+
+And worse: it’s not just that we couldn’t integrate these functions. We couldn’t even \textit{measure} them properly. What does it mean for a set to “have size” if it doesn’t behave like a line segment or an interval? What if your dataset isn’t clean and continuous, but weird, fragmented, or drawn from some high-dimensional chaos?
+
+Welcome to the \textbf{crisis of measurability}.
+
+Enter Henri Lebesgue, stage left. He sees the chaos—and doesn’t panic. He calmly rebuilds the entire concept of integration from scratch. His solution? Measure theory.
+
+Lebesgue’s idea was simple in principle but revolutionary in impact: instead of summing slices of the domain, we define a measure \( \mu \) that assigns “size” to arbitrary subsets of our space. Then we integrate over those sets, not just points on a line. We don’t need rectangles anymore. We have something more general, more powerful, and way more philosophically unsettling.
+
+The result? Integration now works where Riemann failed. Probability theory becomes rigorous. Expectation values become stable. And suddenly, the math that powers modern machine learning—loss functions, backpropagation, neural network optimization—has a rock-solid foundation.
+
+You just didn’t know it was built on a philosophical battlefield littered with paradoxes and broken rectangles.
+
+\textbf{So yes, every time you call \texttt{.backward()} in PyTorch, you’re implicitly invoking this wild reconstruction of how we define size, shape, and sum.}
+
+Every gradient you compute rests on expectations. Every expectation rests on integrals. And every one of those integrals—especially in high-dimensional, real-world spaces—leans on measure theory.
+
+And it all started when math had a nervous breakdown and Lebesgue decided to do something about it.
+
+\vspace{1em}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[every node/.style={font=\footnotesize}]
+
+% Panel 1 — Mathematicians horrified
+\comicpanel{0}{4}
+  {19th Century Analyst}
+  {Set Theorist}
+  {I made a function that's continuous nowhere.}
+  {(-0.6,-0.5)}
+
+% Panel 2 — Set Theorist smug
+\comicpanel{6.5}{4}
+  {19th Century Analyst}
+  {Set Theorist}
+  {I made a set that's uncountable but has no length.}
+  {(.6,-0.5)}
+
+% Panel 3 — Mathematicians panicking
+\comicpanel{0}{0}
+  {Mathematician 1}
+  {Mathematician 2}
+  {Nothing is measurable! Are we even doing math anymore?}
+  {(-0.8,-0.7)}
+
+% Panel 4 — Lebesgue enters calmly
+\comicpanel{6.5}{0}
+  {Lebesgue}
+  {Everyone}
+  {Relax. We just need a better definition of “size.”}
+  {(0.7,-0.6)}
+
+\end{tikzpicture}
+\caption{The 19th century: when math broke down, and Lebesgue rebuilt it.}
+\end{figure}
+
+Now that we’ve crawled through the wreckage, we can finally appreciate why measure theory isn’t just a footnote in analysis textbooks—it’s the secret engine of the entire ML pipeline.

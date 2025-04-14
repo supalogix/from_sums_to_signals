@@ -1,0 +1,230 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{setspace}
+\usepackage[all]{xy}
+\usepackage{graphicx}  % Required for adjustbox
+\usepackage{adjustbox}
+
+\begin{document}
+
+\title{Topological Derivation of Ampere's Law}
+\author{Jonathan Nacionales}
+\date{\today}
+\maketitle
+
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+
+\section{Introduction}
+
+During college, I took a course in which I analyzed electromagnetic interactions purely through the topology of spacetime, without invoking local force-based arguments. This approach provided a deeper understanding of the fundamental structures governing field interactions and revealed symmetries that are often obscured in traditional force-based formulations.
+
+This perspective has direct applications to the Time Dilation Wave Project that I am currently working on. The geometric nature of general relativity suggests that a similar methodology (rooted in topological and category-theoretic reasoning) can be applied to analyze time dilation effects in relativistic spacetimes.
+
+Given the relevance of these ideas, I revisited my hand-drawn notes from that topology course, which I retrieved from storage. The purpose of this document is to reprint those insights in a structured format, with the aim of extending them toward a rigorous framework for modeling time dilation phenomena.
+
+This is based on The Electromagnetic Field by Albert Shadowitz. At the time I studied this material in college, my homework assignment was to construct a category-theoretic commutative diagram to represent the global structure of the proof. When Shadowitz originally wrote his book, category theory was not yet a well-established mathematical framework, so we applied it retrospectively to his original argument. The objective was to analyze the geometric structure of reasoning in proof theory, and treat the derivation as a structured transformation of mathematical objects and morphisms. This categorical approach provides a reusable framework that can be applied to other proofs beyond electromagnetism, and offers us a systematic way to study the underlying structure of physical laws.
+
+The particular section of his book dealing with Ampere's law is available online at https://books.google.com/books?id=k7XCAgAAQBAJ\&pg=PA129
+
+By formalizing these concepts, I seek to establish a systematic approach for understanding how global and local spacetime structures influence relativistic effects, ultimately leading to a more robust mathematical foundation for relativistic simulations.
+
+
+\clearpage
+\section{Overview of Ampere’s Commutative Diagram}
+
+Ampere discovered that electric currents generate magnetic fields which led to his famous law:
+
+\[
+\oint \mathbf{B} \cdot d\mathbf{r} = \mu_0 I_{\text{enclosed}}
+\]
+
+Traditionally, this was understood dynamically: currents cause magnetic fields via force-based interactions. However, a a topological interpretation shows that the circulation of \( \mathbf{B} \) is inevitable due to the geometry of linked loops.
+
+This commutative diagram presents two equivalent derivations of Ampere’s Law:
+
+\begin{enumerate}
+    \item The Dynamic (Force-Based) Approach (Left Path)
+    \item The Topological (Geometry-Based) Approach (Right Path)
+\end{enumerate}
+
+\[
+\begin{tikzcd}[row sep=6em]
+I 
+    \arrow[d, "\text{Biot-Savart}"] 
+    \arrow[r, "\text{Topological Linking}"] 
+& L(S,T) 
+    \arrow[d, "\text{Solid Angle Integral}"] \\
+\mathbf{B} 
+    \arrow[d, "\text{Circulation Integral}"] 
+    \arrow[r, "\text{Solid Angle Constraint}"] 
+& \textbf{\(4\pi\) Constraint} 
+    \arrow[d, "\text{Topological Invariance}"] \\
+\oint \mathbf{B} \cdot d\mathbf{r} 
+    \arrow[d, "\text{Ampere's Law}"] 
+    \arrow[r, "\text{Final Equality}"] 
+& \oint \mathbf{B} \cdot d\mathbf{r} = \mu_0 I_{\text{enclosed}} 
+    \arrow[d, "\text{Mathematical Expression}"] \\
+\textbf{Ampere's Law Result}
+    \arrow[r, "\text{Equivalent Form}"]
+& \mu_0 I_{\text{enclosed}}
+\end{tikzcd}
+\]
+
+
+\subsection{Dynamic Approach: From Currents to Magnetic Fields}
+
+This says that an electric current \( I \) generates a magnetic field \( \mathbf{B} \) through the Biot-Savart Law.
+
+The field circulation is computed using the line integral:
+    \[
+    \oint \mathbf{B} \cdot d\mathbf{r}
+    \]
+
+Ampere’s Law then relates this circulation to the enclosed current:
+
+    \[
+    \oint \mathbf{B} \cdot d\mathbf{r} = \mu_0 I_{\text{enclosed}}
+    \]
+
+This approach is a force-based approach where the current is physical cause of the magnetic field.
+
+\subsection{Topological Approach: Linking Numbers and Solid Angles}
+
+Instead of thinking of forces, we can start with the topological linking number \( L(S,T) \) of two loops: the source loop (carrying current) and the test loop (enclosing the field).
+
+The total solid angle integral around the test loop leads to a geometric constraint known as the \( 4\pi \) rule.
+
+Due to topological invariance, the solid angle forces the circulation integral to obey Ampere’s Law:
+
+    \[
+    \oint \mathbf{B} \cdot d\mathbf{r} = \mu_0 I_{\text{enclosed}}
+    \]
+
+This reveals that the circulation of \( \mathbf{B} \) is inevitable, not because of force, but because of geometric constraints imposed by linked loops.
+
+\subsection{The Magnetic Field and the Structure of the Current Source}
+
+It is important to clarify that the magnetic field is not "bending" due to an external force imposed by space itself. Instead, the structure of the field is entirely dictated by the current source. 
+
+\begin{itemize}
+    \item The magnetic field lines naturally form closed loops around the current-carrying wire, as required by Maxwell's equations.
+    \item There is no external medium "forcing" the field to curve: it simply follows the structure imposed by the moving charges in the wire.
+    \item The geometric relationship between current and field ensures that the circulation integral of \( \mathbf{B} \) always follows Ampere’s Law.
+    \item This reinforces the idea that magnetic field circulation is not optional: it emerges directly from the current configuration.
+\end{itemize}
+
+Thus, the structure of the magnetic field is a direct consequence of the topology of the current, rather than a result of space exerting a bending force.
+
+\clearpage
+\section{Deriving Equivalence Between Dynamic and Kinematic Formulations}
+
+\subsection{The Original Dynamic Perspective: Ampere’s Law as a Force-Based Law}
+
+Ampere assumed that currents cause magnetic fields.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{007.jpeg} % Adjust width as needed
+\end{figure}
+
+He thought of it as a direct physical effect. Mathematically, he wrote:
+
+\begin{equation}
+    \nabla \times B = \mu_0 J
+\end{equation}
+
+Translation:  Magnetic fields curl around currents.
+
+Or in category theory terms:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{001.png} % Adjust width as needed
+\end{figure}
+
+The horizontal arrows show the logical flow of derivation:
+\begin{itemize}
+    \item Start with a current \( I \).
+    \item Use Biot-Savart to find \( B \).
+    \item Take the circulation integral \( \oint B \cdot dr \).
+    \item Apply Ampere’s Law to link it back to the enclosed current.
+\end{itemize}
+
+The vertical arrows show conceptual connections:
+\begin{itemize}
+    \item Physical cause \( \rightarrow \) Mathematical formulation.
+    \item Differential form \( \rightarrow \) Integral form (via Stokes' theorem).
+    \item Mathematical result \( \rightarrow \) Experimentally verifiable equation.
+\end{itemize}
+
+Thus, this diagram encapsulates how the force-based (dynamic) approach leads to Ampere’s Law, and establishes the connection between current, magnetic fields, and circulation in a logically structured way.
+
+\subsection{The Kinematic Reformulation: Shadowitz’s Solid Angle Approach}
+
+Shadowitz realized that you don’t need force-based reasoning to get Ampere’s Law. Instead, if you take a linked loop and sweep it around a point, it automatically enforces Ampere’s equation.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{002.png} % Adjust width as needed
+\end{figure}
+
+Or, in category theory terms:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{003.png} % Adjust width as needed
+\end{figure}
+
+The horizontal arrows show the logical transformation from linking structures to Ampere’s Law:
+\begin{itemize}
+    \item Start with a linked loop \( L(S,T) \).
+    \item Compute the solid angle integral \( \oint d\Omega \).
+    \item Apply the \( 4\pi \) constraint to determine \( \oint B \cdot dr \).
+    \item Arrive at Ampère’s Law \( \mu_0 I_{\text{enclosed}} \).
+\end{itemize}
+
+The vertical arrows reinforce the idea that this derivation is not a coincidence:
+\begin{itemize}
+    \item Homotopy invariance ensures that the linking number is well-defined.
+    \item Topological invariance ensures that the solid angle integral always sums to \( 4\pi \).
+    \item Ampere’s Law emerges naturally as a result.
+\end{itemize}
+
+Now we can see how the kinematic and dynamic views are equivalent.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{004.png} % Adjust width as needed
+\end{figure}
+
+Or, in plain English:
+
+\begin{itemize}
+    \item The upper path represents the force-based, differential approach, deriving \( B \) from \( I \) and computing its circulation.
+    \item The lower path represents the topological, kinematic approach, where \( I \) determines the linking number, which then enforces the same integral constraint.
+    \item The convergence at \( \oint B \cdot dr = \mu_0 I \) proves that the two perspectives are fundamentally equivalent.
+\end{itemize}
+
+\subsection{Final Commutative Diagram}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{006.png} % Adjust width as needed
+\end{figure}
+
+
+This commutative diagram explicitly shows that Ampere’s Law can be derived in two fundamentally different ways:
+
+\begin{itemize}
+    \item Upper Path: The traditional dynamic approach, where currents “cause” magnetic fields.
+    \item Lower Path: The kinematic/topological approach, where magnetic circulation is an inevitable consequence of linking structure.
+\end{itemize}
+
+This means that magnetic field circulation isn’t just caused by moving charges: it’s a deep geometric truth about linked loops in space.
+
+
+\end{document}

@@ -1,0 +1,92 @@
+\subsection{The Greeks: Taking Math Too Seriously Since 500 BCE}
+
+Unlike the Egyptians, who used math to solve real problems, the Greeks used it to ask deep, unsettling questions that ruined everything.
+
+\textbf{Enter Pythagoras}, a man who looked at the concept of numbers and asked: What if numbers were the secret code of the universe?
+
+Now, at this point, numbers were doing just fine. They were helping farmers measure land, helping merchants keep track of debts, and generally not causing existential crises.  
+
+But Pythagoras wasn’t satisfied. He and his followers (the Pythagoreans) believed that numbers weren’t just practical. They were sacred.  
+
+\begin{quote}
+To them, everything could be explained by whole numbers and their ratios.  Which sounds great. Except...  \textbf{Some numbers can’t be written as a fraction.}
+\end{quote}
+
+Cue immediate panic.  
+
+The problem started with the \textbf{diagonal of a square}. If you take a square with a side length of 1, then by the Pythagorean Theorem:
+
+\[
+1^2 + 1^2 = 2
+\]
+
+which means the diagonal is:
+
+\[
+\sqrt{2}
+\]
+
+No big deal, right? Just write it as a fraction. That’s what the Pythagoreans tried to do:
+
+\[
+\sqrt{2} = \frac{p}{q}
+\]
+
+where \( p \) and \( q \) are whole numbers with no common factors (this is called an irreducible fraction). But when they tried to prove it, everything fell apart.
+
+\begin{tcolorbox}[title=Historical Sidebar: The Proof That Broke Their Brains, colback=gray!5, colframe=black, fonttitle=\bfseries]
+
+  The discovery that \( \sqrt{2} \) could not be written as a ratio of whole numbers shook the foundations of early Greek mathematics. It wasn't just a technical glitch — it was a philosophical crisis. Here's the proof that did it:
+  
+  \begin{enumerate}
+  \item Suppose that \( \sqrt{2} \) can be written as a fraction:
+  
+     \[
+     \sqrt{2} = \frac{p}{q}
+     \]
+  
+     where \( p \) and \( q \) have \textbf{no common factors}.
+  
+  \item Squaring both sides:
+  
+     \[
+     2 = \frac{p^2}{q^2}
+     \]
+  
+  \item Multiplying both sides by \( q^2 \):
+  
+     \[
+     2q^2 = p^2
+     \]
+  
+     So \( p^2 \) is \textbf{even}, which means \( p \) must also be even. Let \( p = 2k \) for some integer \( k \).
+  
+  \item Substituting back in:
+  
+     \[
+     2q^2 = (2k)^2 = 4k^2
+     \]
+  
+     Dividing both sides by 2:
+  
+     \[
+     q^2 = 2k^2
+     \]
+  
+     So \( q^2 \) is also even, meaning \( q \) is even too.
+  
+  \item But if both \( p \) and \( q \) are even, then they share a common factor of 2 --- contradicting our original assumption that they had no common factors.
+  
+  \item \textbf{Conclusion:} Our assumption must be false. Therefore:
+  
+     \[
+     \sqrt{2} \text{ is NOT a fraction.}
+     \]
+  
+  \end{enumerate}
+  
+  \medskip
+  
+  This was the first formal proof that a number could exist but \emph{not be a ratio of integers}. It marked the birth of \textbf{irrational numbers} — and the beginning of ancient mathematicians realizing that not everything could be tamed by whole numbers and geometry.
+  
+\end{tcolorbox}

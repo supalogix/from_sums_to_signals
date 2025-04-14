@@ -1,0 +1,75 @@
+\section{Hopfield Networks: Memories as Energy Landscapes}
+
+While backpropagation breathed new life into feedforward neural networks, another thread of neural inspiration was taking shape—this time from the world of physics.
+
+In 1982, physicist \textbf{John Hopfield} introduced a radically different kind of neural network. It didn’t rely on layers or directional flow. It didn’t learn through supervised feedback. And it didn’t classify images or play chess. Instead, it remembered.
+
+\subsection*{A Different Kind of Intelligence: Recall, Not Recognition}
+
+Hopfield networks were designed to model a kind of cognition we all take for granted: the ability to recall a memory from a fragment. You smell a certain cologne, and suddenly you remember your childhood piano teacher. You hear three notes of a song, and the whole chorus floods back.
+
+This isn’t classification—it’s \textbf{completion}. The brain doesn't just recognize; it restores. Hopfield asked: could a neural network do the same?
+
+\subsection{The Physics of Memory}
+
+Hopfield’s insight came from physics, not psychology. He imagined the network not as a logical machine, but as a \textbf{dynamical system}—one governed by principles of energy minimization.
+
+Each possible state of the network—each configuration of firing neurons—had an associated energy level. The goal wasn’t to compute an output. It was to \emph{settle into a stable pattern}.
+
+\begin{quote}
+\textit{Think of the network as a marble rolling across a hilly landscape. Each valley is a memory. The marble rolls downhill until it finds the nearest low point.}
+\end{quote}
+
+These valleys—the \textbf{local minima} in the energy landscape—were where the network “stored” its memories. When given a noisy or partial input, the network began its descent. If the input was close enough to a stored pattern, the dynamics would guide it back into the correct memory. Like a gravity well pulling a planet into orbit, the system completed what it had started.
+
+\subsection{Fully Connected, Fully Recurrent}
+
+Unlike the feedforward networks trained with backpropagation, Hopfield networks were \textbf{recurrent and symmetric}:
+\begin{itemize}
+  \item Every neuron connected to every other neuron.
+  \item Each connection was bidirectional—information flowed both ways.
+  \item No explicit inputs or outputs—just a pattern of activations evolving over time.
+\end{itemize}
+
+This architecture made the network less like a calculator and more like a \textbf{self-organizing system}—one that finds its own internal equilibrium.
+
+\subsection{Associative Memory in Action}
+
+Practically, Hopfield networks could store a small number of binary patterns—like black-and-white images or symbol arrays. When shown a corrupted version of one of these patterns, the network would “clean it up,” restoring the original.
+
+\textbf{Example:} Imagine storing the word “APPLE” in a Hopfield network. Later, you feed it “A\_PLE”. The network activates, begins its descent across the energy surface, and—after a few iterations—settles on “APPLE.”
+
+This wasn’t just pattern recognition—it was \textbf{associative recall}, powered by the dynamics of energy minimization.
+
+\subsection{Why This Mattered}
+
+Hopfield networks offered something that symbolic AI and even early feedforward models couldn’t:
+\begin{itemize}
+  \item A model of memory grounded in \textbf{dynamics}, not logic.
+  \item A bridge between \textbf{neural computation and statistical physics}.
+  \item A glimpse into how \textbf{content-addressable memory} might emerge from simple rules.
+\end{itemize}
+
+They didn’t need supervision. They didn’t need labeled data. They just needed structure.
+
+\subsection{Limits and Legacy}
+
+Of course, Hopfield networks weren’t without problems:
+\begin{itemize}
+  \item They could only store a limited number of patterns—about 15% of the number of neurons.
+  \item If overloaded, the energy landscape became chaotic, and the network “remembered” nonsense.
+  \item All neurons updated sequentially or asynchronously, limiting speed and scalability.
+\end{itemize}
+
+But conceptually, they were revolutionary.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black,
+title={Hopfield’s Contribution}]
+While backpropagation made learning possible, Hopfield made remembering plausible.
+
+He showed that computation doesn’t have to be about rules—it can be about \textbf{relaxation}. A network doesn’t need to calculate the answer. Sometimes, it just needs to \textit{settle into it}.
+\end{tcolorbox}
+
+Hopfield’s work helped reframe artificial intelligence not as a pipeline of logic gates, but as a \textbf{landscape of possibilities}, where cognition emerges from dynamics, not dictates.
+
+The next step? Networks that could not only recall but reason—by sampling from patterns, weighing uncertainty, and exploring hidden states. And for that, we turn to Boltzmann.

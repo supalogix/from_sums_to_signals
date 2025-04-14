@@ -1,0 +1,151 @@
+\section{Avoiding Spurious Correlation: Using Inclusion Maps}
+
+Previously, we showed how \textbf{mutual information} and \textbf{vector clocks} help reconstruct the causal structure of high-frequency trading. However, one fundamental question remains:
+
+\begin{quote}
+    \textbf{Are these relationships truly causal, or are they just statistical coincidences?}
+\end{quote}
+
+In high-frequency trading (HFT), multiple machines react to external macroeconomic events, making their trades appear \textbf{causally linked} even when they are not. To solve this, we introduce \textbf{inclusion maps}, a measure-theoretic tool that rigorously separates \textbf{true causation} from \textbf{spurious correlation}.
+
+\subsection{Defining Inclusion Maps in Financial Markets}
+
+An \textbf{inclusion map} is a function that embeds one measurable space into another while preserving its measure structure. Formally, given two measure spaces \( (X, \mathcal{F}_X, \mu_X) \) and \( (Y, \mathcal{F}_Y, \mu_Y) \), an inclusion map is defined as:
+
+\[
+\phi: X \hookrightarrow Y, \quad \phi(x) = x, \quad \forall x \in X.
+\]
+
+This ensures that the measure assigned to any subset \( A \subset X \) is preserved:
+
+\[
+\mu_X(A) = \mu_Y(\phi(A)).
+\]
+
+\subsection{Application to High-Frequency Trading}
+
+We model the financial market as a measurable space \( (\Omega, \mathcal{F}, \mu) \), where:
+
+\begin{itemize}
+    \item \( S \subset \Omega \) is the set of trades executed by one machine.
+    \item \( T \subset \Omega \) is the observed price changes in the market.
+    \item \( C \subset \Omega \) is the true causal set—macro events like liquidity shocks, economic news, or institutional trades that influence both trades and price movements.
+\end{itemize}
+
+If trades genuinely cause price changes, we expect to find an inclusion map:
+
+\[
+\phi: S \hookrightarrow T.
+\]
+
+This means the probability measure on trade volume naturally maps to the measure on price changes. However, if both \( S \) and \( T \) are merely responding to \( C \), then the correct inclusion map is:
+
+\[
+\phi: S \hookrightarrow \Omega \setminus C.
+\]
+
+\section{Mutual Information and Inclusion Maps}
+
+To quantify the strength of the relationship, we compute the mutual information:
+
+\[
+I(S; T) = H(S) + H(T) - H(S, T),
+\]
+
+where \( H(S) \) and \( H(T) \) are the entropies of trades and price changes, respectively. If \( S \) truly causes \( T \), then conditioning on \( C \) should not reduce the mutual information:
+
+\[
+I(S; T \mid C) \approx I(S; T).
+\]
+
+However, if the relationship is spurious, conditioning on \( C \) removes the dependency:
+
+\[
+I(S; T \mid C) \approx 0.
+\]
+
+This confirms that once we account for macroeconomic forces, the apparent link between machine-generated trades and price fluctuations disappears.
+
+\section{The Dirichlet Function Analogy: False Causation Vanishes Under Integration}
+
+A useful analogy comes from analysis: the \textbf{Dirichlet function}:
+
+\[
+D(x) =
+\begin{cases}
+1, & x \text{ is rational}, \\
+0, & x \text{ is irrational}.
+\end{cases}
+\]
+
+While it appears to have value everywhere, its integral over any interval is zero:
+
+\[
+\int_{0}^{1} D(x) \,dx = 0.
+\]
+
+Similarly, spurious correlations in trading data are dense but, when measured rigorously, vanish under \textbf{inclusion maps and Lebesgue integration}.
+
+\section{Economic Impact of Ignoring Inclusion Maps}
+
+\subsection{Case 1: Machines Trade on Spurious Correlations}
+
+\begin{itemize}
+    \item Each machine executes 85,000 trades per second.
+    \item The average loss per trade from reacting to false correlations is \$0.0003.
+    \item With 1,000 machines running, the total loss per second is:
+
+    \[
+    85,000 \times 0.0003 \times 1,000 = \text{\$25,500 per second}.
+    \]
+
+\end{itemize}
+
+\subsection{Case 2: Machines Filter Out False Signals with Inclusion Maps}
+
+\begin{itemize}
+    \item The number of trades per second decreases to 60,000.
+    \item The average profit per trade increases to \$0.0011.
+    \item With 1,000 machines running, the total revenue per second becomes:
+
+    \[
+    60,000 \times 0.0011 \times 1,000 = \text{\$66,000 per second}.
+    \]
+
+\end{itemize}
+
+\textbf{Result:} By filtering out spurious correlations using inclusion maps, the system shifts from losing \$25,500 per second to earning \$66,000 per second, a net gain of \$91,500 per second.
+
+\section{Vector Clocks: Capturing Temporal Causality in Trading}
+
+While inclusion maps filter out spurious correlations, they do not capture the \textbf{temporal order of causation}. This is where \textbf{vector clocks} come in.
+
+A \textbf{vector clock} assigns each trading machine a vector of timestamps \( V_i \) representing its knowledge of past trades. The clock is updated using:
+
+\[
+V_i[j] = \max(V_i[j], V_j[j]) + 1.
+\]
+
+If a trade at machine \( A \) occurs before a price change at machine \( B \), then:
+
+\[
+V_A < V_B.
+\]
+
+This enforces \textbf{causality constraints}, ensuring that price movements cannot be attributed to trades that occurred \textbf{after} them.
+
+\section{Final Takeaway: The Role of Mathematics in High-Frequency Trading}
+
+\textbf{Without inclusion maps, Lebesgue integration, and vector clocks:}
+\begin{itemize}
+    \item We couldn’t rigorously test for \textbf{spurious correlations}.
+    \item Trading models would continue making \textbf{costly, incorrect decisions}.
+    \item The financial system would be flooded with \textbf{unnecessary noise}, increasing volatility and inefficiency.
+\end{itemize}
+
+\textbf{Therefore}, inclusion maps, vector clocks, and measure theory provide a \textbf{mathematical defense mechanism}—a way to shield trading models from statistical illusions and ensure they only act on \textbf{true causal signals}.
+
+\begin{quote}
+\textbf{Mathematics: where the difference between correlation and causation is the difference between losing and making a million dollars per second.}
+\end{quote}
+

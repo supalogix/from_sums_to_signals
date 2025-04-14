@@ -1,0 +1,108 @@
+\section{Choosing the Right Verifier (When Risk Has a Shape)}
+
+Verification isn’t a one-size-fits-all task. The right tool depends on what kind of error you're guarding against, how fast you need an answer, and what complexity you're willing to entertain.
+
+In this section, we’ll compare the major verification tools used for neural networks — each with its own philosophy, trade-offs, and domain of relevance.
+
+\subsection{Reluplex — Precision in the Piecewise}
+
+\textbf{Reluplex} was one of the first solvers designed specifically for ReLU-activated networks. Built on top of the classical simplex algorithm, it adds support for piecewise-linear constraints induced by ReLU activations.
+
+\textbf{Strengths}:
+\begin{itemize}
+  \item Precise handling of linear and piecewise-linear logic.
+  \item Sound and complete (for the networks it can handle).
+\end{itemize}
+
+\textbf{Limitations}:
+\begin{itemize}
+  \item Poor scalability — exponential blow-up with network size.
+  \item Not well-suited for deep or convolutional networks.
+\end{itemize}
+
+Use Reluplex when:
+\begin{quote}
+You need exact verification on small, fully connected feedforward networks — especially in safety-critical systems where false negatives are unacceptable.
+\end{quote}
+
+\subsection{Marabou — Modular, Scalable, SMT Hybrid}
+
+\textbf{Marabou} evolves Reluplex into a more modular SMT-style solver. It separates constraint solving from network architecture and adds better heuristics for case splitting.
+
+\textbf{Strengths}:
+\begin{itemize}
+  \item More scalable than Reluplex.
+  \item Modular design supports new activation functions and optimizations.
+\end{itemize}
+
+\textbf{Limitations}:
+\begin{itemize}
+  \item Still exponential in worst-case scenarios.
+  \item Less precise in floating-point domains.
+\end{itemize}
+
+Use Marabou when:
+\begin{quote}
+You want a more flexible, extensible platform for verifying mid-sized networks — or when experimenting with different input domains and perturbation models.
+\end{quote}
+
+\subsection{AI\textsuperscript{2} and Planet — Overapproximation at Scale}
+
+\textbf{AI\textsuperscript{2}} (Abstract Interpretation for AI) and \textbf{Planet} take a different approach: they use abstract domains or convex relaxations to overapproximate the behavior of ReLU networks.
+
+\textbf{Strengths}:
+\begin{itemize}
+  \item Fast — suitable for deeper networks and industrial applications.
+  \item Scales to larger architectures (e.g., CNNs).
+\end{itemize}
+
+\textbf{Limitations}:
+\begin{itemize}
+  \item Incomplete — may miss real counterexamples.
+  \item Overapproximation can lead to false alarms.
+\end{itemize}
+
+Use AI\textsuperscript{2} or Planet when:
+\begin{quote}
+You care more about high-throughput screening of possible vulnerabilities than formal guarantees — or when you're running many checks in a continuous integration pipeline.
+\end{quote}
+
+\subsection{ERAN and DeepPoly — Hybrid Abstraction with Refinement}
+
+\textbf{ERAN} uses zonotope and DeepPoly abstract domains to combine speed and relative precision. It is one of the most practical tools for verifying modern deep networks trained in PyTorch or TensorFlow.
+
+\textbf{Strengths}:
+\begin{itemize}
+  \item Supports common network architectures.
+  \item Can refine over-approximations dynamically.
+\end{itemize}
+
+\textbf{Limitations}:
+\begin{itemize}
+  \item Still limited on very deep or highly recurrent networks.
+  \item Requires tuning of abstraction parameters.
+\end{itemize}
+
+Use ERAN when:
+\begin{quote}
+You want fast, approximate verification with feedback on uncertainty — particularly for evaluating robustness and safety in production-trained models.
+\end{quote}
+
+\subsection{So, Which One Do You Choose?}
+
+Let the risk shape your verifier.
+
+\begin{itemize}
+  \item \textbf{Safety-critical system with small network?} Use \textbf{Reluplex} or \textbf{Marabou}.
+  \item \textbf{Large image classifier?} Start with \textbf{AI\textsuperscript{2}}, \textbf{Planet}, or \textbf{ERAN}.
+  \item \textbf{Do you care more about formal proof or high coverage?} That’s your tradeoff between soundness and scalability.
+  \item \textbf{Need to run nightly regressions for edge-case bugs?} Use abstract verifiers as filters, and apply precise solvers only when needed.
+\end{itemize}
+
+\begin{quote}
+\textit{There is no universal verifier — only verifiers appropriate to your universe.}
+\end{quote}
+
+\vspace{1em}
+\noindent
+In the next section, we’ll zoom in on how verification interacts with adversarial robustness — and how to design networks with verification in mind.

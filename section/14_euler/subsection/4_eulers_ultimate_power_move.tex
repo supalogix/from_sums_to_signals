@@ -1,0 +1,77 @@
+\subsection{Euler’s Ultimate Power Move: The Unification of Calculus}  
+
+Euler wasn’t just fixing notation—he was \textbf{rewriting how calculus worked}. His approach was so clean that by the 18th century, \textbf{everyone outside of Britain had abandoned Newton’s fluxions} and switched to Euler’s system.  
+
+This wasn’t just a win—it was a total humiliation. The Newton-Leibniz war had raged for decades, and Euler ended it not with politics, but with a single, brilliant theorem.
+
+\vspace{1em}
+\subsubsection{The Euler–Maclaurin Formula: Sums Become Integrals}
+
+In Euler’s time, summation and integration were seen as different beasts:
+
+\begin{itemize}
+  \item Sums were discrete: useful for approximating series or solving difference equations.
+  \item Integrals were continuous: representing flowing quantities like area or mass.
+\end{itemize}
+
+But Euler saw through the illusion. He and Colin Maclaurin derived a formula that let you pass from one to the other:
+
+\[
+\sum_{k=a}^{b} f(k) \approx \int_a^b f(x) \, dx + \frac{f(a) + f(b)}{2} + \text{correction terms}
+\]
+
+Those “correction terms” involved derivatives of \( f \) and the mysterious **Bernoulli numbers**, which Euler explored obsessively. The full expression was:
+
+\[
+\sum_{k=a}^{b} f(k) = \int_a^b f(x)\,dx + \frac{f(a) + f(b)}{2} + \sum_{n=1}^{p} \frac{B_{2n}}{(2n)!} \left(f^{(2n-1)}(b) - f^{(2n-1)}(a)\right) + R_p
+\]
+
+This wasn’t just an approximation—it was a revelation. Euler had shown that:
+
+\begin{quote}
+\textit{A sum is nothing more than an integral in disguise, plus some curvature.}
+\end{quote}
+
+It was the first real unification of the discrete and continuous. No epsilon-deltas. No limits. Just clever algebra and infinite series.
+
+\subsubsection{Why This Was So Powerful}
+
+Euler’s insight allowed mathematicians to:
+
+\begin{itemize}
+  \item Estimate large sums using integrals.
+  \item Estimate definite integrals using known sums.
+  \item Build bridges between algebra and geometry.
+\end{itemize}
+
+In practical terms, it let astronomers, engineers, and physicists jump between tables of numbers and flowing systems—without ever needing a rigorous theory of limits.
+
+And he did all this without ever hearing the word “Riemann.”
+
+\vspace{1em}
+\subsubsection{Euler’s Diagram: Tangents and Curves}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+    
+    % Axes
+    \draw[->] (-2.5, 0) -- (2.5, 0) node[right] {\small $x$};
+    \draw[->] (0, -1) -- (0, 2.5) node[above] {\small $y$};
+
+    % Function f(x)
+    \draw[thick, blue] plot[domain=-2:2, smooth] (\x, {0.6*(\x*\x - 2*\x + 1)}) 
+        node[right] {\small $f(x) = x^2 - 2x + 1$};
+
+    % Tangent line (Derivative of f(x))
+    \draw[dashed, red] (-1.5, -1) -- (2,1.8) 
+        node[above] {\small $f'(x) = 2x - 2$};
+
+\end{tikzpicture}
+\end{center}
+
+This kind of curve, and its tangent, were Euler’s primary tools. He didn’t need “analysis” to make it work—he needed insight, pattern recognition, and the courage to manipulate infinity.
+
+\begin{quote}
+\textbf{Euler didn’t wait for rigour. He made the world computable first—and let the purists catch up later.}
+\end{quote}
+

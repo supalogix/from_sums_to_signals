@@ -1,0 +1,45 @@
+\subsection{Echoes of Fisher: The Likelihood Foundation}
+
+Though Kullback and Leibler did not explicitly reference \textbf{Ronald Fisher} in their 1951 paper, their work stands squarely on ground Fisher had prepared decades earlier. In 1922, Fisher introduced the concept of the \textbf{likelihood function}, a radical rethinking of probability that focused not on assigning probabilities to parameters, but on measuring how well a particular model explained observed data.
+
+Fisher defined the likelihood of a parameter \( \theta \) given data \( x \) as:
+\[
+L(\theta; x) = f(x; \theta)
+\]
+In Fisher’s world, different values of \( \theta \) didn’t represent different random variables—they represented competing explanations. And the data was the arbiter.
+
+
+KL divergence captures this very idea: instead of comparing models using geometric distance (like Euclidean length or angles), it compares how much worse a model \( Q \) is at explaining the data that actually comes from \( P \). But rather than focusing on absolute error, it quantifies the \emph{informational penalty}—the cost, in bits, of pretending the world is described by \( Q \) when it’s really governed by \( P \).
+
+In this way, KL divergence becomes an \emph{expectation over the log-likelihood ratio}:
+
+\[
+D_{\mathrm{KL}}(P \parallel Q) = \mathbb{E}_{x \sim P} \left[ \log \frac{P(x)}{Q(x)} \right]
+\]
+
+This is not just a formal trick—it’s a philosophical pivot. Ronald Fisher introduced the likelihood function to shift attention away from “what’s probable” to “what’s plausible.” Instead of assigning probabilities to models, Fisher asked how well different models explain what we observe. The likelihood becomes a score: higher is better, lower is worse.
+
+\vspace{1em}
+
+\begin{example}[title=KL Divergence as Expected Log-Likelihood Ratio]
+Suppose you observe data from a true distribution \( P \), but you're evaluating it using a model \( Q \). KL divergence can be rewritten as:
+\begin{align*}
+D_{\mathrm{KL}}(P \parallel Q) 
+  &= \sum_x P(x) \log \frac{P(x)}{Q(x)} \\
+  &= \mathbb{E}_{x \sim P} \left[ \log \frac{P(x)}{Q(x)} \right]
+\end{align*}
+This expression is the expected \textbf{log-likelihood ratio} between \( P \) and \( Q \). 
+\ \\\ \\
+In Fisher’s framework, likelihood isn’t a probability—it’s a measure of model fit. The log-likelihood ratio compares how well two models explain the same data. KL divergence takes this comparison and \textbf{averages it over the true distribution} \( P \).
+\ \\\ \\
+\textbf{Interpretation:} KL divergence tells you how much worse model \( Q \) performs, on average, in explaining data that actually came from \( P \). It’s Fisher’s idea of likelihood, turned into an expectation.
+\end{example}
+
+\vspace{1em}
+
+
+KL divergence generalizes this scoring idea across an entire distribution. It doesn’t just ask, “How good is \( Q \) at explaining one point?” It asks, “How well does \( Q \) explain everything that \( P \) says will happen?” In that sense, it blends Fisher’s insight with Shannon’s framework: likelihood becomes loss, and divergence becomes distance—not in space, but in \emph{belief}.
+
+\begin{quote}
+You’re no longer just choosing between models. You’re paying a price for being wrong.
+\end{quote}

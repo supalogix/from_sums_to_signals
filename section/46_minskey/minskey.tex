@@ -1,0 +1,89 @@
+\section{1969 – Minsky \& Papert and the First Great Disillusionment of AI}
+
+By the 1950s, artificial intelligence was not a fringe curiosity—it was a national project.
+
+At Princeton and Los Alamos, minds like \textbf{John Nash} and \textbf{John von Neumann} were already treating intelligence as something mechanical, mathematical, and—crucially—simulable. Nash proposed cryptographic systems based on computational hardness. Von Neumann, having designed architectures for early digital computers, helped simulate thermonuclear reactions. Intelligence, it seemed, was not just a biological artifact. It could be weaponized, optimized, and, perhaps, replicated.
+
+That dream found its most biologically inspired expression in neural networks.
+
+In 1943, \textbf{Warren McCulloch} and \textbf{Walter Pitts} proposed a simple model of the brain: neurons as logic gates. Their paper laid the groundwork for treating thought itself as computation. Then in 1958, \textbf{Frank Rosenblatt} introduced the \textbf{perceptron}, an adaptive model that could learn to classify inputs based on feedback. To many, this was more than an algorithm—it was a glimpse of machine learning before the term existed.
+
+The perceptron became the poster child of a bold new hope: that \textbf{general intelligence could emerge from learning machines}. With enough layers, feedback, and time, these artificial neurons might one day replicate cognition itself. The U.S. Navy funded research. Popular media speculated about machines that could talk, see, and even think. The field of AI was born with grand ambition.
+
+\medskip
+
+\noindent\textbf{Then came the reckoning.}
+
+In 1969, \textbf{Marvin Minsky} and \textbf{Seymour Papert} published \emph{Perceptrons}, a dense mathematical treatise that cut through the hype. Their critique was technical, but devastating. Below are the key arguments they made—each a direct blow to the naive optimism surrounding neural networks.
+
+\subsubsection{Perceptrons Can Only Learn Linearly Separable Functions}
+
+Minsky and Papert showed that \textbf{single-layer perceptrons} could only classify data that was \textbf{linearly separable}. That is, they could only solve problems where the decision boundary could be drawn as a straight line (or hyperplane in higher dimensions).
+
+This limitation meant that perceptrons could not generalize well to real-world data, where decision boundaries are often curved or disjoint. In essence, the perceptron could draw lines—but not curves, loops, or holes.
+
+\subsubsection{The XOR Problem: A Simple Task That Defeats the Perceptron}
+
+To illustrate the weakness of linear separability, Minsky and Papert used the now-famous \textbf{XOR function}. XOR outputs true when the inputs differ, and false when they’re the same. It’s simple for a human—but impossible for a single-layer perceptron.
+
+Why? Because the XOR function is not linearly separable. You cannot draw a straight line that cleanly divides the input space into the correct output categories. This wasn’t just a toy example—it was a symbolic failure. If the perceptron couldn’t solve something as basic as XOR, how could it hope to solve vision or language?
+
+\subsubsection{More Neurons, Same Problem}
+
+Minsky and Papert also showed that adding more neurons to a single-layer perceptron—creating what we’d now call a “wider” network—didn’t help. The limitation wasn’t the number of units, but the \textbf{lack of depth}.
+
+The underlying problem remained: without hidden layers, the network still couldn’t represent non-linear functions. Complexity without hierarchy was impotent.
+
+\subsubsection{Multi-Layer Networks Were Untrainable}
+
+Finally, while Minsky and Papert acknowledged that \textbf{multi-layer networks} could, in theory, overcome the limitations of single-layer models, they emphasized a fatal flaw: \textbf{there was no way to train them}.
+
+At the time, no algorithm existed for adjusting the weights in deeper networks. The key idea—backpropagation—was still more than a decade away. As a result, multi-layer perceptrons remained mathematical curiosities, not practical learning machines.
+
+\medskip
+
+\noindent\textbf{The Aftermath:} These critiques triggered the first \textbf{AI winter}. Neural networks fell out of favor. Funding dried up. Research shifted toward symbolic logic and rule-based systems. Minsky and Papert didn’t end AI—they redefined its boundaries.
+
+\medskip
+
+\noindent\textbf{Legacy:} In hindsight, \emph{Perceptrons} was not a demolition—it was a reckoning. It demanded rigor in a field intoxicated by metaphor. And while it closed one door, it forced open another: the eventual rediscovery of backpropagation, the birth of deep learning, and the recognition that depth—not just width—was the path forward.
+
+\begin{quote}
+The first dream of AI was: machines that learn like brains.  
+Minsky and Papert reminded us: learning, too, must be learned.
+\end{quote}
+
+\begin{tcolorbox}[sidebarstyle, title={Freud and the Modular Mind}]
+  Long before computers or neural nets, \textbf{Sigmund Freud} proposed a radical idea: the mind is not a unified whole. It's a chaotic parliament of competing voices, some shouting in the open, others whispering from the shadows.
+  
+  Freud’s psychic apparatus—\emph{id}, \emph{ego}, and \emph{superego}—wasn’t just metaphorical. It was his attempt to model the human mind as a \textbf{modular, partially observable control system}. Each component had its own logic, goals, and access to information. Crucially, many of these “modules” didn’t talk to each other. Some didn’t even know the others existed.
+  
+  This idea of a mind made up of \textbf{specialized, semi-autonomous parts} quietly echoed into the 20th century.
+  
+  Enter \textbf{Marvin Minsky}.
+  
+  In his 1986 book \emph{The Society of Mind}, Minsky reimagines intelligence not as a monolithic algorithm but as a \textbf{federation of simple agents}, each responsible for a tiny piece of cognition. These agents—like Freud’s unconscious drives—don’t have full awareness. They don’t "understand" the big picture. But together, through cooperation and conflict, they give rise to what we call “thinking.”
+  
+  \textbf{Seymour Papert}, co-author of \emph{Perceptrons} and later Minsky’s collaborator, shared this modular vision of intelligence. But where Freud spoke of repression and neurosis, Minsky and Papert spoke of \textbf{pattern recognition bottlenecks} and the limits of distributed learning. 
+  
+  The thread that binds them: a deep skepticism of any claim that intelligence is smooth, seamless, or purely empirical.
+  
+  \medskip
+  In both Freud and Minsky’s worlds, \textit{intelligence is not a monologue. It’s a riot with structure.}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[sidebarstyle, title={Jean Piaget and Papert's Constructivist Turn}]
+  Before Seymour Papert became one of the founders of artificial intelligence, he was a mathematician in Geneva, working alongside a man who wasn't building machines—but children.
+  
+  \textbf{Jean Piaget}, the Swiss psychologist and epistemologist, believed that knowledge isn’t poured into young minds like water into cups. Instead, it’s constructed—piece by piece—through direct interaction with the world. Children are not passive receivers of facts; they are miniature scientists, constantly testing, refining, and rebuilding their models of reality.
+  
+  Papert didn’t just read Piaget—he worked with him. And this apprenticeship profoundly shaped how he would later approach both learning and machine intelligence.
+  
+  When Papert returned to MIT, he brought Piaget’s \textbf{constructivist philosophy} into the heart of computer science. The result wasn’t just better educational theory—it was the \emph{Logo} programming language. Designed for children, Logo let students control a turtle on the screen and watch how small commands built up into complex behaviors. It wasn’t about memorizing syntax; it was about constructing understanding through play, feedback, and iteration.
+  
+  Where Minsky modeled the mind as a federation of competing modules, Papert asked how a child—or a machine—could \emph{grow} those modules in the first place. His core question wasn’t just how to recognize patterns, but how to build them from scratch.
+  
+  \medskip
+  If AI was to learn like a mind, Papert believed, then maybe it needed to make mistakes like a child.
+\end{tcolorbox}

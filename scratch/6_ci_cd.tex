@@ -1,0 +1,57 @@
+\subsection{CI/CD: Because the Last Person to Touch the Model Was ``That One Guy, We Think?''}
+
+\textbf{Act I: The Hotel Lobby Deploy}
+
+The model worked great in dev.\\
+It even passed all the tests (well, \textit{the} one test --- accuracy $> 0.5$).
+
+Then, at 2AM, someone pushed it to production.\\
+Manually. From a laptop. In a hotel lobby. Over hotel WiFi.
+
+And the pipeline was complete. Sort of.
+
+\vspace{1em}
+\textbf{Act II: The Ghost in Production}
+
+Three weeks later, a critical bug appeared.
+
+Naturally, the team tried to roll back.\\
+Except\ldots
+\begin{itemize}
+    \item No one knew which version of the model had been deployed
+    \item No one knew what data it was trained on
+    \item No one knew what branch it came from
+\end{itemize}
+
+The Git history was a surrealist nightmare: \\
+force-pushes, rebase conflicts, and cryptic commit messages like ``final\_final\_v2\_real\_this\_time.py''
+
+\vspace{1em}
+\textbf{Act III: The Lost Engineer}
+
+The original engineer? Gone. Left the company.\\
+Their laptop? A company asset. Somewhere in Peru.
+
+Their Slack account had been deactivated.\\
+Their documentation consisted of a README with one line: ``TODO: explain this.''
+
+\vspace{1em}
+\textbf{Act IV: The Pipeline of Vibes}
+
+The incident report concluded that everything had technically worked as expected.\\
+Except the part where no one could reproduce the deployment.
+
+Or trace the model lineage. Or identify the bug.
+
+Because the pipeline wasn’t a pipeline. It was a series of best guesses and hope.
+
+\vspace{1em}
+\textbf{Epilogue: Why CI/CD Matters}
+
+You can’t fix what you can’t trace.
+
+Without reproducible builds, automated tests, and versioned deploys, your system is held together by vibes and muscle memory.
+
+A solid CI/CD setup isn’t just for catching bugs —\\
+It’s for not losing your mind when they hit.
+

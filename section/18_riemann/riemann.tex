@@ -1,0 +1,157 @@
+\section{Riemann and the Reinvention of Integration (1854)}
+
+\subsection{Riemannian Metric: The Dot Product Evolves}
+
+Hamilton gave us a way to think of motion as geometry. His reformulation of mechanics turned trajectories into flows and forces into structure. In doing so, he made the \textbf{dot product}—a way of comparing direction and change—the central actor in understanding dynamics.
+
+But in Hamilton’s world, space was still flat. The dot product was fixed. Motion unfolded on a smooth, Euclidean stage.
+
+\medskip
+
+\textbf{Then came Riemann.}
+
+In his revolutionary 1854 habilitation lecture, \textit{“On the Hypotheses Which Lie at the Foundations of Geometry,”} Bernhard Riemann proposed a stunning generalization:  
+\textbf{What if the dot product itself could vary from point to point?}
+
+\subsubsection*{From Dot Products to Riemannian Metrics}
+
+In flat Euclidean space, the square of the infinitesimal distance between two points is given by:
+\[
+ds^2 = dx^2 + dy^2 + dz^2
+\]
+Which is really just a 3D dot product:
+\[
+ds^2 = \vec{dx} \cdot \vec{dx}
+\]
+
+Riemann generalized this idea by replacing the standard dot product with a position-dependent version. In coordinates \( x^1, x^2, \dots, x^n \), he defined:
+\[
+ds^2 = \sum_{i,j=1}^n g_{ij}(x) \, dx^i dx^j
+\]
+
+The functions \( g_{ij}(x) \) define the \textbf{metric tensor}—a generalized, localized dot product that varies across the manifold. At each point, it tells you how to compare directions: how to measure length, angle, and curvature.
+
+This was no longer a single universal dot product—it was a field of dot products. Geometry had gone dynamic.
+
+\subsubsection*{Geometry as Local Comparison}
+
+What Hamilton treated as a static structure—momentum, energy, alignment—Riemann treated as a fluid geometry:
+
+\begin{itemize}
+  \item Instead of one way to measure direction and distance, there were infinitely many—one at each point.
+  \item Instead of a single coordinate grid, space itself could stretch, shear, and curve.
+  \item Instead of treating the dot product as fixed, Riemann made it contextual—a local rulebook for each patch of the manifold.
+\end{itemize}
+
+\textbf{Every dot product was now a question: “How does space behave \textit{here}?”}
+
+\subsubsection*{From Measurement to Motion: A New Stage for Descent}
+
+The power of Riemann’s metric was not just in describing geometry—it was in guiding motion.  
+The metric tells us how steep a slope is. How far a step moves.  
+In essence: \textbf{how change feels locally}.
+
+This is the exact intuition behind \textbf{gradient descent}:
+
+\begin{quote}
+To move “downhill” in a curved space, you need to know which direction is steepest—and that depends on the local dot product.
+\end{quote}
+
+On a Riemannian manifold, the gradient of a function \( f \) is not just the vector of partial derivatives. It is the vector that, under the metric \( g \), points in the direction that maximally increases \( f \):
+\[
+\text{grad}_g f \quad \text{is the unique vector such that} \quad g(\text{grad}_g f, v) = df(v) \quad \forall v
+\]
+
+This equation is a dot product—but now one defined by the metric tensor \( g \). It is the Riemannian generalization of Hamilton’s core idea: use a directional product to measure how change aligns with motion.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black,
+title={Sidebar: Hamilton’s Dot Product Grows Up}]
+Hamilton introduced the dot product as a tool for measuring projection, alignment, and energy.
+
+Riemann turned that dot product into a \textbf{field}—a geometry where every point has its own rulebook for measurement.
+
+Together, they gave us the key to modern optimization:
+\begin{itemize}
+  \item Measure alignment (Hamilton)
+  \item Let that measurement depend on context (Riemann)
+  \item Use it to move efficiently through space (Gradient Descent)
+\end{itemize}
+\end{tcolorbox}
+
+\subsubsection*{A Geometry of Descent}
+
+By unifying dot products with curvature, Riemann made it possible to define gradients and descent directions on curved spaces—on manifolds of shapes, probabilities, or quantum states.
+
+\begin{quote}
+Just as Hamilton revealed the symphony behind motion,  
+Riemann gave us the score paper: a flexible sheet that bends, stretches, and curves—guiding every note of change.
+\end{quote}
+
+Later, when we study gradient descent and machine learning on manifolds, we’ll see Riemann’s influence again:  
+\textbf{To find the optimal path, you don’t just follow the slope—you follow the slope that’s defined by the geometry beneath your feet.}
+
+
+\subsubsection*{Kepler Reimagined: Gradients and the Geometry of Motion}
+
+Let us return to Kepler’s Second Law:
+
+\begin{quote}
+\textit{A planet sweeps out equal areas in equal times as it orbits the Sun.}
+\end{quote}
+
+At first glance, this seems like a geometric curiosity—an aesthetic feature of ellipses.  
+But from a modern, Riemannian perspective, it encodes something deeper:  
+\textbf{A conserved, geometry-driven flow.}
+
+In Hamiltonian mechanics, Kepler’s Second Law emerges from the conservation of angular momentum. The orbiting body traces a path through phase space that preserves a particular 2-form—the symplectic structure:
+\[
+\omega = dq \wedge dp
+\]
+
+This preservation means the flow is volume-preserving in the sense of differential geometry. But what if we zoom in further—into the geometry that defines how motion responds to the shape of space?
+
+Here’s the insight:
+
+\begin{itemize}
+  \item The gravitational potential defines a scalar function \( f \) over configuration space.
+  \item The geometry of space—captured by a Riemannian metric \( g \)—tells us how that potential changes in different directions.
+  \item The motion of the planet follows curves that \textbf{respect both}: the shape of the space, and the shape of the potential.
+\end{itemize}
+
+On a Riemannian manifold, the direction of steepest descent (e.g., toward the Sun) is not just \( -\nabla f \), but \( -\text{grad}_g f \), where the gradient is defined via:
+\[
+g(\text{grad}_g f, v) = df(v) \quad \forall v
+\]
+
+This gradient dictates how the planet “feels” the slope of gravity—not in abstract space, but within the actual geometry of the orbiting system.
+
+Now consider Kepler’s Second Law again:
+
+\begin{quote}
+The planet doesn’t just fall toward the Sun—it flows through a geometry that guides its motion to preserve area.
+\end{quote}
+
+This flow can be interpreted as a balance between the local gravitational gradient and the geometry of the orbit. The planet’s trajectory is a solution to a constrained optimization problem:
+\begin{itemize}
+  \item Minimize energy (potential and kinetic),
+  \item Constrained to conserve angular momentum,
+  \item Subject to a local notion of “steepest descent” defined by the curved geometry of space.
+\end{itemize}
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black,
+title={Kepler’s Second Law as Gradient-Constrained Motion}]
+Kepler’s Law describes more than equal areas.  
+It encodes how a system flows through space while preserving symmetries.
+
+In modern terms:
+\begin{itemize}
+  \item Motion follows a gradient,
+  \item The gradient is defined by the Riemannian metric,
+  \item The flow conserves a geometric structure (area or angular momentum).
+\end{itemize}
+
+It is not just celestial—it is algorithmic.
+\end{tcolorbox}
+
+This reimagining prepares us for gradient descent in curved spaces. The intuition is already present in Kepler’s planetary motion:  
+\textbf{descent guided by geometry, structure preserved by flow.}

@@ -1,0 +1,26 @@
+\section{1990s – Structure Meets Strategy: CNNs, RNNs, and LSTMs}
+
+By the early 1990s, the neural network landscape had changed.
+
+After the probabilistic elegance of Boltzmann Machines and the associative memory of Hopfield networks, researchers began to ask a new kind of question—not just \emph{can we learn?}, but \emph{how should we learn from different kinds of data?}
+
+The result was a paradigm shift: instead of building generic neural nets for all problems, researchers began crafting architectures that mirrored the structure of the data they were meant to understand. It was the birth of \textbf{domain-aware intelligence}—and it gave us three of the most enduring tools in modern machine learning: CNNs, RNNs, and LSTMs.
+
+\subsection{Convolutional Neural Networks (CNNs): Learning to See}
+
+Images are not just bags of pixels—they're \emph{spatially organized} worlds of edges, textures, and shapes.
+
+In the early 1990s, \textbf{Yann LeCun} and his collaborators proposed a radical idea: instead of treating each pixel independently, why not mimic the way the human visual cortex processes images—by recognizing \emph{local patterns first}, and then building up to global understanding?
+
+This idea became the \textbf{Convolutional Neural Network (CNN)}.
+
+CNNs introduced two core principles:
+
+\begin{itemize}
+  \item \textbf{Local connectivity} — small filters scan across patches of the image, learning to detect local features like edges or corners.
+  \item \textbf{Weight sharing} — the same filter is reused across the image, drastically reducing the number of parameters and making the model spatially aware.
+\end{itemize}
+
+This made CNNs \emph{translation-invariant}: they could detect the same feature anywhere in the image. It also made them far more efficient than fully connected networks for vision tasks.
+
+The breakthrough came when CNNs were applied to digit recognition for the U.S. Postal Service. LeCun’s model, \textit{LeNet-5}, outperformed handcrafted feature extractors and showed that neural networks could learn vision—if the architecture respected the structure of the input.

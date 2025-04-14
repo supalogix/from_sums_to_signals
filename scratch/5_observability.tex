@@ -1,0 +1,62 @@
+\subsection{Observability: Because the Model Was Dying, but Only on Tuesdays}
+
+\textbf{Act I: The Illusion of Stability}
+
+For months, the fraud detection model worked flawlessly.\\
+No alerts. No errors. Just vibes.
+
+Until someone noticed a pattern.
+
+Every Tuesday at exactly 3PM, the model started flagging 70\% of transactions as ``high risk.''\\
+By 5PM, customer support was overwhelmed.\\
+By Wednesday morning? Everything was mysteriously fine again.
+
+\vspace{1em}
+\textbf{Act II: The Void}
+
+The team dove in.
+
+The logs? Useless.\\
+The metrics? Sparse.\\
+The dashboard? Didn't exist.
+
+It was as if the system had gaslit itself into thinking nothing was wrong.
+
+\vspace{1em}
+\textbf{Act III: The Curse Revealed}
+
+After weeks of shoulder-shrugging and Slack speculation, someone finally found the culprit:
+
+A weekly cron job, scheduled precisely for Tuesday at 3PM, was reprocessing a batch of transaction metadata.\\
+Except it had a timezone bug.
+
+The timestamps were shifted into the future.\\
+The model thought every transaction was ``early.'' Suspiciously early.
+
+Not fraud. Just daylight savings.
+
+\vspace{1em}
+\textbf{Act IV: The Cult of Debugging}
+
+Without observability, debugging became a ritualistic practice:
+\begin{itemize}
+    \item Deploy a fix and hope
+    \item Read the logs like tea leaves
+    \item Pray to the CI gods
+\end{itemize}
+
+Root cause analysis devolved into storytelling.\\
+Truth became a matter of consensus.
+
+\vspace{1em}
+\textbf{Epilogue: Why Observability Matters}
+
+Without proper logging, metrics, and traces, debugging ML systems becomes an occult science.
+
+You end up relying on gut instinct, Slack rumors, and cargo cult rituals.
+
+Observability should answer: What changed? When? Why? \\
+And sometimes: Why is the model only racist on weekends?
+
+Don't guess. Instrument.
+

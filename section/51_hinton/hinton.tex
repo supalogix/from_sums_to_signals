@@ -1,0 +1,11 @@
+\section{Recurrent Neural Networks (RNNs): Learning Over Time}
+
+While CNNs learned from space, \textbf{Recurrent Neural Networks (RNNs)} were built to learn from time.
+
+Tasks like speech, handwriting, and language unfold in sequences—where the present depends on the past. To model this temporal dependency, RNNs introduced a feedback loop: each step’s output was fed back into the network as input for the next step.
+
+In qualitative terms: the RNN had a \textbf{memory}. It could hold onto the past, letting each moment influence the next.
+
+But this memory was fragile.
+
+Training RNNs revealed a major problem: as information propagated through long sequences, the gradients used to train the model either \textbf{vanished} (fading into irrelevance) or \textbf{exploded} (growing uncontrollably). The network could only “remember” the recent past—long-term dependencies were practically lost.

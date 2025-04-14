@@ -1,0 +1,101 @@
+\section{How to Verify a Neural Network (When the World Bites Back)}
+
+Training is an act of belief formation — an integration over data, a shaping of densities. But belief, once formed, invites scrutiny.
+
+\begin{quote}
+\textit{Verification is not about learning — it’s about accountability.}
+\end{quote}
+
+If the world is a measure space, then verifying a neural network means asking:  
+\textit{Have we learned the right geometry? Are we safe under perturbation? What hides in the corners of our event space?}
+
+\subsection{Step 1: Define the Threat Model — What Could Go Wrong?}
+
+Before verification can begin, we need to define the kind of failure we fear:
+
+\begin{itemize}
+  \item \textbf{Adversarial perturbations} — Can tiny changes in the input lead to large semantic changes in the output?
+  \item \textbf{Domain shift} — Does the model generalize to regions of the space it never trained on?
+  \item \textbf{Specification violations} — Are there any inputs for which the model outputs something it fundamentally should not?
+\end{itemize}
+
+Verification begins with a question:  
+\textit{What class of counterexamples are you trying to rule out?}
+
+\subsection{Step 2: Express the Model as Logic — From Activation to Assertion}
+
+Most neural networks are trained as numeric functions. But to verify them, we step outside that world — into logic.
+
+Each layer becomes a constraint:
+\begin{itemize}
+  \item Linear transforms become affine relations.
+  \item ReLU activations become piecewise cases: \( x \leq 0 \Rightarrow y = 0 \), \( x > 0 \Rightarrow y = x \).
+  \item Output bounds become formal specifications.
+\end{itemize}
+
+You’re no longer optimizing — you’re solving.  
+What you get is a logical system whose satisfiability corresponds to a safety violation.
+
+\subsection{Step 3: Search the Space — Verification as a SAT/SMT Problem}
+
+Now comes the heart of the process.
+
+Verifiers like \textbf{Reluplex}, \textbf{Marabou}, and others turn the network into a hybrid of:
+\begin{itemize}
+  \item SAT solvers (Boolean search)
+  \item SMT solvers (arithmetic constraints)
+  \item Symbolic case-splitting engines (for ReLU and piecewise logic)
+\end{itemize}
+
+The system explores possible combinations of activation states, input bounds, and output specifications, asking:
+
+\begin{quote}
+\textit{Is there a path through the network that leads to contradiction?}
+\end{quote}
+
+If yes — you’ve found a counterexample.  
+If no — the network holds under your defined constraints.
+
+\subsection{Step 4: Complexity Lives Here — When Proofs Get Expensive}
+
+The cost of verification grows quickly.
+
+Each ReLU node doubles the number of regions to consider.  
+Verifying a network with \( n \) ReLUs can, in the worst case, require checking up to \( 2^n \) activation patterns.
+
+This is more than just slow — it’s a fundamental boundary:
+\begin{itemize}
+  \item Finding a counterexample is often \textbf{NP-complete}.
+  \item Proving none exists may be \textbf{co-NP-complete} — or worse.
+\end{itemize}
+
+So we choose approximations:
+\begin{itemize}
+  \item Abstract interpretation to bound values.
+  \item Convex relaxations to simplify regions.
+  \item Incomplete solvers that catch most (but not all) bugs.
+\end{itemize}
+
+\subsection{Step 5: Interrogate the Measure — Verification as Risk Analysis}
+
+Finally, we return to the measure space.
+
+Your verification region is a subset \( S \subseteq \mathcal{X} \).  
+But is that region:
+\begin{itemize}
+  \item Representative of the real-world data distribution?
+  \item Weighted properly with respect to rare but catastrophic events?
+  \item Inclusive of causal anomalies, out-of-distribution examples, and adversarial cases?
+\end{itemize}
+
+\begin{quote}
+\textit{Verification isn’t just about finding bugs — it’s about mapping the tails of your uncertainty.}
+\end{quote}
+
+Just as training is integration over observed data, verification is **exploration of edge cases** — the dark matter of your input space.
+
+---
+
+\vspace{1em}
+\noindent
+In the next section, we’ll contrast different verification tools, show where their strengths lie, and explain how to choose the right one depending on the risks your network faces.

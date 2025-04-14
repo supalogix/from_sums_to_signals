@@ -1,0 +1,53 @@
+\subsection{Versioning: Because We Retrained the Model, but Accidentally Used Last Year’s Labels}
+
+\textbf{Act I: The Nightly Ritual}
+
+At a well-funded Series C startup, someone proudly triggered a scheduled nightly retrain. \\
+The CI pipeline purred. Accuracy metrics even improved. High-fives were exchanged.
+
+All was well.
+
+\vspace{1em}
+\textbf{Act II: The Forgotten Script}
+
+Unbeknownst to all, a quiet betrayal had taken place three weeks earlier: \\
+The backend team had changed the API response format.
+
+But no one had told the ML team. \\
+And no one had updated the label extraction script.
+
+So the model was retrained, proudly and efficiently\ldots\ to predict last year’s user behavior based on this year’s features.
+
+\vspace{1em}
+\textbf{Act III: The Slow Burn}
+
+The problem wasn’t caught for two months.
+
+In that time:
+\begin{itemize}
+    \item User retention quietly tanked
+    \item Marketing ran five A/B tests based on phantom segments
+    \item The CEO began questioning whether ``machine learning is even real''
+\end{itemize}
+
+Each team was confident in their slice of the system. \\
+No one realized they were all building on sand.
+
+\vspace{1em}
+\textbf{Act IV: The Audit of Despair}
+
+When the discrepancy was finally uncovered, no one could trace the root cause.
+
+The model version hadn’t changed. The data pipeline hadn’t changed.\\
+Technically, \textit{nothing} had changed.
+
+Except everything had.
+
+\vspace{1em}
+\textbf{Epilogue: Why Versioning Matters}
+
+The model, the data, the preprocessing code, and the feature definitions were all updated on different schedules --- with zero traceability.
+
+Versioning isn’t overhead. It’s the only way to tell future-you (and your sleep-deprived coworkers) what actually happened.
+
+Without it, you’re just rolling the dice with production.

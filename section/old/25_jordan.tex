@@ -1,0 +1,115 @@
+\section{From Coding to Knowing: The Bayesian Reimagining of Information}
+
+\subsection{From External Cost to Internal Change}
+
+When Kullback and Leibler introduced their divergence in 1951, it was rooted in the logic of codes: how many extra bits you waste using the wrong distribution. It was calculated using a simple sum:
+
+\[
+D_{\mathrm{KL}}(P \parallel Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}
+\]
+
+But as Bayesian inference evolved, this sum became an \textbf{integral}:
+
+\[
+D_{\mathrm{KL}}(p(\theta \mid x) \parallel p(\theta)) = \int p(\theta \mid x) \log \frac{p(\theta \mid x)}{p(\theta)} \, d\theta
+\]
+
+And suddenly, we were no longer just counting bits. We were measuring how much a belief distribution \emph{flows} into a new one—over a continuous space of possibilities. KL divergence became a directional update in an infinite-dimensional belief landscape.
+
+This shift—from external loss to internal shift—marked a turning point. Probability was no longer just about coding outcomes. It was about understanding how beliefs evolve over time, and how much they resist change.
+
+\subsection{From Likelihood to Belief: Jeffreys Reimagines Fisher}
+
+Fisher’s likelihood function, \( L(\theta; x) = f(x \mid \theta) \), ranked parameters by how well they explained the data. But it wasn’t a probability distribution—just a comparison.
+
+Jeffreys completed the picture. In the Bayesian update:
+
+\[
+p(\theta \mid x) = \frac{p(x \mid \theta)p(\theta)}{\int p(x \mid \theta)p(\theta)\, d\theta}
+\]
+
+the denominator—the marginal likelihood—is an integral over the entire parameter space. It normalizes the posterior but rarely has a closed form. In many models, especially in high dimensions or with hierarchical structures, this integral cannot be evaluated exactly.
+
+This makes the problem of \emph{inference} a problem of \emph{integration}. And it explains why sampling (e.g., MCMC) and variational methods are essential for Bayesian computation.
+
+Jeffreys’ prior itself was also defined through integration—not over data, but over sensitivity:
+
+\[
+\pi(\theta) \propto \sqrt{I(\theta)} \quad \text{with} \quad I(\theta) = \int f(x \mid \theta) \left( \frac{\partial \log f(x \mid \theta)}{\partial \theta} \right)^2 dx
+\]
+
+Even the prior, when reimagined geometrically, became an integral object—dependent not just on assumptions, but on the full shape of the data likelihood.
+
+\subsection{From KL Divergence to Learning: Reinterpreting Surprise}
+
+KL divergence became more than a penalty—it became the measure of learning. In a Bayesian update, how much does your posterior differ from your prior?
+
+\[
+D_{\mathrm{KL}}(p(\theta \mid x) \parallel p(\theta)) = \int p(\theta \mid x) \log \frac{p(\theta \mid x)}{p(\theta)} \, d\theta
+\]
+
+Here again, integration steps forward—not as a technicality, but as the engine of inference. And like before, this integral is often intractable. That’s not an accident. Surprise is hard to compute. Learning is hard to quantify.
+
+This intractability is why many inference algorithms—especially variational methods—don’t try to compute the posterior directly. They try to minimize the KL divergence between an approximate distribution and the true posterior:
+
+\[
+\min_{q(\theta)} D_{\mathrm{KL}}(q(\theta) \parallel p(\theta \mid x))
+\]
+
+This defines inference as optimization—but it begins with integration.
+
+\subsection{From Puzzle to Paradigm: Monty Hall as Bayesian Inference}
+
+Even the famous Monty Hall problem contains integration in disguise. Though the example is discrete, the Bayesian reasoning it illustrates generalizes to continuous spaces.
+
+Imagine a continuous parameter \( \theta \) (say, a hidden probability that Monty reveals a door based on some internal strategy). To update beliefs about \( \theta \) given Monty's action, we compute:
+
+\[
+p(\theta \mid \text{Monty's move}) = \frac{p(\text{move} \mid \theta) \cdot p(\theta)}{\int p(\text{move} \mid \theta) \cdot p(\theta) \, d\theta}
+\]
+
+Even this small game show logic scales to large-scale probabilistic models—where actions reveal latent structures, and every update requires integrating over uncertainty.
+
+\subsection{From Mutual Dependence to Expected Surprise}
+
+Originally defined as a double sum, mutual information too became an expectation over divergence:
+
+\[
+I(X; Y) = \int p(y) \left[ \int p(x \mid y) \log \frac{p(x \mid y)}{p(x)} \, dx \right] dy
+\]
+
+This nested integral has no closed form in most real-world applications. Computing it is hard—but its interpretation is beautiful: it is the average surprise you’d feel about \( X \) after learning \( Y \).
+
+Mutual information is what powers modern learning to ask not “what’s true?” but “what’s informative?”
+
+\subsection*{From Precision to Principle: Fisher Information Reused}
+
+Fisher information was defined as an expectation:
+
+\[
+I(\theta) = \int f(x \mid \theta) \left( \frac{\partial \log f(x \mid \theta)}{\partial \theta} \right)^2 dx
+\]
+
+Originally used to bound estimator variance, it was reimagined as the curvature of belief space. In information geometry, this integral defines a Riemannian metric—a distance between beliefs. It measures how distinguishable two nearby distributions are, based on their likelihoods.
+
+But again, the curvature is not always analytically solvable. Fisher Information too must often be estimated, sampled, or approximated.
+
+\subsection{Toward a Unified Language of Inference}
+
+With each reinterpretation, integration became more central—not just mathematically, but philosophically. Inference became the art of integrating over uncertainty.
+
+\begin{itemize}
+  \item The posterior requires integration over parameters.
+  \item KL divergence requires integration over beliefs.
+  \item Mutual information requires integration over observations and models.
+  \item Fisher Information defines integrals over sensitivity.
+\end{itemize}
+
+And in real systems, these integrals are often \textbf{intractable}—forcing us to confront the complexity of learning itself.
+
+\begin{quote}
+\emph{Probability became geometry. Geometry became integration. Integration became learning.}
+\end{quote}
+
+What began as coding theory became a computational philosophy.  
+The next challenge? \textbf{Computing belief at scale.}

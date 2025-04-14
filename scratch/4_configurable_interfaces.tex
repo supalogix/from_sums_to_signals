@@ -1,0 +1,53 @@
+\subsection{Configurable Interfaces: Because We Had to Deploy at 2AM to Change a Single Parameter}
+
+\textbf{Act I: The Eve of Glory}
+
+It’s the night before a major product launch. The team is buzzing. Everything’s green.
+
+Then someone notices: the fraud detection model’s confidence threshold is a little too strict — it’s blocking legitimate users.
+
+``No problem,'' says the ML engineer. ``We’ll just change it real quick.''
+
+\vspace{1em}
+\textbf{Act II: The Hardcode Curse}
+
+Turns out, the threshold is:
+\begin{itemize}
+    \item Hardcoded in the model training script
+    \item Wrapped in a Docker container
+    \item Version-locked in a Jenkins pipeline
+    \item Operated by exactly one person
+\end{itemize}
+
+And that one person? On vacation. In a different time zone. With no cell reception.
+
+\vspace{1em}
+\textbf{Act III: The 2AM Ritual}
+
+Two engineers, now wide-eyed and wired on cold brew, SSH into a staging box at 2AM.\\
+They find the training script. They find the threshold. They manually edit a Python file.
+
+Then they restart the container and pray the YAML deployment doesn’t explode.
+
+It’s a fix. Technically.
+
+\vspace{1em}
+\textbf{Act IV: The Hidden Cost}
+
+The parameter change works. But it cost:
+\begin{itemize}
+    \item Two engineers’ sleep cycles
+    \item Several years off a DevOps lead’s life
+    \item A potential rollback plan no one tested
+\end{itemize}
+
+All for a single float value.
+
+\vspace{1em}
+\textbf{Epilogue: Why Configurable Interfaces Matter}
+
+If the threshold had been passed via a config file, a CLI flag, or an environment variable --- you know, like a normal system --- this would’ve been a two-minute fix.
+
+Instead, it became a fire drill wrapped in technical debt wrapped in sleep deprivation.
+
+Interfaces should be designed for change. Especially the ones you’ll need the night before a launch.
