@@ -1,0 +1,129 @@
+\subsection{Euler: Trigonometry Becomes Analysis}
+
+For over two thousand years, trigonometry had been a geometric subject. From the chords of Ptolemy to the sine segments of Islamic astronomers to the right triangles of Regiomontanus, trigonometric functions were always tied to the circle — and to the diagram.
+
+That changed in the 18\textsuperscript{th} century.
+
+Enter \textbf{Leonhard Euler} (1707–1783), the prolific Swiss mathematician who did for trigonometry what Newton and Leibniz did for calculus: he \textit{rewrote} it in the language of analysis.
+
+\medskip
+
+Using the tools of infinite series and complex numbers, Euler discovered that the sine and cosine functions could be expressed entirely through exponentials:
+
+\[
+\sin x = \frac{e^{ix} - e^{-ix}}{2i}, \quad \cos x = \frac{e^{ix} + e^{-ix}}{2}
+\]
+
+Here, \( e^{ix} \) represents a rotation in the complex plane — and with this, Euler transformed trigonometry from geometry into algebraic analysis.
+
+\medskip
+
+\textbf{What does this mean?}
+
+\begin{itemize}
+  \item It made trigonometric functions \textbf{differentiable}, \textbf{integrable}, and subject to the rules of calculus.
+  \item It unified exponential growth and circular motion under a single operation: \( e^{ix} \).
+  \item It enabled trigonometric identities, Fourier analysis, and wave equations to be written purely in symbolic form.
+\end{itemize}
+
+\medskip
+
+This formulation wasn’t just elegant — it was powerful. It laid the groundwork for everything from quantum mechanics to signal processing, and it is the foundation of how we understand oscillation in modern science.
+
+\medskip
+
+\textbf{Legacy:} With Euler’s formulas, the sine and cosine left the triangle behind and took up residence in the complex plane — becoming part of a new mathematical universe that was analytic, continuous, and global.
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=black, title=\textbf{TL;DR: From Geometry to Complex Analysis}, fonttitle=\bfseries, arc=1.5mm, boxrule=0.4pt]
+Euler redefined sine and cosine not as geometric constructions but as algebraic expressions of exponential functions.  
+\[
+\sin x = \frac{e^{ix} - e^{-ix}}{2i}, \quad \cos x = \frac{e^{ix} + e^{-ix}}{2}
+\]
+This turned trigonometry into a branch of analysis — and made it foundational to modern physics and engineering.
+\end{tcolorbox}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=3, every node/.style={font=\small}]
+    
+      % Axes
+      \draw[->] (-1.2,0) -- (1.5,0) node[right] {\textbf{Re}};
+      \draw[->] (0,-1.2) -- (0,1.2) node[above] {\textbf{Im}};
+    
+      % Unit circle
+      \draw[thick] (0,0) circle(1);
+    
+      % Angle arc
+      \draw[->] (0.6,0) arc[start angle=0,end angle=45,radius=0.6];
+      \node at (22:0.75) {$x$};
+    
+      % Point on circle at angle x
+      \coordinate (P) at (45:1);
+      \filldraw[blue] (P) circle(0.02) node[above right] {$e^{ix}$};
+    
+      % Projections
+      \draw[dashed] (P) -- (1,0) node[midway, below right] {\textcolor{blue}{$\cos x$}};
+      \draw[dashed] (P) -- (0,1) node[midway, above left] {\textcolor{blue}{$\sin x$}};
+      \draw[dotted] (P) -- (0,0);
+    
+      % Label axes
+      \node[below left] at (0,0) {0};
+      \node[below] at (1,0) {1};
+      \node[left] at (0,1) {$i$};
+    
+    \end{tikzpicture}
+    \caption{Euler’s formula: \( e^{ix} \) traces the unit circle in the complex plane. Its real part is \( \cos x \), and its imaginary part is \( \sin x \).}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=2.5, every node/.style={font=\small}]
+    
+      % Axes
+      \draw[->] (-1.3,0) -- (1.5,0) node[right] {\textbf{Re}};
+      \draw[->] (0,-1.2) -- (0,1.5) node[above] {\textbf{Im}};
+    
+      % Unit circle
+      \draw[thick] (0,0) circle(1);
+    
+      % Mark points on the circle
+      \foreach \angle/\label in {
+          0/{$e^{i0} = 1$},
+          90/{$e^{i\frac{\pi}{2}} = i$},
+          180/{$e^{i\pi} = -1$},
+          270/{$e^{i\frac{3\pi}{2}} = -i$},
+          360/{$e^{i2\pi} = 1$}
+      } {
+        \coordinate (P) at (\angle:1);
+        \filldraw[blue] (P) circle(0.015);
+        \node at ($(P) + ({0.15*cos(\angle)}, {0.15*sin(\angle)})$) {\label};
+      }
+    
+      % Arrows indicating counterclockwise motion
+      \foreach \start/\end in {0/30, 30/60, 60/90, 90/120, 120/150, 150/180, 180/210, 210/240, 240/270, 270/300, 300/330, 330/360} {
+        \draw[->, thick, gray!60] (\start:1) -- (\end:1);
+      }
+    
+      % Highlight one point with projections
+      \coordinate (A) at (45:1);
+      \filldraw[red] (A) circle(0.02) node[above right] {$e^{ix}$};
+      \draw[dashed] (A) -- (1,0) node[midway, below right] {\textcolor{red}{$\cos x$}};
+      \draw[dashed] (A) -- (0,1) node[midway, above left] {\textcolor{red}{$\sin x$}};
+      \draw[dotted] (0,0) -- (A);
+    
+      % Angle arc
+      \draw[->] (0.4,0) arc[start angle=0, end angle=45, radius=0.4];
+      \node at (25:0.5) {$x$};
+    
+      % Axis origin labels
+      \node[below left] at (0,0) {0};
+      \node[below] at (1,0) {1};
+      \node[left] at (0,1) {$i$};
+    
+    \end{tikzpicture}
+    \caption{As \( x \) increases, \( e^{ix} \) traces the unit circle counterclockwise. Each position corresponds to an angle \( x \), with \( \cos x \) and \( \sin x \) as its real and imaginary parts.}
+\end{figure}
+

@@ -1,0 +1,136 @@
+\section{From Infinite Processes to Celestial Circles: When Geometry Became a Calculator}
+
+The Greeks may not have had a rigorous concept of a limit, but that didn’t stop them from calculating astonishingly accurate results — not just for areas, but for the movements of the heavens.
+
+If Archimedes’ method of exhaustion showed how geometry could slice the infinite into manageable parts, then **Ptolemy** showed how geometry could **move the planets** — or at least explain how they appeared to move.
+
+Where Archimedes was concerned with approximation, Ptolemy applied geometric precision to a different kind of problem: predicting where Mars would appear in the sky, or how the Moon would arc through the night. And remarkably, he did all of it without algebra, calculus, or even sine and cosine.
+
+\subsection{How Did Ptolemy Use Geometry in Astronomy?}
+
+Ptolemy didn’t just reference Euclid — he built his entire model of the cosmos on it. His *Almagest* is perhaps the most ambitious application of **pure geometry** in ancient science. Let’s break down how that worked.
+
+\paragraph{1. Modeling the Heavens with Circles and Chords}
+
+Ptolemy, like most Greek astronomers, believed that celestial motion must be:
+\begin{itemize}
+    \item Uniform (same speed),
+    \item Circular, and
+    \item Geocentric (Earth at the center).
+\end{itemize}
+
+But when you looked at the planets, they defied those expectations. They sped up, slowed down, and sometimes even moved backwards (retrograde motion). Ptolemy reconciled this by constructing a system of \textbf{epicycles and deferents} — circles moving on other circles — all governed by geometric rules.
+
+To compute planetary positions, he used:
+\begin{itemize}
+    \item Chords of central angles in a circle,
+    \item Geometric transformations of rotating systems,
+    \item Interpolation from chord tables — not modern trigonometric functions.
+\end{itemize}
+
+\paragraph{2. Geometry Was the Calculator}
+
+There were no algebraic formulas in the *Almagest*. No \( x \), no \( y \), no \( \sin \theta \) or \( \cos \theta \). Just:
+
+\begin{itemize}
+    \item Lines,
+    \item Angles,
+    \item Proportions,
+    \item Tables of chords.
+\end{itemize}
+
+To find the position of Mars on a given day, Ptolemy would:
+\begin{enumerate}
+    \item Construct a geometric diagram,
+    \item Place the epicycle on its deferent,
+    \item Use known angles to determine chords,
+    \item Interpolate values from his trigonometric chord table.
+\end{enumerate}
+
+\paragraph{3. Solving Problems with Geometry Alone}
+
+Consider this: to determine the angle between Earth, a planet, and the center of the epicycle, Ptolemy:
+\begin{itemize}
+    \item Constructed a triangle using radii and chords,
+    \item Applied proportions from \textit{Euclid VI},
+    \item Used geometric reasoning — no equations, just diagrams.
+\end{itemize}
+
+\paragraph{4. The Chord Table: A Trigonometric System Without Trig}
+
+Instead of sine, Ptolemy used the function:
+\[
+\text{chord}(\theta) = 2R \cdot \sin\left(\frac{\theta}{2}\right)
+\]
+with \( R = 60 \) — a Babylonian convention. He tabulated chords for angles from \( 0^\circ \) to \( 180^\circ \) in half-degree steps.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Angle \( \theta \)} & \textbf{Chord Length} \\
+\hline
+\( 0^\circ \) & 0 \\
+\( 30^\circ \) & \( 60 \cdot \sin(15^\circ) \approx 15.5 \) \\
+\( 60^\circ \) & 60 \\
+\( 90^\circ \) & \( 60 \sqrt{2} \approx 84.85 \) \\
+\( 120^\circ \) & \( 60 \sqrt{3} \approx 103.92 \) \\
+\( 180^\circ \) & 120 \\
+\hline
+\end{tabular}
+\caption{Sample values from Ptolemy’s chord table using \( R = 60 \).}
+\end{table}
+
+\paragraph{5. A Geometric Identity for the Sky}
+
+Ptolemy also derived the identity:
+\[
+\text{chord}(A + B) \cdot \text{chord}(A - B) = \text{chord}^2(A) - \text{chord}^2(B)
+\]
+A precursor to modern sine addition formulas, this was used to derive compound angles geometrically — allowing Ptolemy to compute values he hadn't explicitly tabulated.
+
+\paragraph{In Short}
+
+Geometry was not a way of modeling reality. For Ptolemy, geometry \textit{was reality}. Circles, chords, and ratios didn’t just describe planetary motion — they \textit{were} planetary motion.
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=2.5, every node/.style={font=\small}]
+    
+    % Earth at center
+    \filldraw[black] (0,0) circle (0.02) node[below left] {Earth};
+    
+    % Deferent (large circle)
+    \draw[thick] (0,0) circle (1);
+    
+    % Epicycle center (on the deferent)
+    \coordinate (C) at (60:1);
+    \filldraw[gray!50] (C) circle (0.015);
+    \node[above right] at (C) {Epicycle center};
+    
+    % Epicycle (small circle on deferent)
+    \draw[dashed] (C) circle (0.25);
+    
+    % Planet position on epicycle
+    \coordinate (P) at ($(C) + (150:0.25)$);
+    \filldraw[blue] (P) circle (0.02);
+    \node[above left] at (P) {Planet};
+    
+    % Chord from Earth to planet
+    \draw[red, thick] (0,0) -- (P) node[midway, above right] {Chord};
+    
+    % Label arc angle (planet's apparent motion)
+    \draw[->, thick] (0.4,0) arc[start angle=0, end angle=60, radius=0.4];
+    \node at (30:0.55) {$\theta$};
+    
+    % Optional: radii to epicycle center and to planet
+    \draw[dotted] (0,0) -- (C);
+    \draw[dotted] (C) -- (P);
+    
+    \node at (30:1.05) {Deferent};
+    \node at ($(C)!0.5!(P) + (-0.05, 0.08)$) {Epicycle};
+    
+    \end{tikzpicture}
+    \caption{Ptolemy’s epicycle system: A small circle (epicycle) rides a larger one (deferent) centered on Earth. The chord from Earth to the planet models its apparent position.}
+\end{figure}

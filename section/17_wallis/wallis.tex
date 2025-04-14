@@ -1,0 +1,55 @@
+\section{Wallis: Arithmetic of Powers and Infinitesimals (1656)}
+
+John Wallis extended Cavalieri's indivisible approach using infinite series and arithmetic summation of powers.
+
+He wrote expressions such as:
+
+$$
+1^n + 2^n + 3^n + \ldots + (x - 1)^n
+$$
+
+to describe the accumulation of infinitesimal rectangles. Wallis formalized this as a method for calculating the total magnitude formed by summing terms of the form:
+
+\begin{quote}
+If a quantity be divided into an infinite number of parts, then the sum of the parts raised to the \( n \)-th power may be taken as proportional to a higher power of the whole.
+\end{quote}
+
+He generalized this across integer and fractional powers, deriving tabulated values for various cases. Though Wallis lacked a symbolic integral sign, he used sequences and infinite arithmetic processes to estimate areas.
+
+\vspace{1em}
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.4}
+    \setlength{\tabcolsep}{12pt}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Exponentis Valor} & \textbf{Aream Figuris Subtus} & \textbf{Valor Expressus} \\
+    \hline
+    $n = 0$ & Figura Recta & $1$ \\
+    $n = 1$ & Triangulum & $\dfrac{1}{2}$ \\
+    $n = 2$ & Parabolica Secundi Gradus & $\dfrac{1}{3}$ \\
+    $n = 3$ & Cubica Figura & $\dfrac{1}{4}$ \\
+    $n = 4$ & Quartica Figura & $\dfrac{1}{5}$ \\
+    $n = 5$ & Quintica Figura & $\dfrac{1}{6}$ \\
+    $n = \frac{1}{2}$ & Semiparabolica & $\dfrac{2}{3}$ \\
+    $n = -1$ & Figura Logarithmica & $\infty$ \\
+    \hline
+    \end{tabular}
+    \caption{\textbf{Tabula Arearum Figurarum Exponentium} — Table of Areas Bounded by Powers}
+\end{table}
+
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=black, title=\textbf{Historical Sidenote: Wallis and the Ghost of Integration}, fonttitle=\bfseries, arc=1.5mm, boxrule=0.4pt]
+
+    John Wallis, writing in an era just before the formal birth of calculus, never used the integral symbol (\( \int \))—because it hadn’t been invented yet. But in his \textit{Arithmetica Infinitorum} (1656), he constructed a systematic table of “area-like” results by summing powers across an infinite number of subdivisions.
+    
+    He referred to these results in Latin, using phrases such as \textit{Aream Figuris Subtus} (“area of the figures below”) to describe the region under curves defined by powers of the horizontal axis. His terminology included period-specific descriptors like \textit{Semiparabolica} (for roots such as \( x^{1/2} \)) and \textit{Figura Logarithmica} (for the inverse power \( x^{-1} \)).
+    
+    Wallis's value for the case \( n = -1 \) was marked as infinite—implicitly anticipating the divergent nature of the area under \( \frac{1}{x} \), and unknowingly brushing up against the threshold of the logarithmic integral.
+    
+    \vspace{0.3em}
+    \textit{In short: Wallis didn’t integrate—but he came tantalizingly close.}
+\end{tcolorbox}
+
+

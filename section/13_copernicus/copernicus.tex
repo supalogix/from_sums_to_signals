@@ -1,0 +1,92 @@
+\subsection{Copernicus: Geometry Unchanged, Cosmos Recentered}
+
+Copernicus didn’t invent new mathematics. What he did was more subtle — and more radical. He took the geometrical machinery of Ptolemy’s astronomy and asked a simple, disorienting question:
+
+\begin{quote}
+\textbf{What if the Sun, not the Earth, was at the center of it all?}
+\end{quote}
+
+This was not an algebraic revolution. Copernicus worked with the same tools as Ptolemy: chords, angles, triangles, and intersecting circles. But he used them to build an entirely new cosmological structure.
+
+\subsubsection*{A Familiar Toolkit in a New Coordinate System}
+
+Copernicus’s mathematical practice was strikingly traditional:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|p{10cm}|}
+\hline
+\textbf{Tool} & \textbf{Description} \\
+\hline
+\checkmark\hspace{0.5em}Euclidean Geometry & Like Ptolemy, he used classical constructions with chords, angles, triangles, and proportions. \\
+\checkmark\hspace{0.5em}Chord-Based Trigonometry & He relied on geometric chord tables (not sine or cosine yet) to relate angular separation to distances. \\
+\checkmark\hspace{0.5em}Arithmetic + Tables & Computations were done numerically with lookup tables — no symbolic algebra. \\
+\ding{55}\hspace{0.5em}Algebra & No \( x = r \cos \theta \); symbolic algebra as we know it hadn’t yet developed. \\
+\ding{55}\hspace{0.5em}Calculus & Still two centuries away. \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection*{What He Actually Did in \textit{De revolutionibus} (1543)}
+
+\paragraph{1. Re-centered the Universe}
+
+Copernicus took the Ptolemaic system — circles on circles — and simply moved the center. This switch to a heliocentric model naturally explained:
+
+\begin{itemize}
+  \item \textbf{Retrograde motion} — as a visual illusion from a moving Earth,
+  \item \textbf{Planetary brightness} — as a function of varying distance from Earth,
+  \item \textbf{Planetary order} — inner vs. outer planets now had geometric meaning.
+\end{itemize}
+
+\paragraph{2. Still Used Epicycles}
+
+Yes, Copernicus still used epicycles — about 40 in total (fewer than Ptolemy, but not drastically). Each planet moved on a small circle (epicycle) whose center moved on a larger circle (deferent) — but now around the Sun.
+
+\begin{itemize}
+  \item Earth itself moved around the Sun.
+  \item Planetary positions were computed \textbf{relative to a moving Earth}.
+  \item This required the same methods of geometric computation: central angles, chords, and proportional diagrams.
+\end{itemize}
+
+\paragraph{3. Used Chord Tables, Not Sine Functions}
+
+Like Ptolemy, Copernicus used the function:
+
+\[
+\text{chord}(\theta) = 2R \cdot \sin\left(\frac{\theta}{2}\right)
+\]
+
+He applied it to compute angular separations — such as elongation, quadrature, and conjunction — by measuring the chord between two points on the orbit circle.
+
+\subsubsection*{A Typical Copernican Calculation: Elongation of Venus}
+
+\begin{enumerate}
+  \item Look up Earth’s heliocentric position on a given date.
+  \item Look up Venus’s heliocentric longitude from a table.
+  \item Subtract to find angular separation as seen from the Sun.
+  \item Use chord tables and geometry to compute the angle as seen from Earth — accounting for Earth's own motion.
+\end{enumerate}
+
+\begin{center}
+\begin{tcolorbox}[colback=gray!5!white, colframe=black, boxrule=0.3pt, arc=1mm, width=0.9\linewidth]
+\textbf{Diagram structure:}  
+\begin{itemize}
+  \item Sun at the center  
+  \item Earth orbiting on one circle  
+  \item Venus on a smaller epicycle around its deferent  
+  \item Lines drawn from Sun to Venus and Sun to Earth  
+  \item Angle between those lines = elongation  
+\end{itemize}
+Then: use \textbf{chord tables} to compute visual angle or distance.
+\end{tcolorbox}
+\end{center}
+
+\subsubsection*{The Real Shift Was Conceptual}
+
+\begin{quote}
+Copernicus didn’t change the tools — he changed the center.
+\end{quote}
+
+He inherited Ptolemy’s machinery but pointed it in a new direction. What had once been mathematical scaffolding for an Earth-centered universe became, in Copernicus’s hands, the geometry of a solar system.
+
