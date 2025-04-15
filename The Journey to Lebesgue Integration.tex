@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass{article}
 \usepackage{amssymb, amsmath}
 \usepackage{amsthm}
 \usepackage[T1]{fontenc}  % Proper encoding for text
@@ -261,7 +261,7 @@
 
 \renewenvironment{quote}
   {
-    \par\vspace{0.25em}
+    \par\vspace{2em}
     \noindent
     \begin{tikzpicture}[remember picture, overlay]
       % Giant left quote mark (top-left)
@@ -390,10 +390,10 @@
 \end{figure}
 \end{titlepage}
 
-\frontmatter
+%\frontmatter
 \tableofcontents
 
-\mainmatter % <--- This starts chapter numbering at 1
+%\mainmatter % <--- This starts chapter numbering at 1
 
 \newpage
 
@@ -411,61 +411,64 @@
 %\subimport*{section/10_augustine}{augustine.tex}
 %\subimport*{section/11_aquinus}{aquinus.tex}
 %\subimport*{section/12_al_battani}{al_battani.tex}
-%\subimport*{section/13_copernicus}{copernicus.tex}
-%\subimport*{section/14_galileo}{galileo.tex}
-%\subimport*{section/15_kepler}{kepler.tex}
-%\subimport*{section/16_cavalieri}{cavalieri.tex}
-%\subimport*{section/17_wallis}{wallis.tex}
-%\subimport*{section/18_barrow}{barrow.tex}
-%\subimport*{section/19_newton}{newton.tex}
-%\subimport*{section/20_leibniz}{leibniz.tex}
-%\subimport*{section/21_euler}{euler.tex}
-%\subimport*{section/22_lagrange}{lagrange.tex}
-%\subimport*{section/23_laplace}{laplace.tex}
-%\subimport*{section/24_hamilton}{hamilton.tex}
-%\subimport*{section/25_riemann}{riemann.tex}
-%\subimport*{section/26_heavyside}{heavyside.tex}
+%\subimport*{section/13_stevin}{stevin.tex}
+%\subimport*{section/14_copernicus}{copernicus.tex}
+%\subimport*{section/15_galileo}{galileo.tex}
+%\subimport*{section/16_kepler}{kepler.tex}
+%\subimport*{section/17_cavalieri}{cavalieri.tex}
+%\subimport*{section/18_wallis}{wallis.tex}
+%\subimport*{section/19_barrow}{barrow.tex}
+%\subimport*{section/20_newton}{newton.tex}
+%\subimport*{section/21_leibniz}{leibniz.tex}
+%\subimport*{section/22_euler}{euler.tex}
+%\subimport*{section/23_lagrange}{lagrange.tex}
+%\subimport*{section/24_laplace}{laplace.tex}
+%\subimport*{section/25_hamilton}{hamilton.tex}
+%\subimport*{section/26_riemann}{riemann.tex}
+%\subimport*{section/27_heavyside}{heavyside.tex}
 %\part{Analysis}
-\subimport*{section/27_cauchy}{cauchy.tex}
-%\subimport*{section/28_fourier}{fourier.tex}
-%\subimport*{section/29_riemann}{riemann.tex}
-%\subimport*{section/30_weierstrass}{weierstrass.tex}
-%\subimport*{section/31_cantor}{cantor.tex}
-%\subimport*{section/32_borel}{borel.tex}
-%\subimport*{section/33_lebesgue}{lebesgue.tex}
+%\subimport*{section/28_cauchy}{cauchy.tex}
+%\subimport*{section/29_fourier}{fourier.tex}
+%\subimport*{section/30_riemann}{riemann.tex}
+%\subimport*{section/31_weierstrass}{weierstrass.tex}
+%\subimport*{section/32_dedekind}{dedekind.tex}
+%\subimport*{section/33_cantor}{cantor.tex}
+%\subimport*{section/34_borel}{borel.tex}
+%\subimport*{section/35_lebesgue}{lebesgue.tex}
 %\part{Probability and Statistics}
-%\subimport*{section/34_kolmogorov}{kolmogorov.tex}
-%\subimport*{section/35_fisher}{fisher.tex}
-%\subimport*{section/36_shannon}{shannon.tex}
-%\subimport*{section/37_kullback_and_leibler}{kullback_and_leibler.tex}
-%\subimport*{section/38_jeffries}{jeffries.tex}
-%\subimport*{section/39_jordan}{jordan.tex}
-%\subimport*{section/40_amari}{amari.tex}
+%\subimport*{section/36_kolmogorov}{kolmogorov.tex}
+%\subimport*{section/37_fisher}{fisher.tex}
+%\subimport*{section/38_shannon}{shannon.tex}
+%\subimport*{section/39_kullback_and_leibler}{kullback_and_leibler.tex}
+%\subimport*{section/40_jeffries}{jeffries.tex}
+%\subimport*{section/41_jordan}{jordan.tex}
+%\subimport*{section/42_amari}{amari.tex}
 %\part{Mathematical Foundations}
-%\subimport*{section/41_godel}{godel.tex}
-%\subimport*{section/42_mckay}{mckay.tex}
-%\subimport*{section/43_hoeffding}{hoeffding.tex}
-%\subimport*{section/44_wittgenstein}{wittgenstein.tex}
-%\subimport*{section/45_chaitin}{chaitin.tex}
+%\subimport*{section/43_godel}{godel.tex}
+%\subimport*{section/44_mckay}{mckay.tex}
+%\subimport*{section/45_hoeffding}{hoeffding.tex}
+%\subimport*{section/46_wittgenstein}{wittgenstein.tex}
+%\subimport*{section/47_chaitin}{chaitin.tex}
 %\part{Computation}
-%\subimport*{section/46_turing}{turing.tex}
-%\subimport*{section/47_shannon}{shannon.tex}
-%\subimport*{section/48_von_neumann}{von_neumann.tex}
-%\subimport*{section/49_ulmann}{ulmann.tex}
-%\subimport*{section/50_nash}{nash.tex}
-%\subimport*{section/51_pontryagin}{pontryagin.tex}
-%\subimport*{section/52_rossenblatt}{rossenblatt.tex}
-%\subimport*{section/53_minskey}{minskey.tex}
-%\subimport*{section/54_hinton}{hinton.tex}
-%\subimport*{section/55_hopfield}{hopfield.tex}
-%\subimport*{section/56_sejnowski}{sejnowski.tex}
-%\subimport*{section/57_yann_lecun}{yann_lecun.tex}
-%\subimport*{section/58_hinton}{hinton.tex}
-%\subimport*{section/59_hochreiter}{hochreiter.tex}
-%\subimport*{section/60_alexnet}{alexnet.tex}
-%\subimport*{section/61_vaswani}{vaswani.tex}
-%\subimport*{section/62_yann_lecun}{yann_lecun.tex}
-%\subimport*{section/63_shwartz}{shwartz.tex}
+%\subimport*{section/48_turing}{turing.tex}
+%\subimport*{section/49_shannon}{shannon.tex}
+%\subimport*{section/50_von_neumann}{von_neumann.tex}
+%\subimport*{section/51_ulmann}{ulmann.tex}
+%\subimport*{section/52_nash}{nash.tex}
+%\subimport*{section/53_pontryagin}{pontryagin.tex}
+%\subimport*{section/54_rossenblatt}{rossenblatt.tex}
+%\subimport*{section/55_minskey}{minskey.tex}
+%\subimport*{section/56_hinton}{hinton.tex}
+%\subimport*{section/57_hopfield}{hopfield.tex}
+%\subimport*{section/58_sejnowski}{sejnowski.tex}
+%\subimport*{section/59_yann_lecun}{yann_lecun.tex}
+%\subimport*{section/60_hinton}{hinton.tex}
+%\subimport*{section/61_hochreiter}{hochreiter.tex}
+%\subimport*{section/62_alexnet}{alexnet.tex}
+%\subimport*{section/63_harris}{harris.tex}
+%\subimport*{section/64_vaswani}{vaswani.tex}
+%\subimport*{section/65_yann_lecun}{yann_lecun.tex}
+%\subimport*{section/66_shwartz}{shwartz.tex}
 %\input{in_progress/modern_age_2.tex}
 %\input{in_progress/hft_introduction.tex}
 %\input{in_progress/avoiding_correlation_3.tex}
@@ -476,8 +479,8 @@
 %\input{in_progress/processor_type_and_ecosystem.tex}
 %\input{in_progress/the_economics_of_training_a_neural_network.tex}
 %\input{in_progress/a_use_case_example.tex}
-%\input{in_progress/godels_revenge.tex}
-%\input{in_progress/conclusion}
+\input{in_progress/godels_revenge.tex}
+\input{in_progress/conclusion}
 %\input{scratch/0_the_real_ml_pipeline.tex}
 %\input{scratch/1_you_probably_dont_believe_how_bad_it_gets.tex}
 %\input{scratch/2_modularity.tex}

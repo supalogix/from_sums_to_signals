@@ -1,0 +1,105 @@
+\section{From Vectors to Tensors: The Geometry of Deep Learning}
+
+AlexNet didn’t just mark a renaissance in neural networks—it quietly redefined the mathematics of AI infrastructure. Underneath its ReLUs and convolutions was something more profound: a shift in how we represented data itself.
+
+When AlexNet split across two GPUs, it wasn't just a clever engineering hack—it was a sign of things to come. Suddenly, vectors weren’t enough. Matrices weren’t enough. Every input was batched, every image had channels, every layer had multiple dimensions of computation that had to flow in parallel.
+
+Enter the tensor.
+
+\textbf{Mark Harris} and the CUDA team at NVIDIA saw this future before most. Beginning in \textbf{2007}, they laid the groundwork for high-performance general-purpose computation on GPUs with the release of CUDA—a move that transformed NVIDIA’s graphics chips into general-purpose tensor engines. Their work eventually led to \texttt{cuDNN} (released in 2014), a low-level library optimized for deep learning primitives like tensor convolutions, matrix multiplies, and gradient propagation.
+
+The tensor became more than a mathematical object—it became a computational interface.
+
+\vspace{1em}
+
+In this section, we explore what tensors are, why they matter in machine learning, and how they evolved from obscure notational tools in geometry and physics into the backbone of modern AI.
+
+\begin{quote}
+\emph{Where calculus gave us gradients, and probability gave us uncertainty, tensors gave us structure: deep, multidimensional structure.}
+\end{quote}
+
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=black!80!white, title={Sidebar: How NVIDIA Engineered the Tensor Stack}]
+    \textbf{2007 — CUDA:}  
+    NVIDIA’s launch of the Compute Unified Device Architecture (CUDA) turned graphics hardware into general-purpose parallel machines. Developers could now write C-like programs for the GPU. This marked the birth of the modern GPU as a numerical compute engine—not just a rendering device.
+    
+    \medskip
+    
+    \textbf{2008 — cuBLAS:}  
+    To unlock the GPU’s full potential for linear algebra, NVIDIA released cuBLAS: a GPU-accelerated version of the Basic Linear Algebra Subprograms (BLAS). Suddenly, matrix multiplication wasn’t just fast—it was terrifyingly fast.
+    
+    \medskip
+    
+    \textbf{2014 — cuDNN:}  
+    As deep learning frameworks like Theano, Torch, and TensorFlow gained popularity, NVIDIA responded with cuDNN: the CUDA Deep Neural Network library. cuDNN provided optimized implementations for convolutions, pooling, and activation functions—tuned at the assembly level for each GPU generation.
+    
+    \medskip
+    
+    \textbf{2017 — Tensor Cores (Volta Architecture):}  
+    With the Volta GPU architecture (and later Ampere and Hopper), NVIDIA introduced specialized units called Tensor Cores. These were built to perform fused multiply-add operations on small matrices at warp speed. Unlike traditional ALUs, Tensor Cores are purpose-built for tensor contractions—turning deep learning workloads into physics engines.
+    
+    \medskip
+    
+    \textbf{Legacy:}  
+    Today, Tensor Cores power everything from GPT models to diffusion-based art generators. What started as a tool for simulating physics became the substrate for simulating intelligence itself.
+    
+    \begin{center}
+    \emph{CUDA let you run math on a GPU. cuBLAS made it fast. cuDNN made it neural. Tensor Cores made it exponential.}
+    \end{center}
+\end{tcolorbox}
+
+
+
+\subsection{Tensors: The Language of Deep Learning}
+
+The success of AlexNet wasn’t just about depth, data, or clever tricks. It marked a deeper shift: neural networks had grown large enough that their \emph{structure} mattered—not just algorithmically, but algebraically. Underneath the convolutional filters, activations, and backpropagated gradients, one object quietly held everything together:
+
+\begin{center}
+\textbf{The tensor.}
+\end{center}
+
+At its core, a tensor is just a multi-dimensional array. But in deep learning, it’s the universal currency of computation. Inputs are tensors. Weights are tensors. Gradients are tensors. Neural networks themselves are nothing more than sequences of tensor contractions—structured operations that compress, transform, and propagate information.
+
+This shift in thinking was catalyzed not just by academic insight, but by engineering. In 2006–2007, \textbf{Mark Harris} and the early CUDA team at \textbf{NVIDIA} laid the foundation for general-purpose GPU computing. Over the next decade, NVIDIA’s tensor stack evolved:
+
+\begin{itemize}
+  \item \textbf{CUDA (2007)} turned the GPU into a programmable math engine.
+  \item \textbf{cuBLAS} and \textbf{cuDNN} turned it into a linear algebra accelerator.
+  \item \textbf{Tensor Cores (2017)} turned it into a purpose-built tensor machine.
+\end{itemize}
+
+By the time AlexNet was trained across dual GPUs, tensor math had become a first-class citizen. And when Transformers arrived, their self-attention matrices—query, key, and value tensors—scaled effortlessly with the hardware.
+
+Tensors made deep learning scalable.  
+But more than that, they made it \emph{geometric}.
+
+The same structures that once described physical fields, quantum states, and spacetime curvature now describe text, images, and knowledge. The tensor is the bridge between classical computation and modern representation. It is the object through which deep learning became not just a method—but a language.
+
+And with this language in hand, we’re ready for the next phase of the story: when deep learning stopped just recognizing—and began \textbf{attending}.
+
+
+\begin{tcolorbox}[colback=purple!5!white, colframe=purple!75!black, title={Sidebar: Tensors as Geometric Objects}]
+    Tensors are more than just arrays. In physics and differential geometry, they represent multi-linear relationships between vectors, spaces, and transformations.
+    
+    In deep learning, this geometry survives—albeit with a computational twist:
+    
+    \begin{itemize}
+      \item A scalar is a \textbf{0th-order tensor}.
+      \item A vector is a \textbf{1st-order tensor}.
+      \item A matrix is a \textbf{2nd-order tensor}.
+      \item Higher-order tensors (\( \geq 3 \)) encode structures like images (3D), video (4D), and batch-sequence-token embeddings in Transformers (4D+).
+    \end{itemize}
+    
+    Each tensor carries not just values, but \textbf{structure}:
+    \begin{itemize}
+      \item \emph{Axes} that represent semantics (e.g., time, space, channels).
+      \item \emph{Dimensions} that shape computation (e.g., dot products, convolutions, attention heads).
+      \item \emph{Transformations} that preserve or project relationships (e.g., rotation, scaling, attention).
+    \end{itemize}
+    
+    From Einstein’s field equations to GPT’s attention weights, tensors form the grammar of continuous systems. They are the natural language of any model that represents, transforms, and composes information.
+    
+    In this sense, the move to tensors wasn’t just a numerical optimization.
+    
+    It was a philosophical shift—from \emph{logic} to \emph{geometry}, from \emph{programming} to \emph{representation}.
+\end{tcolorbox}

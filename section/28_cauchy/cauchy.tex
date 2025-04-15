@@ -20,8 +20,6 @@ Augustin-Louis Cauchy saw this as a serious problem—and he had a solution.
 
 His approach? A new way of thinking about **limits, continuity, and density** that didn’t rely on vague infinitesimals but instead used sequences—real, well-defined numerical objects. He set out to do what no one had done before: define what it actually means for something to get "closer and closer" to a value, without assuming that the answer was self-evident.
 
-
-
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[every node/.style={font=\footnotesize}]
@@ -62,9 +60,7 @@ That counts.}
 
 \subsection{Cauchy’s Sequences: Getting Closer Without Ever Arriving}
 
-To formalize limits, Cauchy turned to \textbf{sequences}—ordered lists of numbers approaching a particular value. He introduced what is now known as a \textbf{Cauchy sequence}, a sequence in which the terms become arbitrarily close to each other as the sequence progresses.
-
-Here’s a simple, intuitive example:
+To formalize limits, Cauchy turned to \textbf{sequences}—ordered lists of numbers approaching a particular value. He introduced what is now known as a \textbf{Cauchy sequence}, a sequence in which the terms become arbitrarily close to each other as the sequence progresses.  Here’s a simple, intuitive example:
 
 \[
 1,\ 1.5,\ 1.75,\ 1.875,\ 1.9375,\ 1.96875,\ \dots
@@ -133,10 +129,7 @@ Cauchy’s insight was that \textbf{if a sequence is converging to a real number
 
 \subsubsection{A Sequence-Based Illustration}
 
-
-To make the concept of limits rigorous, Cauchy replaced the vague idea of “getting close” with something more precise: sequences.
-
-Let’s begin with a concrete example. Consider the sequence:
+To make the concept of limits rigorous, Cauchy replaced the vague idea of “getting close” with something more precise: sequences.  Let’s begin with a concrete example. Consider the sequence:
 
 \[
 1,\ 1.5,\ 1.75,\ 1.875,\ 1.9375,\ 1.96875,\ \dots
@@ -187,7 +180,6 @@ if the terms of \( a_n \) can be made as close to \( L \) as we like by taking \
 \end{tikzpicture}
 \end{center}
 
-\bigskip
 
 \subsubsection{A Concrete Example: \( f(x) = 2x \)}
 
@@ -221,7 +213,6 @@ Therefore, Cauchy would say:
 
 because for any sequence that approaches 3 (and doesn’t get stuck at 3), the values of \( f(x) = 2x \) along that sequence approach 6.
 
-\bigskip
 
 Cauchy made the idea of limits rigorous using sequences. By examining what happens to \( f(x) \) along sequences approaching a point, he gave analysis a foundation that replaced intuition with precision (without invoking infinitesimals).
 
@@ -335,7 +326,6 @@ In plain terms: between any two real numbers—no matter how small the gap—the
 \end{center}
 
 
-\bigskip
 
 But Cauchy's insight went further: he considered sequences made entirely of rational numbers, like the example above, that converge toward a real number that is \textit{not} rational. Such sequences reveal that although rational numbers are densely packed, they don’t capture every possible limit.
 
@@ -359,7 +349,6 @@ But Cauchy's insight went further: he considered sequences made entirely of rati
     \end{itemize}
 \end{itemize}
 
-\bigskip
 
 \textbf{But here’s the problem:} While rational numbers are dense, they aren’t \textbf{complete}. That sequence converging to \( \sqrt{2} \)? It never actually reaches it—not because it fails to get close, but because the destination isn’t even in the set.
 
@@ -367,7 +356,6 @@ This led to a fundamental insight: \textbf{being dense doesn’t mean you’ve f
 
 In other words: \textbf{density covers ground, but completeness builds the road.}
 
-\bigskip
 
 
 
@@ -496,7 +484,6 @@ This captures the intuitive idea that when inputs approach \( c \), their output
     Consider the sequence \( x_n = -\frac{1}{n} \to 0 \). Then \( f(x_n) = 1 \), but \( f(0) = 2 \). Since \( f(x_n) \not\to f(0) \), the function is \textbf{not} continuous at \( x = 0 \).
 \end{itemize}
 
-\bigskip
 
 \textbf{Conclusion:} Cauchy’s definition of continuity using sequences replaced vague geometric intuition with precise behavior: if getting closer to a point with inputs always brings the outputs closer to the function value at that point, the function is continuous there.
 
@@ -763,7 +750,6 @@ The left-hand and right-hand difference quotients of \( f(x) = |x| \) approach d
 
 
 
-\bigskip
 
 \textbf{Conclusion:} Cauchy’s definition of the derivative made instantaneous change precise. If all sequences of small increments produce the same limiting slope, the function is differentiable at that point. With this, calculus gained a rigorous foundation rooted in sequence-based reasoning.
 
@@ -837,7 +823,6 @@ Let’s recap what Cauchy actually did—because it’s a lot.
 \end{tabular}
 \end{center}
 
-\bigskip
 
 \textbf{Bottom line:}  
 Cauchy gave us a version of calculus that didn’t depend on magical infinitesimals or geometric intuition. He replaced hand-waving with precision—and got banished for his trouble.
