@@ -1,0 +1,41 @@
+\begin{figure}[H]
+  \begin{center}
+  \begin{mplibcode}
+      
+    beginfig(1);
+      u := 2cm;
+      numeric n, radius;
+      n := 5;
+      radius := 1.5u;
+    
+      picture pic;
+      pair center;
+      center := (0,0);
+    
+      pic := image(
+        path poly;
+        for i = 0 upto n-1:
+          pair P;
+          P := radius * dir(360 * i / n);
+          if i = 0: poly := P;
+          else: poly := poly -- P;
+          fi
+        endfor;
+        poly := poly -- cycle;
+    
+        fill poly withcolor (0.8,0.8,0.8);
+        draw poly withpen pencircle scaled 1pt;
+    
+        draw fullcircle scaled (2 * radius) withcolor blue;
+        label.top(btex Archimedes' Exhaustion (n = 5) etex, (0,1.8u));
+      );
+    
+      draw bbox pic withcolor white;
+      addto currentpicture also pic shifted (4cm, 0);
+
+    endfig;
+
+  \end{mplibcode}
+  \end{center}
+  \caption{Auto-centered MetaPost figure using bounding box logic.}
+\end{figure}
