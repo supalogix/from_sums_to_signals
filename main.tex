@@ -46,27 +46,8 @@
 \usepackage{luamplib}
 \usepackage{fontspec}
 %\setmainfont{TeX Gyre Termes}
-
-\usepackage{pifont}
-
-%\usepackage{chngcntr}
-%\counterwithin*{chapter}{part}
-
-
-
-
 \usepackage{polyglossia}
-\setmainlanguage{english}
-\setotherlanguage{greek}
-\newfontfamily\greekfont{Times New Roman} % or any font that supports Greek
-
-
-
-
-
-
-
-
+\usepackage{pifont}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{caption}
@@ -74,343 +55,157 @@
 \usepackage{amssymb}
 \usepackage[utf8]{inputenc}
 \usepackage{caption}
-
-
-
-
-
-
 \usepackage{etoolbox} % Needed for patching commands
-
-% Insert new page before \section
-\pretocmd{\section}{\clearpage}{}{}
-
-% Insert new page before \subsection
-\pretocmd{\subsection}{\clearpage}{}{}
-
-
 \usepackage{etoolbox}
 \usepackage{xcolor}
 \usepackage{lipsum} % Optional, for testing
 \usepackage{graphicx}
-
-
-
-% Define a horizontal rule that's 80% of the linewidth
-%\newcommand{\figureseparator}{
- % \par\vspace{0.5em}
- % \noindent\makebox[\linewidth]{\rule{0.8\linewidth}{0.4pt}}%
- % \par\vspace{0.5em}
-%}
-
-
 \usepackage{needspace}
-
-\newcommand{\figureseparator}{
-  \needspace{3\baselineskip} % Reserve space to prevent page break
-  \par\vspace{0.5em}
-  \noindent\makebox[\linewidth]{\rule{0.8\linewidth}{0.4pt}}%
-  \par
-  \vspace{0.5em}
-}
-
-% Automatically add separators before and after every figure
-%\AtBeginEnvironment{figure}{\figureseparator}
-%\AtEndEnvironment{figure}{\figureseparator}
-
-
-
-
-
-
-
-
-
-
-
-
 \usepackage[most]{tcolorbox}
-\tcbuselibrary{skins, breakable}
-
-% Define a custom figure box style
-\tcolorboxenvironment{figure}{
-  boxrule=0.4pt,
-  colframe=black!40,
-  colback=white,
-  sharp corners=south,
-  drop shadow southeast,
-  enhanced,
-  breakable,
-  before skip=10pt,
-  after skip=10pt,
-  width=\linewidth
-}
-
-
-\newtcolorbox{calloutfigure}[1][]{%
-  breakable,
-  colback=blue!5,
-  colframe=blue!40,
-  title=#1,
-  fonttitle=\bfseries,
-  sharp corners=south,
-  enhanced,
-  drop shadow southeast,
-  before skip=10pt,
-  after skip=10pt,
-}
-
-
-
-\tcbset{
-  sidebarstyle/.style={
-    colback=gray!10!white,
-    colframe=black,
-    fonttitle=\bfseries,
-    title={Historical Sidebar},
-    boxrule=0.5pt,
-    arc=2mm,
-    left=1em,
-    right=1em,
-    top=0.5em,
-    bottom=0.5em,
-    enhanced,
-    sharp corners=south,
-    before skip=1em,
-    after skip=1em
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-\usepackage[most]{tcolorbox}
-
-
-
 \usepackage{setspace}  % for line spacing
-
-
-
-% In your preamble
 \usepackage{tikz}
 \usepackage{setspace}
 \usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins, breakable}
 
 
 
 
+\setmainlanguage{english}
+\setotherlanguage{greek}
+\newfontfamily\greekfont{Times New Roman} % or any font that supports Greek
 
 
-
-
-
+\subimport*{module/historical_sidebar}{historical_sidebar.tex}
+\subimport*{module/figure}{figure.tex}
 \subimport*{module/quote}{quote.tex}
 \subimport*{module/example_box}{example_box.tex}
 \subimport*{module/comic_panel}{comic_panel.tex}
 \subimport*{module/footer}{footer.tex}
-
-
-
-
-
-
-
-
-
-
-\titleformat{\section}
-  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
-\newcommand{\sectionbreak}{\clearpage}
-
-
-
-
-
-
-
-\tikzset{
-  dagnode/.style={
-    draw,
-    rounded corners,
-    minimum height=0.8cm,
-    minimum width=2.2cm,
-    font=\scriptsize,
-    text centered,
-    fill=blue!5
-  },
-  arrow/.style={
-    ->,
-    thick
-  }
-}
-
+\subimport*{module/figure_separator}{figure_separator.tex}
+\subimport*{module/callout_figure}{callout_figure.tex}
+\subimport*{module/dag_node}{dag_node.tex}
+\subimport*{module/title_format}{title_format.tex}
 
 \begin{document}
-\onehalfspacing
-\setlength{\parskip}{1.5em} 
+
+  \onehalfspacing
+  \setlength{\parskip}{1.5em} 
 
 
-\begin{titlepage}
-  \centering
+  \subimport*{module/title_page}{title_page.tex}
 
-  {\LARGE\bfseries From Sums to Signals: A Mathematical Guide to Deep Learning \par}
-  \vspace{1em}
-  {\large Featuring a Special Appearance by High-Frequency Trading \par}
-  \author{Jonathan Nacionales}
-\date{\today}
 
-  \vfill
+  \tableofcontents
 
- \begin{figure}[H]
-\centering
-\begin{tikzpicture}[every node/.style={font=\footnotesize}]
+  \newpage
 
-% Panel 1 — Engineer 1 with buzzwords
-\comicpanel{0}{4}
-  {Engineer 1}
-  {Engineer 2}
-  {We amplify latent embeddings with dynamic gradient fusion layers and recursive self-attention.}
-  {(-0.6,-0.5)}
+  %\part{Introduction}
+  %\subimport*{part/1_introduction/1_bridging_the_gap}{bridging_the_gap.tex}
 
-% Panel 2 — Engineer 2 simplifies
-\comicpanel{6.5}{4}
-  {Engineer 1}
-  {Engineer 2}
-  {So... you're summing weighted functions of inputs again?}
-  {(.5,-0.5)}
+  %\part{Mathematical Structures}
+  %\subimport*{part/2_mathematical_structures/1_pythagorous}{pythagorous.tex}
+  %\subimport*{part/2_mathematical_structures/3_euclid}{euclid.tex}
+  %\subimport*{part/2_mathematical_structures/4_archamedes}{archamedes.tex}
+  %\subimport*{part/2_mathematical_structures/5_potolemy}{potolemy.tex}
+  %\subimport*{part/2_mathematical_structures/6_al_battani}{al_battani.tex}
+  %\subimport*{part/2_mathematical_structures/7_stevin}{stevin.tex}
+  %\subimport*{part/2_mathematical_structures/8_copernicus}{copernicus.tex}
+  %\subimport*{part/2_mathematical_structures/9_galileo}{galileo.tex}
+  %\subimport*{part/2_mathematical_structures/10_kepler}{kepler.tex}
+  %\subimport*{part/2_mathematical_structures/11_cavalieri}{cavalieri.tex}
+  %\subimport*{part/2_mathematical_structures/12_wallis}{wallis.tex}
+  %\subimport*{part/2_mathematical_structures/13_barrow}{barrow.tex}
+  %\subimport*{part/2_mathematical_structures/14_newton}{newton.tex}
+  %\subimport*{part/2_mathematical_structures/15_leibniz}{leibniz.tex}
+  %\subimport*{part/2_mathematical_structures/16_euler}{euler.tex}
+  %\subimport*{part/2_mathematical_structures/17_lagrange}{lagrange.tex}
+  %\subimport*{part/2_mathematical_structures/18_laplace}{laplace.tex}
+  %\subimport*{part/2_mathematical_structures/19_hamilton}{hamilton.tex}
+  %\subimport*{part/2_mathematical_structures/20_riemann}{riemann.tex}
+  %\subimport*{part/2_mathematical_structures/21_heavyside}{heavyside.tex}
+  %\subimport*{part/2_mathematical_structures/22_gibbs}{gibbs.tex}
+  %\subimport*{part/2_mathematical_structures/23_pontryagin}{pontryagin.tex}
 
-% Panel 3 — Engineer 1 gets even worse
-\comicpanel{0}{0}
-  {Engineer 1}
-  {Engineer 2}
-  {With Fourier-regularized signal priors injected through a learnable hyperkernel manifold.}
-  {(-0.7,-0.7)}
+  \part{Mathematical Analysis}
+  \subimport*{part/3_mathematical_analysis/1_eudoxus}{eudoxus.tex}
+  \subimport*{part/3_mathematical_analysis/2_euclid}{euclid.tex}
+  \subimport*{part/3_mathematical_analysis/3_archamedes}{archamedes.tex}
+  \subimport*{part/3_mathematical_analysis/4_stevin}{stevin.tex}
+  \subimport*{part/3_mathematical_analysis/5_napier}{napier.tex}
+  \subimport*{part/3_mathematical_analysis/6_cavalieri}{cavalieri.tex}
+  \subimport*{part/3_mathematical_analysis/7_wallis}{wallis.tex}
+  \subimport*{part/3_mathematical_analysis/8_barrow}{barrow.tex}
+  \subimport*{part/3_mathematical_analysis/9_cauchy}{cauchy.tex}
+  \subimport*{part/3_mathematical_analysis/10_riemann}{riemann.tex}
+  \subimport*{part/3_mathematical_analysis/11_fourier}{fourier.tex}
+  \subimport*{part/3_mathematical_analysis/12_weierstrass}{weierstrass.tex}
+  \subimport*{part/3_mathematical_analysis/13_dedekind}{dedekind.tex}
+  \subimport*{part/3_mathematical_analysis/14_cantor}{cantor.tex}
+  \subimport*{part/3_mathematical_analysis/15_borel}{borel.tex}
+  \subimport*{part/3_mathematical_analysis/16_lebesgue}{lebesgue.tex}
 
-% Panel 4 — Engineer 2 drops the truth
-\comicpanel{6.5}{0}
-  {Engineer 1}
-  {Engineer 2}
-  {Talking like that is why execs hire consultants to explain things to them. Please stop.}
-  {(0.7,-0.6)}
+  %\part{Mathematical Uncertainty}
+  %\subimport*{part/4_mathematical_uncertainty/1_kolmogorov}{kolmogorov.tex}
+  %\subimport*{part/4_mathematical_uncertainty/2_fisher}{fisher.tex}
+  %\subimport*{part/4_mathematical_uncertainty/3_shannon}{shannon.tex}
+  %\subimport*{part/4_mathematical_uncertainty/4_kullback_and_leibler}{kullback_and_leibler.tex}
+  %\subimport*{part/4_mathematical_uncertainty/5_jeffries}{jeffries.tex}
+  %\subimport*{part/4_mathematical_uncertainty/6_jordan}{jordan.tex}
+  %\subimport*{part/4_mathematical_uncertainty/7_amari}{amari.tex}
 
-\end{tikzpicture}
-\caption{Machine learning: just math with a hype wrapper.}
-\end{figure}
-\end{titlepage}
+  %\part{Mathematical Foundations}
+  %\subimport*{part/5_mathematical_foundations/1_plato}{plato.tex}
+  %\subimport*{part/5_mathematical_foundations/2_aristotle}{aristotle.tex}
+  %\subimport*{part/5_mathematical_foundations/3_plotinus}{plotinus.tex}
+  %\subimport*{part/5_mathematical_foundations/4_augustine}{augustine.tex}
+  %\subimport*{part/5_mathematical_foundations/5_aquinus}{aquinus.tex}
+  %\subimport*{part/5_mathematical_foundations/6_godel}{godel.tex}
+  %\subimport*{part/5_mathematical_foundations/7_mckay}{mckay.tex}
+  %\subimport*{part/5_mathematical_foundations/8_hoeffding}{hoeffding.tex}
+  %\subimport*{part/5_mathematical_foundations/9_wittgenstein}{wittgenstein.tex}
+  %\subimport*{part/5_mathematical_foundations/10_chaitin}{chaitin.tex}
 
-%\frontmatter
-\tableofcontents
+  %\part{Mathematical Computation}
+  %\subimport*{part/6_mathematical_computation/1_turing}{turing.tex}
+  %\subimport*{part/6_mathematical_computation/2_shannon}{shannon.tex}
+  %\subimport*{part/6_mathematical_computation/3_von_neumann}{von_neumann.tex}
+  %\subimport*{part/6_mathematical_computation/4_ulmann}{ulmann.tex}
+  %\subimport*{part/6_mathematical_computation/5_hopper}{hopper.tex}
+  %\subimport*{part/6_mathematical_computation/6_nash}{nash.tex}
+  %\subimport*{part/6_mathematical_computation/7_karp}{karp.tex}
+  %\subimport*{part/6_mathematical_computation/8_rossenblatt}{rossenblatt.tex}
+  %\subimport*{part/6_mathematical_computation/9_minskey}{minskey.tex}
+  %\subimport*{part/6_mathematical_computation/10_hinton}{hinton.tex}
+  %\subimport*{part/6_mathematical_computation/11_hopfield}{hopfield.tex}
+  %\subimport*{part/6_mathematical_computation/12_sejnowski}{sejnowski.tex}
+  %\subimport*{part/6_mathematical_computation/13_yann_lecun}{yann_lecun.tex}
+  %\subimport*{part/6_mathematical_computation/14_hinton}{hinton.tex}
+  %\subimport*{part/6_mathematical_computation/15_hochreiter}{hochreiter.tex}
+  %\subimport*{part/6_mathematical_computation/16_alexnet}{alexnet.tex}
+  %\subimport*{part/6_mathematical_computation/17_harris}{harris.tex}
+  %\subimport*{part/6_mathematical_computation/18_vaswani}{vaswani.tex}
+  %\subimport*{part/6_mathematical_computation/19_yann_lecun}{yann_lecun.tex}
+  %\subimport*{part/6_mathematical_computation/20_shwartz}{shwartz.tex}
 
-%\mainmatter % <--- This starts chapter numbering at 1
+  %\part{A Practical Use Case in High Frequency Trading}
+  %\input{part/7_a_practical_use_case/modern_age_2.tex}
+  %\input{part/7_a_practical_use_case/hft_introduction.tex}
+  %\input{part/7_a_practical_use_case/avoiding_correlation_3.tex}
+  %\input{part/7_a_practical_use_case/adaptive_models_2.tex}
+  %\input{part/7_a_practical_use_case/how_to_train_a_neural_network.tex}
+  %\input{part/7_a_practical_use_case/how_to_verify_a_neural_network.tex}
+  %\input{part/7_a_practical_use_case/choosing_the_right_verifier.tex}
+  %\input{part/7_a_practical_use_case/processor_type_and_ecosystem.tex}
+  %\input{part/7_a_practical_use_case/the_economics_of_training_a_neural_network.tex}
+  %\input{part/7_a_practical_use_case/a_use_case_example.tex}
+  %\input{part/7_a_practical_use_case/godels_revenge.tex}
+  %\input{part/7_a_practical_use_case/conclusion}
 
-\newpage
-
-%\part{Introduction}
-%\subimport*{section/1_bridging_the_gap}{bridging_the_gap.tex}
-
-%\part{Mathematical Structures}
-%\subimport*{part/2_mathematical_structures/1_pythagorous}{pythagorous.tex}
-%\subimport*{part/2_mathematical_structures/2_eudoxus}{eudoxus.tex}
-%\subimport*{part/2_mathematical_structures/3_euclid}{euclid.tex}
-%\subimport*{part/2_mathematical_structures/4_archamedes}{archamedes.tex}
-%\subimport*{part/2_mathematical_structures/5_potolemy}{potolemy.tex}
-%\subimport*{part/2_mathematical_structures/6_al_battani}{al_battani.tex}
-%\subimport*{part/2_mathematical_structures/7_stevin}{stevin.tex}
-%\subimport*{part/2_mathematical_structures/8_copernicus}{copernicus.tex}
-%\subimport*{part/2_mathematical_structures/9_galileo}{galileo.tex}
-%\subimport*{part/2_mathematical_structures/10_kepler}{kepler.tex}
-%\subimport*{part/2_mathematical_structures/11_cavalieri}{cavalieri.tex}
-%\subimport*{part/2_mathematical_structures/12_wallis}{wallis.tex}
-%\subimport*{part/2_mathematical_structures/13_barrow}{barrow.tex}
-%\subimport*{part/2_mathematical_structures/14_newton}{newton.tex}
-%\subimport*{part/2_mathematical_structures/15_leibniz}{leibniz.tex}
-%\subimport*{part/2_mathematical_structures/16_euler}{euler.tex}
-%\subimport*{part/2_mathematical_structures/17_lagrange}{lagrange.tex}
-%\subimport*{part/2_mathematical_structures/18_laplace}{laplace.tex}
-%\subimport*{part/2_mathematical_structures/19_hamilton}{hamilton.tex}
-%\subimport*{part/2_mathematical_structures/20_riemann}{riemann.tex}
-%\subimport*{part/2_mathematical_structures/21_heavyside}{heavyside.tex}
-%\subimport*{part/2_mathematical_structures/22_gibbs}{gibbs.tex}
-\subimport*{part/2_mathematical_structures/23_pontryagin}{pontryagin.tex}
-
-%\part{Mathematical Analysis}
-%\subimport*{part/3_mathematical_analysis/1_cauchy}{cauchy.tex}
-%\subimport*{part/3_mathematical_analysis/2_fourier}{fourier.tex}
-%\subimport*{part/3_mathematical_analysis/3_riemann}{riemann.tex}
-%\subimport*{part/3_mathematical_analysis/4_weierstrass}{weierstrass.tex}
-%\subimport*{part/3_mathematical_analysis/5_dedekind}{dedekind.tex}
-%\subimport*{part/3_mathematical_analysis/6_cantor}{cantor.tex}
-%\subimport*{part/3_mathematical_analysis/7_borel}{borel.tex}
-%\subimport*{part/3_mathematical_analysis/8_lebesgue}{lebesgue.tex}
-
-%\part{Mathematical Uncertainty}
-%\subimport*{part/4_mathematical_uncertainty/1_kolmogorov}{kolmogorov.tex}
-%\subimport*{part/4_mathematical_uncertainty/2_fisher}{fisher.tex}
-%\subimport*{part/4_mathematical_uncertainty/3_shannon}{shannon.tex}
-%\subimport*{part/4_mathematical_uncertainty/4_kullback_and_leibler}{kullback_and_leibler.tex}
-%\subimport*{part/4_mathematical_uncertainty/5_jeffries}{jeffries.tex}
-%\subimport*{part/4_mathematical_uncertainty/6_jordan}{jordan.tex}
-%\subimport*{part/4_mathematical_uncertainty/7_amari}{amari.tex}
-
-%\part{Mathematical Foundations}
-%\subimport*{part/5_mathematical_foundations/1_plato}{plato.tex}
-%\subimport*{part/5_mathematical_foundations/2_aristotle}{aristotle.tex}
-%\subimport*{part/5_mathematical_foundations/3_plotinus}{plotinus.tex}
-%\subimport*{part/5_mathematical_foundations/4_augustine}{augustine.tex}
-%\subimport*{part/5_mathematical_foundations/5_aquinus}{aquinus.tex}
-%\subimport*{part/5_mathematical_foundations/6_godel}{godel.tex}
-%\subimport*{part/5_mathematical_foundations/7_mckay}{mckay.tex}
-%\subimport*{part/5_mathematical_foundations/8_hoeffding}{hoeffding.tex}
-%\subimport*{part/5_mathematical_foundations/9_wittgenstein}{wittgenstein.tex}
-%\subimport*{part/5_mathematical_foundations/10_chaitin}{chaitin.tex}
-
-%\part{Mathematical Computation}
-%\subimport*{part/6_mathematical_computation/1_turing}{turing.tex}
-%\subimport*{part/6_mathematical_computation/2_shannon}{shannon.tex}
-%\subimport*{part/6_mathematical_computation/3_von_neumann}{von_neumann.tex}
-%\subimport*{part/6_mathematical_computation/4_ulmann}{ulmann.tex}
-%\subimport*{part/6_mathematical_computation/5_hopper}{hopper.tex}
-%\subimport*{part/6_mathematical_computation/6_nash}{nash.tex}
-%\subimport*{part/6_mathematical_computation/7_karp}{karp.tex}
-%\subimport*{part/6_mathematical_computation/8_rossenblatt}{rossenblatt.tex}
-%\subimport*{part/6_mathematical_computation/9_minskey}{minskey.tex}
-%\subimport*{part/6_mathematical_computation/10_hinton}{hinton.tex}
-%\subimport*{part/6_mathematical_computation/11_hopfield}{hopfield.tex}
-%\subimport*{part/6_mathematical_computation/12_sejnowski}{sejnowski.tex}
-%\subimport*{part/6_mathematical_computation/13_yann_lecun}{yann_lecun.tex}
-%\subimport*{part/6_mathematical_computation/14_hinton}{hinton.tex}
-%\subimport*{part/6_mathematical_computation/15_hochreiter}{hochreiter.tex}
-%\subimport*{part/6_mathematical_computation/16_alexnet}{alexnet.tex}
-%\subimport*{part/6_mathematical_computation/17_harris}{harris.tex}
-%\subimport*{part/6_mathematical_computation/18_vaswani}{vaswani.tex}
-%\subimport*{part/6_mathematical_computation/19_yann_lecun}{yann_lecun.tex}
-%\subimport*{part/6_mathematical_computation/20_shwartz}{shwartz.tex}
-
-%\part{A Practical Use Case in High Frequency Trading}
-%\input{part/7_a_practical_use_case/modern_age_2.tex}
-%\input{part/7_a_practical_use_case/hft_introduction.tex}
-%\input{part/7_a_practical_use_case/avoiding_correlation_3.tex}
-%\input{part/7_a_practical_use_case/adaptive_models_2.tex}
-%\input{part/7_a_practical_use_case/how_to_train_a_neural_network.tex}
-%\input{part/7_a_practical_use_case/how_to_verify_a_neural_network.tex}
-%\input{part/7_a_practical_use_case/choosing_the_right_verifier.tex}
-%\input{part/7_a_practical_use_case/processor_type_and_ecosystem.tex}
-%\input{part/7_a_practical_use_case/the_economics_of_training_a_neural_network.tex}
-%\input{part/7_a_practical_use_case/a_use_case_example.tex}
-%\input{part/7_a_practical_use_case/godels_revenge.tex}
-%\input{part/7_a_practical_use_case/conclusion}
-
-%\part{Appendix}
-%\input{part/8_appendix/0_the_real_ml_pipeline.tex}
-%\input{part/8_appendix/1_you_probably_dont_believe_how_bad_it_gets.tex}
-%\input{part/8_appendix/2_modularity.tex}
+  %\part{Appendix}
+  %\input{part/8_appendix/0_the_real_ml_pipeline.tex}
+  %\input{part/8_appendix/1_you_probably_dont_believe_how_bad_it_gets.tex}
+  %\input{part/8_appendix/2_modularity.tex}
 
 \end{document}
