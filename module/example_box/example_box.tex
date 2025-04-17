@@ -1,0 +1,18 @@
+\tcbset{
+  examplebox/.style={
+    colback=gray!5!white,
+    colframe=gray!75!black,
+    fonttitle=\bfseries,
+    coltitle=black,
+    title=Example,
+    sharp corners,
+    boxrule=0.5pt,
+    leftrule=0pt,
+    rightrule=0pt,
+    bottomrule=0pt,
+    toptitle=1mm,
+    bottomtitle=1mm,
+  }
+}
+
+\newtcolorbox{example}[1][]{examplebox, #1}

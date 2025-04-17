@@ -1,0 +1,38 @@
+\section{Karp}
+
+
+
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=black, title=\textbf{Sidebar: When Nash Met Complexity Theory (2005)}]
+
+    \textbf{Computing a Nash equilibrium is hard.} For decades, game theorists knew that Nash equilibria existed — thanks to John Nash’s 1950s proof using fixed-point theorems — but no one knew how efficiently they could be found.
+    
+    That changed in \textbf{2005}, when a trio of computer scientists — \textbf{Constantinos Daskalakis}, \textbf{Paul Goldberg}, and \textbf{Christos Papadimitriou} — delivered a complexity-theoretic bombshell: 
+    
+    \begin{quote}
+    \textit{Computing a Nash equilibrium is \textbf{PPAD-complete}.}
+    \end{quote}
+    
+    \vspace{0.5em}
+    
+    \textbf{What does that mean?}
+    \begin{itemize}
+        \item It's not known to be in \textbf{P} (i.e., solvable in polynomial time).
+        \item It's likely \textbf{not NP-complete} either — it's in a different complexity class altogether.
+        \item But for large systems? It's still \textbf{computationally intractable}.
+    \end{itemize}
+    
+    The result effectively shattered any lingering hope that Nash equilibria could be found efficiently in all games — and instead spurred a wave of research into \textbf{approximate solutions}. 
+    
+    This shift toward approximation laid the groundwork for modern methods like:
+    \begin{itemize}
+        \item \textbf{Neural networks} in multi-agent systems
+        \item \textbf{Reinforcement learning} with strategic environments
+        \item \textbf{Gradient-based learning} in games and auctions
+    \end{itemize}
+    
+    \vspace{0.5em}
+    
+    \textbf{Legacy:} What began as an abstract mathematical notion of “no one has an incentive to deviate” became a crucible for algorithmic hardness — and ironically, also a catalyst for neural learning methods that thrive where traditional computation falters.
+    
+\end{tcolorbox}

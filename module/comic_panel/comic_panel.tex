@@ -1,0 +1,40 @@
+\newcommand{\comicpanel}[6]{
+  % === PARAMETER EXPLANATION ===
+  % #1: x-shift — Horizontal panel position
+  % #2: y-shift — Vertical panel position
+  % #3: left character label (always shown below left stick figure)
+  % #4: right character label (always shown below right stick figure)
+  % #5: callout text
+  % #6: callout pointer (relative to callout box)
+
+  % === PANEL BOX ===
+  \draw[thick] (#1,#2) rectangle ++(6,4);
+
+  % === LEFT STICK FIGURE ===
+  \begin{scope}[shift={(#1+1.2,#2+1.0)}]
+    \draw (0,1) circle (0.2);
+    \draw (0,0.8) -- (0,0);
+    \draw (0,0.6) -- (-0.3,0.3);
+    \draw (0,0.6) -- (0.3,0.3);
+    \draw (0,0) -- (-0.2,-0.5);
+    \draw (0,0) -- (0.2,-0.5);
+    \node[below=2pt] at (0,-0.5) {\scriptsize \textbf{#3}};
+  \end{scope}
+
+  % === RIGHT STICK FIGURE ===
+  \begin{scope}[shift={(#1+4.7,#2+1.0)}]
+    \draw (0,1) circle (0.2);
+    \draw (0,0.8) -- (0,0);
+    \draw (0,0.6) -- (-0.3,0.3);
+    \draw (0,0.6) -- (0.3,0.3);
+    \draw (0,0) -- (-0.2,-0.5);
+    \draw (0,0) -- (0.2,-0.5);
+    \node[below=2pt] at (0,-0.5) {\scriptsize \textbf{#4}};
+  \end{scope}
+
+  % === SPEECH BUBBLE ===
+  \node[draw, rectangle callout, rounded corners=2pt,
+        callout relative pointer={#6},
+        text width=4.5cm, align=left] 
+        at (#1+3,#2+3.2) {#5};
+}

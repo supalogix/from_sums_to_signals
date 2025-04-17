@@ -188,69 +188,11 @@
 
 
 
-\newcommand{\comicpanel}[6]{
-  % === PARAMETER EXPLANATION ===
-  % #1: x-shift — Horizontal panel position
-  % #2: y-shift — Vertical panel position
-  % #3: left character label (always shown below left stick figure)
-  % #4: right character label (always shown below right stick figure)
-  % #5: callout text
-  % #6: callout pointer (relative to callout box)
-
-  % === PANEL BOX ===
-  \draw[thick] (#1,#2) rectangle ++(6,4);
-
-  % === LEFT STICK FIGURE ===
-  \begin{scope}[shift={(#1+1.2,#2+1.0)}]
-    \draw (0,1) circle (0.2);
-    \draw (0,0.8) -- (0,0);
-    \draw (0,0.6) -- (-0.3,0.3);
-    \draw (0,0.6) -- (0.3,0.3);
-    \draw (0,0) -- (-0.2,-0.5);
-    \draw (0,0) -- (0.2,-0.5);
-    \node[below=2pt] at (0,-0.5) {\scriptsize \textbf{#3}};
-  \end{scope}
-
-  % === RIGHT STICK FIGURE ===
-  \begin{scope}[shift={(#1+4.7,#2+1.0)}]
-    \draw (0,1) circle (0.2);
-    \draw (0,0.8) -- (0,0);
-    \draw (0,0.6) -- (-0.3,0.3);
-    \draw (0,0.6) -- (0.3,0.3);
-    \draw (0,0) -- (-0.2,-0.5);
-    \draw (0,0) -- (0.2,-0.5);
-    \node[below=2pt] at (0,-0.5) {\scriptsize \textbf{#4}};
-  \end{scope}
-
-  % === SPEECH BUBBLE ===
-  \node[draw, rectangle callout, rounded corners=2pt,
-        callout relative pointer={#6},
-        text width=4.5cm, align=left] 
-        at (#1+3,#2+3.2) {#5};
-}
 
 
 
 \usepackage[most]{tcolorbox}
 
-\tcbset{
-  examplebox/.style={
-    colback=gray!5!white,
-    colframe=gray!75!black,
-    fonttitle=\bfseries,
-    coltitle=black,
-    title=Example,
-    sharp corners,
-    boxrule=0.5pt,
-    leftrule=0pt,
-    rightrule=0pt,
-    bottomrule=0pt,
-    toptitle=1mm,
-    bottomtitle=1mm,
-  }
-}
-
-\newtcolorbox{example}[1][]{examplebox, #1}
 
 
 \usepackage{setspace}  % for line spacing
@@ -262,34 +204,6 @@
 \usepackage{setspace}
 \usepackage{xcolor}
 
-\renewenvironment{quote}
-  {
-    \par\vspace{2em}
-    \noindent
-    \begin{tikzpicture}[remember picture, overlay]
-      % Giant left quote mark (top-left)
-      \node[anchor=north west, font=\fontsize{60}{60}\selectfont\color{gray!40}]
-        at ([xshift=-1em,yshift=1.5em]0,0) {``};
-    \end{tikzpicture}
-
-    \begin{list}{}{\leftmargin=3em \rightmargin=3em}
-    \item\relax
-    \color{black!70}
-    \bfseries\itshape
-    \begin{spacing}{1.3}
-    \fontsize{12pt}{16pt}\selectfont % ← placed correctly here
-  }
-  {
-    \end{spacing}
-    \end{list}
-
-    % Giant right quote mark (bottom-right)
-    \begin{tikzpicture}[remember picture, overlay]
-      \node[anchor=south east, font=\fontsize{60}{60}\selectfont\color{gray!40}]
-        at ([xshift=1em,yshift=-1.2em]\textwidth,0) {''};
-    \end{tikzpicture}
-    \par\vspace{0.25em}
-  }
 
 
 
@@ -298,6 +212,10 @@
 
 
 
+\subimport*{module/quote}{quote.tex}
+\subimport*{module/example_box}{example_box.tex}
+\subimport*{module/comic_panel}{comic_panel.tex}
+\subimport*{module/footer}{footer.tex}
 
 
 
@@ -305,11 +223,6 @@
 
 
 
-\renewcommand{\headrulewidth}{0pt}
-% Define copyright notice in the footer
-\fancyhead[R]{\thepage} % Centered page number
-\fancyfoot[L]{\small \textcopyright~2025 Jonathan Nacionales}
-\fancyfoot[R]{\small jnaciona@gmail.com | 310.227.5510}
 
 
 
@@ -426,7 +339,7 @@
 %\subimport*{part/2_mathematical_structures/20_riemann}{riemann.tex}
 %\subimport*{part/2_mathematical_structures/21_heavyside}{heavyside.tex}
 %\subimport*{part/2_mathematical_structures/22_gibbs}{gibbs.tex}
-%\subimport*{part/2_mathematical_structures/23_hilbert}{hilbert.tex}
+\subimport*{part/2_mathematical_structures/23_pontryagin}{pontryagin.tex}
 
 %\part{Mathematical Analysis}
 %\subimport*{part/3_mathematical_analysis/1_cauchy}{cauchy.tex}
@@ -464,21 +377,22 @@
 %\subimport*{part/6_mathematical_computation/2_shannon}{shannon.tex}
 %\subimport*{part/6_mathematical_computation/3_von_neumann}{von_neumann.tex}
 %\subimport*{part/6_mathematical_computation/4_ulmann}{ulmann.tex}
-%\subimport*{part/6_mathematical_computation/5_nash}{nash.tex}
-%\subimport*{part/6_mathematical_computation/6_pontryagin}{pontryagin.tex}
-%\subimport*{part/6_mathematical_computation/7_rossenblatt}{rossenblatt.tex}
-%\subimport*{part/6_mathematical_computation/8_minskey}{minskey.tex}
-%\subimport*{part/6_mathematical_computation/9_hinton}{hinton.tex}
-%\subimport*{part/6_mathematical_computation/10_hopfield}{hopfield.tex}
-%\subimport*{part/6_mathematical_computation/11_sejnowski}{sejnowski.tex}
-%\subimport*{part/6_mathematical_computation/12_yann_lecun}{yann_lecun.tex}
-%\subimport*{part/6_mathematical_computation/13_hinton}{hinton.tex}
-%\subimport*{part/6_mathematical_computation/14_hochreiter}{hochreiter.tex}
-%\subimport*{part/6_mathematical_computation/15_alexnet}{alexnet.tex}
-%\subimport*{part/6_mathematical_computation/16_harris}{harris.tex}
-%\subimport*{part/6_mathematical_computation/17_vaswani}{vaswani.tex}
-%\subimport*{part/6_mathematical_computation/18_yann_lecun}{yann_lecun.tex}
-%\subimport*{part/6_mathematical_computation/19_shwartz}{shwartz.tex}
+%\subimport*{part/6_mathematical_computation/5_hopper}{hopper.tex}
+%\subimport*{part/6_mathematical_computation/6_nash}{nash.tex}
+%\subimport*{part/6_mathematical_computation/7_karp}{karp.tex}
+%\subimport*{part/6_mathematical_computation/8_rossenblatt}{rossenblatt.tex}
+%\subimport*{part/6_mathematical_computation/9_minskey}{minskey.tex}
+%\subimport*{part/6_mathematical_computation/10_hinton}{hinton.tex}
+%\subimport*{part/6_mathematical_computation/11_hopfield}{hopfield.tex}
+%\subimport*{part/6_mathematical_computation/12_sejnowski}{sejnowski.tex}
+%\subimport*{part/6_mathematical_computation/13_yann_lecun}{yann_lecun.tex}
+%\subimport*{part/6_mathematical_computation/14_hinton}{hinton.tex}
+%\subimport*{part/6_mathematical_computation/15_hochreiter}{hochreiter.tex}
+%\subimport*{part/6_mathematical_computation/16_alexnet}{alexnet.tex}
+%\subimport*{part/6_mathematical_computation/17_harris}{harris.tex}
+%\subimport*{part/6_mathematical_computation/18_vaswani}{vaswani.tex}
+%\subimport*{part/6_mathematical_computation/19_yann_lecun}{yann_lecun.tex}
+%\subimport*{part/6_mathematical_computation/20_shwartz}{shwartz.tex}
 
 %\part{A Practical Use Case in High Frequency Trading}
 %\input{part/7_a_practical_use_case/modern_age_2.tex}
