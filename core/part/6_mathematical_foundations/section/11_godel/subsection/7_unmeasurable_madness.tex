@@ -1,0 +1,120 @@
+\subsection{Unmeasurable Madness: Why the Vitali Set Breaks Signal Processing}
+
+A function defined over a Vitali set may technically exist, but it's not something we can sample, analyze, or reconstruct. There is no meaningful way to define its average value over any interval, because those intervals contain unmeasurable subsets. There is no total energy, because the integral that would define it can't be evaluated. Even the idea of plotting it—visualizing it on a screen—becomes meaningless, because the signal doesn't exist over a structure that supports length, area, or continuity.
+
+This is where Gödel and Vitali collide with information theory. \textbf{Not all functions are reconstructible. Not because we lack bandwidth or resolution—but because, in a deep mathematical sense, some signals simply defy structure.} They live in logical shadows: formally present, but physically inaccessible.
+
+So while Shannon showed us how to digitize the infinite, Vitali reminds us that some parts of the infinite are beyond digitization altogether.
+
+\begin{quote}
+Sampling assumes measurability. Vitali sets exist to show what happens when you take that away.
+\end{quote}
+
+Now here’s where things get weird: whether or not Vitali sets (and other non-measurable monsters) exist depends on your set-theoretic universe. If you assume the Continuum Hypothesis and the Axiom of Choice, these sets exist. But if you reject CH and adopt determinacy axioms instead, \emph{every subset of \(\mathbb{R}\) becomes measurable}.
+
+This might sound like a philosophical nuisance—until you realize that it has real implications for how we define and manipulate functions in information theory.
+
+But the notion of “integrable” here depends on Lebesgue measure, which in turn assumes we’re only dealing with \emph{measurable} functions.
+
+But what if the “signal” we’re trying to reconstruct includes a Vitali set in its support? Or worse, what if the underlying probability distribution (over which we compute entropy) is defined on a non-measurable subset of the reals?
+
+\begin{itemize}
+  \item Under some models (CH + Axiom of Choice), such sets exist and break our assumptions about integration.
+  \item Under other models (¬CH + Determinacy), these pathologies vanish: all sets are measurable, and entropy is always well-defined.
+\end{itemize}
+
+This means that your ability to \textbf{measure uncertainty, define entropy, or reconstruct a signal} can depend on which version of set theory you believe in.
+
+\begin{example}[title={When Entropy Breaks: A Distribution on a Vitali Set}]
+Let’s say you want to define a random variable \( X \) that takes values in the interval \([0,1]\), and you want to compute its entropy:
+\[
+H(X) = -\int_{[0,1]} p(x) \log_2 p(x)\, dx
+\]
+\\
+This works perfectly—\emph{if} \( p(x) \) is defined over a measurable subset of \([0,1]\). But now suppose we define \( X \) to be “uniform” over a \textbf{Vitali set} \( V \subset [0,1] \):
+\begin{itemize}
+  \item Let \( p(x) = c \) for \( x \in V \), and 0 otherwise.
+  \item Choose \( c \) so that \( \int_V p(x)\, dx = 1 \).
+\end{itemize}
+\ \\
+Here’s the problem:
+\begin{itemize}
+  \item The set \( V \) is \emph{not} Lebesgue measurable.
+  \item The integral \( \int_V p(x)\, dx \) is undefined.
+  \item Therefore, \( H(X) \) cannot be evaluated in any meaningful way.
+\end{itemize}
+\ \\
+\textbf{Conclusion:} If a probability distribution is defined on a non-measurable set, then entropy—along with expectation, variance, and most tools of analysis—completely breaks down. The distribution may “exist,” but it defies integration, structure, and interpretation.
+\ \\
+\begin{quote}
+A probability over a Vitali set isn’t just hard to compute—it’s fundamentally outside the bounds of measurement.
+\end{quote}
+\end{example}
+
+\vspace{1em}
+\textbf{Gödel’s Theorem and the Unknowability of Measurement}
+
+Gödel’s incompleteness theorem ensures that questions like the Continuum Hypothesis cannot be settled from within standard mathematics (ZFC). That means whether Vitali-like sets exist is not just unknown—it’s \emph{unknowable}.
+
+And so, ironically, even though information theory was born to measure uncertainty, we now know that there are forms of uncertainty it \emph{cannot measure}—not due to noise or lack of data, but due to the foundational limits of mathematics itself.
+
+\begin{quote}
+\textbf{The lesson:} Information theory may tell us how to transmit, compress, and recover data—but Gödel and Cantor remind us there are questions even perfect data can’t answer.
+\end{quote}
+
+
+\begin{tcolorbox}[title={\faBookmark\hspace{0.5em}Historical Sidebar: Bayesian Priors and the Convenient Lie of Continuity}, colback=gray!5, colframe=black, fonttitle=\bfseries]
+  In the sacred scrolls of Bayesian machine learning, you’ll often find a noble creed:
+  
+  \begin{quote}
+  \emph{“Let \(p(\theta)\) be a prior distribution over the parameter space \(\Theta \subseteq \mathbb{R}^n\), assumed continuous and absolutely integrable.”}
+  \end{quote}
+  
+  And everyone nods, as though we all naturally believe that real-world beliefs can be smeared smoothly over \(\mathbb{R}^n\) like organic almond butter.
+
+  \medskip
+  
+  But here’s what really happens:
+
+  \medskip
+
+  \begin{itemize}
+    \item The \textbf{prior} is chosen for computational convenience (\emph{“Let's just use a Gaussian—it’s conjugate, bro”}).
+    \item The \textbf{posterior} is often intractable and gets approximated with \textbf{variational inference}, \textbf{MCMC}, or \emph{a hope and a prayer}.
+    \item The \textbf{integration}? Done numerically over floating-point buckets, not over anything remotely “continuous.”
+  \end{itemize}
+
+  \medskip
+  
+  \textbf{Enter: the Continuum Hypothesis.}
+
+  \medskip
+  
+  Whether \(|\mathbb{R}| = \aleph_1\) (CH) or not could, in theory, influence:
+
+  \medskip
+
+  \begin{itemize}
+    \item Whether your space of priors includes some monstrous, non-measurable ones.
+    \item Whether certain posterior expectations \emph{exist}, \emph{converge}, or are \emph{representable}.
+  \end{itemize}
+
+  \medskip
+  
+  But do we check that? Of course not.  Instead, we say things like:
+
+  \begin{quote}
+  \emph{“Let \(\theta \sim \mathcal{N}(0, I)\), and by the grace of the prior gods, KL divergence will guide our variational family home.”}
+  \end{quote}
+  
+  In other words: \textbf{We build a religion on a measure-theoretic temple, decorate it with smooth Gaussians, and pray no set theorist asks for proof of our axioms.}
+\end{tcolorbox}
+
+
+
+
+
+
+
+
+

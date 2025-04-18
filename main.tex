@@ -1,76 +1,7 @@
 \documentclass{article}
-\usepackage{amssymb, amsmath}
-\usepackage{amsthm}
-\usepackage[T1]{fontenc}  % Proper encoding for text
-\usepackage[utf8]{inputenc} % Handles UTF-8 encoding (for most special characters)
-\usepackage{lmodern} % Modern font to avoid encoding issues
-\usepackage{parskip} % Removes indentation and adds space between paragraphs
-\usepackage{amsmath}
-\usepackage{tikz}
-\usetikzlibrary{matrix,arrows}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}  % Ensures compatibility with the latest PGFPlots version
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{titlesec}
-\usepackage{makecell}
-\usetikzlibrary{positioning}
-\usepackage{dot2texi} % Enable Graphviz inside LaTeX
-\usetikzlibrary{shapes,arrows}
-\usepackage{fancyhdr}
-\pagestyle{fancy}  % Set page style to fancy
-\fancyhf{}         % Clear default header/footer
-\usetikzlibrary{trees, arrows.meta, matrix, decorations.pathreplacing}
-\usetikzlibrary{trees, arrows.meta}
-\usetikzlibrary{positioning, shapes.callouts}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{float}
-\usepackage{bussproofs}
-\usepackage{lmodern}
-\usepackage{geometry}
-\usepackage{xcolor}
-\usepackage[most]{tcolorbox}
-\usepackage{tikzpeople}
-\usepackage{ifthen} % Required for \ifthenelse
-\usetikzlibrary{calc, arrows.meta, positioning}
-\usetikzlibrary{matrix}
-\usepackage{setspace}
-\usepackage{tikz-cd}
-\usetikzlibrary{fit, positioning, shapes}
 \usepackage{import}
-\usepackage{pgfgantt}
-\usepackage{tabularx}  % Add this to your preamble
-\usepackage[most]{tcolorbox} % add to your preamble
-\tcbuselibrary{listings}
-\usepackage{luamplib}
-\usepackage{fontspec}
-%\setmainfont{TeX Gyre Termes}
-\usepackage{polyglossia}
-\usepackage{pifont}
-\usepackage{listings}
-\usepackage{color}
-\usepackage{caption}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage[utf8]{inputenc}
-\usepackage{caption}
-\usepackage{etoolbox} % Needed for patching commands
-\usepackage{etoolbox}
-\usepackage{xcolor}
-\usepackage{lipsum} % Optional, for testing
-\usepackage{graphicx}
-\usepackage{needspace}
-\usepackage[most]{tcolorbox}
-\usepackage{setspace}  % for line spacing
-\usepackage{tikz}
-\usepackage{setspace}
-\usepackage{xcolor}
-\usepackage[most]{tcolorbox}
-\tcbuselibrary{skins, breakable}
 
-
-
+\subimport*{core/package}{package.tex}
 
 \setmainlanguage{english}
 \setotherlanguage{greek}
@@ -101,119 +32,14 @@
 
   \newpage
 
-  %\part{Introduction}
-  %\subimport*{part/1_introduction/1_bridging_the_gap}{bridging_the_gap.tex}
 
-  %\part{Mathematical Structures}
-  %\subimport*{part/2_mathematical_structures/0_ontology}{ontology.tex}
-  %\subimport*{part/2_mathematical_structures/1_pythagorous}{pythagorous.tex}
-  %\subimport*{part/2_mathematical_structures/2_potolemy}{potolemy.tex}
-  %\subimport*{part/2_mathematical_structures/3_al_battani}{al_battani.tex}
-  %\subimport*{part/2_mathematical_structures/4_regiomontanus}{regiomontanus.tex}
-  %\subimport*{part/2_mathematical_structures/5_copernicus}{copernicus.tex}
-  %\subimport*{part/2_mathematical_structures/6_galileo}{galileo.tex}
-  %\subimport*{part/2_mathematical_structures/7_kepler}{kepler.tex}
-  %\subimport*{part/2_mathematical_structures/8_newton}{newton.tex}
-  %\subimport*{part/2_mathematical_structures/9_leibniz}{leibniz.tex}
-  %\subimport*{part/2_mathematical_structures/10_euler}{euler.tex}
-  %\subimport*{part/2_mathematical_structures/11_lagrange}{lagrange.tex}
-  %\subimport*{part/2_mathematical_structures/12_laplace}{laplace.tex}
-  %\subimport*{part/2_mathematical_structures/13_hamilton}{hamilton.tex}
-  %\subimport*{part/2_mathematical_structures/14_riemann}{riemann.tex}
-  %\subimport*{part/2_mathematical_structures/15_heavyside}{heavyside.tex}
-  %\subimport*{part/2_mathematical_structures/16_gibbs}{gibbs.tex}
-  %\subimport*{part/2_mathematical_structures/17_pontryagin}{pontryagin.tex}
-
-  %\part{Mathematical Analysis}
-  %\subimport*{part/3_mathematical_analysis/0_epistomology}{epistomology.tex}
-  %\subimport*{part/3_mathematical_analysis/1_eudoxus}{eudoxus.tex}
-  %\subimport*{part/3_mathematical_analysis/2_euclid}{euclid.tex}
-  %\subimport*{part/3_mathematical_analysis/3_archamedes}{archamedes.tex}
-  %\subimport*{part/3_mathematical_analysis/4_stevin}{stevin.tex}
-  %\subimport*{part/3_mathematical_analysis/5_napier}{napier.tex}
-  %\subimport*{part/3_mathematical_analysis/6_cavalieri}{cavalieri.tex}
-  %\subimport*{part/3_mathematical_analysis/7_wallis}{wallis.tex}
-  %\subimport*{part/3_mathematical_analysis/8_barrow}{barrow.tex}
-  %\subimport*{part/3_mathematical_analysis/9_cauchy}{cauchy.tex}
-  %\subimport*{part/3_mathematical_analysis/10_riemann}{riemann.tex}
-  %\subimport*{part/3_mathematical_analysis/11_fourier}{fourier.tex}
-  %\subimport*{part/3_mathematical_analysis/12_weierstrass}{weierstrass.tex}
-  %\subimport*{part/3_mathematical_analysis/13_dedekind}{dedekind.tex}
-  %\subimport*{part/3_mathematical_analysis/14_cantor}{cantor.tex}
-  %\subimport*{part/3_mathematical_analysis/15_borel}{borel.tex}
-  %\subimport*{part/3_mathematical_analysis/16_lebesgue}{lebesgue.tex}
-  \subimport*{part/3_mathematical_analysis/17_kolmogorov}{kolmogorov.tex}
-
-  %\part{Mathematical Uncertainty}
-  %\subimport*{part/4_mathematical_uncertainty/0_praxeology}{praxeology.tex}
-  %\subimport*{part/4_mathematical_uncertainty/1_laplace}{laplace.tex}
-  %\subimport*{part/4_mathematical_uncertainty/2_boole}{boole.tex}
-  %\subimport*{part/4_mathematical_uncertainty/3_venn}{venn.tex}
-  %\subimport*{part/4_mathematical_uncertainty/4_fisher}{fisher.tex}
-  %\subimport*{part/4_mathematical_uncertainty/5_shannon}{shannon.tex}
-  %\subimport*{part/4_mathematical_uncertainty/6_kullback_and_leibler}{kullback_and_leibler.tex}
-  %\subimport*{part/4_mathematical_uncertainty/7_jeffries}{jeffries.tex}
-  %\subimport*{part/4_mathematical_uncertainty/8_nash}{nash.tex}
-  %\subimport*{part/4_mathematical_uncertainty/9_jordan}{jordan.tex}
-  %\subimport*{part/4_mathematical_uncertainty/10_amari}{amari.tex}
-
-  %\part{Mathematical Foundations}
-  %\subimport*{part/5_mathematical_foundations/0_metaphysics}{metaphysics.tex}
-  %\subimport*{part/5_mathematical_foundations/1_plato}{plato.tex}
-  %\subimport*{part/5_mathematical_foundations/2_aristotle}{aristotle.tex}
-  %\subimport*{part/5_mathematical_foundations/3_plotinus}{plotinus.tex}
-  %\subimport*{part/5_mathematical_foundations/4_augustine}{augustine.tex}
-  %\subimport*{part/5_mathematical_foundations/5_aquinus}{aquinus.tex}
-  %\subimport*{part/5_mathematical_foundations/6_russell}{russell.tex}
-  %\subimport*{part/5_mathematical_foundations/7_godel}{godel.tex}
-  %\subimport*{part/5_mathematical_foundations/8_quine}{quine.tex}
-  %\subimport*{part/5_mathematical_foundations/9_carnap}{carnap.tex}
-  %\subimport*{part/5_mathematical_foundations/10_wittgenstein}{wittgenstein.tex}
-  %\subimport*{part/5_mathematical_foundations/11_chaitin}{chaitin.tex}
-
-  %\part{Mathematical Computation}
-  %\subimport*{part/6_mathematical_computation/0_optimization}{optimization.tex}
-  %\subimport*{part/6_mathematical_computation/1_heron}{heron.tex}
-  %\subimport*{part/6_mathematical_computation/2_pascal}{pascal.tex}
-  %\subimport*{part/6_mathematical_computation/3_leibnitz}{leibnitz.tex}
-  %\subimport*{part/6_mathematical_computation/4_turing}{turing.tex}
-  %\subimport*{part/6_mathematical_computation/5_shannon}{shannon.tex}
-  %\subimport*{part/6_mathematical_computation/6_von_neumann}{von_neumann.tex}
-  %\subimport*{part/6_mathematical_computation/7_ulmann}{ulmann.tex}
-  %\subimport*{part/6_mathematical_computation/8_hopper}{hopper.tex}
-  %\subimport*{part/6_mathematical_computation/9_backus}{backus.tex}
-  %\subimport*{part/6_mathematical_computation/10_karp}{karp.tex}
-  %\subimport*{part/6_mathematical_computation/11_rossenblatt}{rossenblatt.tex}
-  %\subimport*{part/6_mathematical_computation/12_minskey}{minskey.tex}
-  %\subimport*{part/6_mathematical_computation/13_hinton}{hinton.tex}
-  %\subimport*{part/6_mathematical_computation/14_hopfield}{hopfield.tex}
-  %\subimport*{part/6_mathematical_computation/15_sejnowski}{sejnowski.tex}
-  %\subimport*{part/6_mathematical_computation/16_yann_lecun}{yann_lecun.tex}
-  %\subimport*{part/6_mathematical_computation/17_hinton}{hinton.tex}
-  %\subimport*{part/6_mathematical_computation/18_hochreiter}{hochreiter.tex}
-  %\subimport*{part/6_mathematical_computation/19_alexnet}{alexnet.tex}
-  %\subimport*{part/6_mathematical_computation/20_harris}{harris.tex}
-  %\subimport*{part/6_mathematical_computation/21_vaswani}{vaswani.tex}
-  %\subimport*{part/6_mathematical_computation/22_yann_lecun}{yann_lecun.tex}
-  %\subimport*{part/6_mathematical_computation/23_shwartz}{shwartz.tex}
-
-  %\part{A Practical Use Case in High Frequency Trading}
-  %\input{part/7_a_practical_use_case/modern_age_2.tex}
-  %\input{part/7_a_practical_use_case/hft_introduction.tex}
-  %\input{part/7_a_practical_use_case/avoiding_correlation_3.tex}
-  %\input{part/7_a_practical_use_case/adaptive_models_2.tex}
-  %\input{part/7_a_practical_use_case/how_to_train_a_neural_network.tex}
-  %\input{part/7_a_practical_use_case/how_to_verify_a_neural_network.tex}
-  %\input{part/7_a_practical_use_case/choosing_the_right_verifier.tex}
-  %\input{part/7_a_practical_use_case/processor_type_and_ecosystem.tex}
-  %\input{part/7_a_practical_use_case/the_economics_of_training_a_neural_network.tex}
-  %\input{part/7_a_practical_use_case/a_use_case_example.tex}
-  %\input{part/7_a_practical_use_case/godels_revenge.tex}
-  %\input{part/7_a_practical_use_case/conclusion}
-
-  %\part{Appendix}
-  %\input{part/8_appendix/0_the_real_ml_pipeline.tex}
-  %\input{part/8_appendix/1_you_probably_dont_believe_how_bad_it_gets.tex}
-  %\input{part/8_appendix/2_modularity.tex}
+  \subimport*{core/part/1_introduction}{introduction.tex}
+  \subimport*{core/part/2_mathematical_structures}{mathematical_structures.tex}
+  \subimport*{core/part/3_mathematical_analysis}{mathematical_analysis.tex}
+  \subimport*{core/part/4_mathematical_uncertainty}{mathematical_uncertainty.tex}
+  \subimport*{core/part/5_mathematical_computation}{mathematical_computation.tex}
+  \subimport*{core/part/6_mathematical_foundations}{mathematical_foundations.tex}
+  \subimport*{core/part/7_a_practical_use_case}{a_practical_use_case.tex}
+  \subimport*{core/part/8_appendix}{appendix.tex}
 
 \end{document}
