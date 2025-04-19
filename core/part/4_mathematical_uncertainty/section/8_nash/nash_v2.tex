@@ -1,0 +1,59 @@
+\section{From Strategy to Structure: Nash Equilibria and the Logic of Decision}
+
+\subsection{John Nash and the Geometry of Rational Choice}
+
+In 1950, a 21-year-old mathematician named \textbf{John Nash} submitted a two-page paper to the journal \textit{Proceedings of the National Academy of Sciences}. The title was modest: \textit{“Equilibrium Points in N-Person Games.”} But the idea was revolutionary.
+
+In it, Nash proved that in any finite game—where players choose strategies to maximize their individual payoffs—there exists at least one equilibrium point where no player has anything to gain by changing their strategy unilaterally. This \textbf{Nash Equilibrium} formalized the logic of mutual best response: each player’s strategy is optimal given the others’. No one can do better by deviating alone.
+
+This wasn’t just a mathematical curiosity. It was the foundation of a new paradigm: \textbf{game theory}—a language for reasoning about strategic interaction, decision-making, and conflict under uncertainty. And unlike classical probability, which focused on belief and inference, game theory focused on \emph{action}: what should a rational agent do, knowing that others are also optimizing?
+
+\subsection{Beyond Zero-Sum: Games as Models of the World}
+
+Von Neumann and Morgenstern had already laid the groundwork with their 1944 treatise \textit{Theory of Games and Economic Behavior}, introducing utility theory and minimax strategies in zero-sum games. But Nash opened the floodgates: non-zero-sum games, bargaining, cooperation, and mixed strategies all became tractable.
+
+Suddenly, economists had a new logic for market behavior. Biologists had a new model for evolution. Political scientists had a new way to think about diplomacy. And computer scientists—decades later—would rediscover Nash’s insight as a tool for algorithmic decision-making, distributed systems, and machine learning.
+
+\begin{quote}
+Nash equilibria are not just fixed points in games.  
+They are stable configurations of belief and behavior—self-consistent strategies in a world of mutual adaptation.
+\end{quote}
+
+But here’s the catch: computing a Nash equilibrium is hard.
+
+Formally, it was shown in 2005 (by Daskalakis, Goldberg, and Papadimitriou) that computing a Nash equilibrium is \textbf{PPAD-complete}. That means:
+
+\begin{itemize}
+  \item It’s not known to be solvable in polynomial time,
+  \item It’s probably not NP-complete either,
+  \item But it’s still intractable for large or complex systems.
+\end{itemize}
+
+This computational wall sparked a new question:  
+If equilibrium is too hard to compute directly, can we approximate it? Can we \textbf{infer} the best actions, not by solving equations, but by simulating belief updates?
+
+And that’s where the worlds of Nash, Jeffreys, and control theory collide.
+
+\subsection{Decision as Inference: Where Nash Meets Bayes}
+
+Nash taught us to model interaction as strategic equilibrium.  
+Jeffreys taught us to update belief based on evidence.  
+
+But in real-world decision-making—whether in finance, robotics, or cognition—we rarely have the luxury of exact solutions. Instead, we operate in uncertainty. We guess. We simulate. We adapt.
+
+What if we could reframe decision-making itself as a problem of inference?  
+What if “choosing an optimal strategy” was the same as “inferring the most likely trajectory” under some probabilistic logic of rewards?
+
+This is the question that inspired a generation of researchers to rethink control—not as a deterministic solution to an optimization problem, but as a \textbf{Bayesian inference} problem over actions, states, and outcomes.
+
+And this leads us to a profound shift—both philosophical and technical:
+
+\begin{quote}
+\textbf{Optimal control is not a formula. It’s a posterior.}  
+It’s what you believe a good action looks like, given what you know, what you want, and what the world allows.
+\end{quote}
+
+\vspace{0.8em}
+\noindent
+We now turn to that reframing—where probability becomes policy, and the act of control becomes the act of learning what to do.
+

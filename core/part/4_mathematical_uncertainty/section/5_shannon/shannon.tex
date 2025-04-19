@@ -3,32 +3,36 @@
 
 \subsection{Shannon and the Birth of Information Entropy}
 
-While Kolmogorov was grounding probability theory in measure theory, a young American mathematician named \textbf{Claude Shannon} was asking a very different question: \emph{how do we measure information?}
+Fisher showed us how to extract information from data. But Claude Shannon flipped the question:  
+\textit{How much information is there to extract in the first place?}
 
-It’s easy to forget that before Shannon, there was no rigorous way to describe information. People used the word loosely—like "data" or "knowledge"—but no one could say exactly what it was, much less quantify it. Shannon changed all that with his 1948 paper, \emph{A Mathematical Theory of Communication}, laying the foundations of modern digital communication. In it, he introduced a precise, mathematical way to quantify \emph{information}—and in doing so, he forever changed the landscape of communication, computation, and probability theory.
+Where Fisher measured the precision of estimators, Shannon measured the uncertainty in signals. Fisher asked how sharply data could point to a hidden truth. Shannon asked: how wide is the fog before you even begin?
 
-Shannon’s core insight was that information is fundamentally about \emph{uncertainty}. The more unpredictable a message, the more information it carries when revealed. To quantify this, he borrowed a term from thermodynamics: \textbf{entropy}.
+\medskip
 
-He defined the entropy of a discrete random variable \( X \), with probability distribution \( \{p_i\} \), as:
-\[
-H(X) = - \sum_i p_i \log_2 p_i
-\]
-
-This quantity, now known as \emph{Shannon entropy}, measures the average number of binary (yes/no) questions required to identify an outcome drawn from \( X \). In other words, it captures the minimum number of bits needed to encode the message without loss.
-
-
-
-
-
-According to Shannon himself, he wasn’t initially sure what to call this new quantity. He asked mathematician \textbf{John von Neumann} for advice, and von Neumann replied:
+Before Shannon, “information” was just a word—tossed around interchangeably with “data,” “meaning,” or “signal.” No one had a precise way to define it, let alone measure it. In 1948, Shannon changed that with \textit{A Mathematical Theory of Communication}, introducing a revolutionary idea:
 
 \begin{quote}
-“Call it entropy. No one knows what entropy really is, so in a debate, you will always have the advantage.”
+\textbf{Information is the reduction of uncertainty.}
 \end{quote}
 
-The name stuck—but it was more than a clever rhetorical move. Shannon’s entropy wasn’t just metaphorically related to thermodynamic entropy; it was mathematically analogous. 
+To quantify this, he borrowed a concept from thermodynamics: \textbf{entropy}.
 
-To understand just how deep this analogy runs, and how we arrived at a point where heat, probability, and information all share the same mathematical structure, we need to go back. Before Shannon, before even Boltzmann, there was a puzzle about steam engines—and the story begins with Sadi Carnot.
+\[
+H(X) = - \sum_i p(x_i) \log_2 p(x_i)
+\]
+
+This now-famous formula, \emph{Shannon entropy}, measures how much you expect to learn, on average, upon observing a random variable \( X \). Uniform distributions have maximum entropy—each outcome is equally uncertain. Deterministic distributions have zero entropy—nothing to learn.
+
+\medskip
+
+This wasn’t just an analogy to physics. As we’ll soon see, the link between entropy in heat engines and entropy in messages runs deeper than metaphor—it’s mathematical.
+
+\medskip
+
+But before we dive into steam engines and statistical mechanics, let’s ground Shannon’s idea in something simple and concrete.
+
+\textbf{What does entropy look like when you're just trying to guess a marble?}
 
 
 \subsection{An Example of Entropy: The Case of the Hidden Marble}
@@ -1340,6 +1344,51 @@ This idea isn’t just a fallback—it’s a principled starting point. In the a
 
 
 
+\begin{tcolorbox}[colback=gray!5!white, colframe=black!80!white, title={Historical Sidebar: From Hamiltonian Mechanics to Energy Spectra}]
+
+  In classical mechanics, the behavior of physical systems had long been described by Newton’s laws: force equals mass times acceleration, objects move in straight lines unless acted on, etc. But Hamilton rewrote the rulebook. Instead of tracking forces, he described systems in terms of \textbf{energy}, packaging all the dynamics into a single scalar function: the \textbf{Hamiltonian}.
+  
+  \medskip
+  
+  \[
+  \mathcal{H}(q, p) = T(p) + V(q)
+  \]
+  
+  Here, \( q \) represents position, \( p \) momentum, \( T \) the kinetic energy, and \( V \) the potential energy. The Hamiltonian tells you the total energy of the system. More importantly, it governs how the system evolves:
+  
+  \[
+  \frac{dq}{dt} = \frac{\partial \mathcal{H}}{\partial p}, \qquad \frac{dp}{dt} = -\frac{\partial \mathcal{H}}{\partial q}
+  \]
+  
+  \medskip
+  
+  This wasn’t just elegant—it was a revelation. Hamiltonian mechanics showed that the evolution of a system could be described as a flow through \textbf{phase space}, with energy conserved along the way. It connected the geometry of motion to the algebra of energy.
+  
+  \bigskip
+  
+  Fast forward to the 20th century, and the same ideas start showing up in signal processing. Just as Hamilton tracked how energy flows through a mechanical system, **Fourier analysis** tracks how energy flows through \textbf{frequencies} in a signal. 
+  
+  \medskip
+  
+  Enter \textbf{Parseval’s Theorem}: a conservation law for signals.
+  
+  \[
+  \int |f(t)|^2 dt = \sum |c_n|^2
+  \]
+  
+  This says: the total energy in the time domain is the same as the total energy in the frequency domain. Sound familiar? It’s Hamilton’s idea, reincarnated. Energy doesn’t disappear—it just changes form.
+  
+  \bigskip
+  
+  And when energy is well-structured, it tells a story: a planet in orbit, a violin string vibrating, a voice over the radio. But when energy is scattered—like in the Dirichlet function—it’s as if the system has collapsed into chaos. No trajectory, no music, no message. Just raw, incoherent noise.
+  
+  \medskip
+  
+  \textbf{Hamilton conserved energy. Parseval conserved structure. Shannon conserved information.}  
+  And when that structure disappears, we call it what it is: \textbf{maximum entropy}.
+  
+\end{tcolorbox}
+
 
 
 
@@ -1387,6 +1436,49 @@ If entropy is the measure of uncertainty, then \textbf{mutual information} tells
 
 In short: entropy tells you what you don't know. Mutual information tells you what you learn.
 
+
+\begin{tcolorbox}[title={\textbf{Historical Sidebar: Lagrange, Jaynes, and the Least Action of Knowledge}}, colback=gray!5, colframe=black, fonttitle=\bfseries]
+
+  In classical mechanics, \textbf{Joseph-Louis Lagrange} introduced the principle of \textbf{least action}, a revolutionary idea that unified Newtonian physics under a single rule: nature “chooses” the path that minimizes a quantity called action, defined as the integral of kinetic minus potential energy. Rather than following forces step by step, you simply ask: which path makes this quantity smallest?
+
+  \medskip
+
+  Nearly two centuries later, physicist \textbf{Edwin Jaynes} saw a stunning parallel in statistics. Suppose you know a few facts about a system—an average energy, a fixed variance, a normalization constraint—but otherwise nothing. Which probability distribution should you choose?  Jaynes’ answer: \textbf{the one that maximizes entropy}, subject to those constraints.
+
+  \medskip
+
+  Just like Lagrange, Jaynes turned the problem into an optimization:
+
+  \medskip
+
+  \begin{itemize}
+    \item In mechanics, you minimize the action.
+    \item In inference, you maximize entropy.
+  \end{itemize}
+
+  \medskip
+
+  And in both cases, you impose constraints using \textbf{Lagrange multipliers}. This is no coincidence: the method of Lagrange multipliers allows you to optimize a function over a constrained space. For Jaynes, entropy was the function. The constraints were what you actually knew.
+
+  \medskip
+
+  Mathematically, the setup is identical:
+
+  \[
+  \text{Maximize } H(p) = -\sum p_i \log p_i \quad \text{subject to} \quad \sum p_i = 1,\ \sum p_i f_i = \langle f \rangle
+  \]
+
+  This leads directly to the familiar exponential and Gaussian distributions—distributions that look eerily like Boltzmann factors from statistical mechanics.
+
+  \medskip
+
+  The philosophical twist?  Lagrange assumed nature was minimizing effort.  Jaynes assumed the observer was minimizing bias.  Where Lagrange found the path of least resistance, Jaynes found the inference of least assumption.
+
+  \medskip
+
+  In this light, maximum entropy isn’t just about uncertainty—it’s a modern incarnation of one of the oldest ideas in physics: that truth, when left alone, prefers the path of extremal simplicity.
+
+\end{tcolorbox}
 
 
 

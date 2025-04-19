@@ -1,18 +1,72 @@
 \section{Fisher and Jeffreys: Two Roads Diverged in the Inference Forest}
 
-\subsection{Probability Distributions and Estimation: What Can We Learn From Data?}
+\subsection{Probability Distributions and Estimation: From Frequencies to Inference}
 
-While Kolmogorov was busy laying the rigorous foundations of probability theory in the 1930s, other mathematicians were too busy inventing statistical methods to care. Chief among them: \textbf{Ronald Fisher} and \textbf{Harold Jeffreys}.
+If Venn grounded probability in long-run frequency, then \textbf{Ronald Fisher} took the next step: he built a mathematical language to extract structure from that frequency.
 
-Their work wasn’t about axioms or measurable spaces—it was about solving real-world problems. How do you make sense of noisy data? How do you estimate unknown quantities? How do you make decisions under uncertainty?
+Where Venn saw probability as emerging from repeated trials, Fisher asked:  
+\textit{How can we use that data to infer what we don’t yet know?}
 
-Kolmogorov gave probability a foundation.  
-Fisher and Jeffreys turned it into a toolkit.
+In the early 20th century, this marked a shift — from observing patterns to estimating parameters, from counting outcomes to modeling distributions. Probability was no longer just a description of observed regularities. It became a method for learning:  
+\textbf{What can data tell us about the world we cannot directly observe?}
 
-At the heart of both men’s work was a new object: the \textbf{probability distribution}. Instead of assigning fixed values to outcomes, distributions model how likely different values are.
+\medskip
 
-Suppose we measure the temperature of a sensor and assume it follows a normal distribution with unknown mean \( \mu \) and known standard deviation \( \sigma \). The key question: \textbf{How do we estimate \( \mu \) from the data?}
+While Kolmogorov was formalizing the axioms of probability on a foundation of measure theory, Fisher and contemporaries like \textbf{Harold Jeffreys} were too busy solving real-world problems to wait for philosophical purity.
 
+Their concern wasn’t whether a set was measurable. It was:
+
+\begin{itemize}
+    \item How do you estimate an unknown quantity from noisy data?
+    \item How do you design an experiment to reduce uncertainty?
+    \item How do you choose between competing models of the world?
+\end{itemize}
+
+Fisher didn’t abandon Venn’s frequentism — he supercharged it. He introduced new tools:
+
+\begin{itemize}
+    \item \textbf{Probability distributions} to model the variability of outcomes.
+    \item \textbf{Likelihood functions} to estimate parameters.
+    \item \textbf{Sufficient statistics} to compress data without losing information.
+\end{itemize}
+
+Suppose we measure the temperature of a sensor and assume it follows a normal distribution with unknown mean \( \mu \) and known standard deviation \( \sigma \).  
+The core question becomes:  
+\textbf{Given the data, what is the best estimate of \( \mu \)?}
+
+This wasn’t Laplace’s symmetry. It wasn’t Boole’s logic. It wasn’t even Venn’s frequency.
+
+This was something new: \textbf{Inference from randomness}.
+
+\medskip
+
+In the next section, we’ll explore how Fisher formalized this process — turning observed data into estimates, and variability into precision — laying the groundwork for the modern science of statistical learning.
+
+
+\subsection{Probability Distributions and Estimation: From Frequencies to Parameters}
+
+Venn grounded probability in the long-run behavior of observed frequencies. Fisher took that vision and turned it into a mathematical engine of inference.
+
+Where Venn said probability was the result of repetition, Fisher asked:  
+\textit{Can we use those repetitions to estimate what we cannot see?}
+
+Rather than modeling whole universes of outcomes, Fisher focused on **parameters** — the hidden numerical summaries that shape distributions. He introduced a powerful idea: use probability distributions not to describe our ignorance, but to extract **structure from randomness**.
+
+\medskip
+
+While Kolmogorov was formalizing the axioms of probability in terms of σ-algebras and measures, Fisher was more interested in practice: 
+\begin{itemize}
+    \item How do we estimate an unknown mean?
+    \item How do we compare two treatments?
+    \item How do we quantify uncertainty using data alone?
+\end{itemize}
+
+At the heart of this approach was a new object: the **likelihood function**. Instead of assigning probabilities to outcomes, Fisher flipped the perspective — treating the observed data as fixed, and the parameters as variables. The result was a formal method for finding the parameter value that made the data most probable.
+
+\medskip
+
+Suppose we measure the temperature of a sensor and assume it follows a normal distribution with unknown mean \( \mu \) and known standard deviation \( \sigma \). The key question becomes:  
+\textbf{How do we estimate \( \mu \) from the data?}
 
 \begin{figure}[H]
 \centering
@@ -43,7 +97,6 @@ Suppose we measure the temperature of a sensor and assume it follows a normal di
 \caption{Estimating the mean \( \mu \) of a normal distribution from sensor data.}
 \end{figure}
 
-
 \begin{example}
 Suppose we collect 10 temperature readings from a sensor:
 
@@ -59,41 +112,52 @@ We choose the value of \( \mu \) that maximizes the likelihood of observing the 
 \[
 \hat{\mu}_{\text{MLE}} = \frac{1}{n} \sum_{i=1}^{n} x_i = 22.0
 \]
+\end{example}
 
-\textbf{Jeffreys' Bayesian View}:  
-We treat \( \mu \) as a random variable and compute a posterior distribution over its possible values. Assuming a uniform prior for \( \mu \), the posterior is also normal:
+\subsubsection{A Laplacian Contrast: Belief as Distribution}
+
+Fisher treated the parameter \( \mu \) as fixed but unknown — a quantity to be estimated from the data alone. But a century earlier, \textbf{Laplace} proposed a radically different view:  
+\textbf{What if parameters were themselves uncertain quantities?}
+
+In Laplace’s Bayesian framework, we model our ignorance about \( \mu \) with a probability distribution. We begin with a prior belief (say, that all values of \( \mu \) are equally likely), and then update that belief after seeing data.
+
+If we assume a uniform prior for \( \mu \), the posterior distribution is:
 
 \[
 \mu \mid \text{data} \sim \mathcal{N}\left(\bar{x}, \frac{\sigma^2}{n}\right) = \mathcal{N}(22.0,\ 0.004)
 \]
 
-Here, Jeffreys gives us not just a point estimate, but a distribution reflecting our uncertainty about \( \mu \).
+Where Fisher gave us the best estimate, Laplace gave us a distribution — not just a number, but a structured expression of our uncertainty.
 
-\textit{Interpretation}:  
-Fisher gives us the most likely value; Jeffreys gives us a full picture of what we believe after seeing the data.
-\end{example}
+\begin{quote}
+\textit{Fisher estimated the world. Laplace updated belief about it.}
+\end{quote}
 
-This simple example captures a deep philosophical divide: do we estimate fixed parameters, or reason about distributions over them? In the next sections, we’ll explore what this actually means—mathematically, computationally, and philosophically—as we dive deeper into likelihoods, priors, and the art of inference.
+\medskip
 
-
-
-
+In the next sections, we’ll dive deeper into how Fisher’s approach — built on likelihood, sufficiency, and efficiency — shaped the practice of modern statistics, and how Laplace’s probabilistic logic lived on through Bayesian inference.
 
 
 
-\subsection{The Estimator: Guessing the Unknown from What You Know}
+\subsection{The Estimator: Turning Data Into a Guess}
 
-Imagine you're trying to guess the average height of all the trees in a massive forest. You can’t measure every tree—there are millions. So instead, you walk around, measure a few, and try to make an educated guess.
+In Fisher’s world, data isn’t just observed — it’s leveraged. If probability tells us what outcomes are likely, an estimator tells us what parameters are plausible. It’s the mathematical bridge between raw samples and hidden structure.
 
-This guess is called an \textbf{estimator}.
+Where Laplace gave us beliefs over parameters, Fisher gave us procedures for estimating them — directly, repeatably, and rigorously.
 
-An estimator is a \textit{rule} or formula that takes your sample—the trees you actually measured—and uses it to guess something about the entire forest. You don't know the true average height (\( \mu \)), but based on your sample, you can compute the sample mean:
+\medskip
+
+Imagine you're trying to guess the average height of all the trees in a massive forest. You can’t measure every tree — there are millions. So instead, you take a walk, measure a handful, and try to make an educated guess.
+
+That guess is called an \textbf{estimator}.
+
+An estimator is a rule — a formula — that takes the data you have and produces a guess about what you can’t see. You don’t know the true average height \( \mu \), but based on your sample, you compute:
 
 \[
 \hat{\mu} = \frac{1}{n} \sum_{i=1}^n x_i
 \]
 
-Here, \( x_1, x_2, \dots, x_n \) are the tree heights you observed, and \( \hat{\mu} \) is your guess for the forest-wide average.
+Here, \( x_1, x_2, \dots, x_n \) are the observed tree heights, and \( \hat{\mu} \) is your estimate of the forest-wide average.
 
 \begin{figure}[H]
 \centering
@@ -136,50 +200,41 @@ Here, \( x_1, x_2, \dots, x_n \) are the tree heights you observed, and \( \hat{
 \caption{Using a sample of tree heights to estimate the true forest-wide average.}
 \end{figure}
 
+\medskip
 
-\textbf{But—and this is crucial—your guess is still uncertain.} If someone else took a different path through the forest and measured different trees, they’d get a different \( \hat{\mu} \). That’s why an estimator isn’t just a number—it’s a \textit{random variable}. It depends on the data you happen to see.
+But here’s the twist: \textbf{your estimate is random}. If someone else took a different path through the forest and sampled different trees, they’d get a different \( \hat{\mu} \). The estimator isn’t just a number — it’s a \textit{random variable}, whose variability reflects the randomness of sampling itself.
 
 \begin{quote}
-An estimator is like a recipe. The data are the ingredients. You don’t know what you’ll cook up until the ingredients arrive.
+An estimator is like a recipe. The data are the ingredients. The outcome depends on what you’re handed.
 \end{quote}
 
-Statisticians care deeply about how good that recipe is. Does it tend to give the right answer on average? (That’s called \textbf{unbiasedness}.) Does it bounce around a lot from one sample to the next? (That’s \textbf{variance}.) And is it the best recipe possible under the circumstances? (That’s \textbf{efficiency}.)
+Fisher didn’t just define estimators — he evaluated them. He asked:
 
-Estimators are everywhere: polling results, risk scores, credit ratings, weather forecasts—they’re all just educated guesses, made from samples, trying to say something about a bigger, hidden world.
+\begin{itemize}
+    \item Does the estimator tend to get the right answer? (\textbf{Unbiasedness})
+    \item How much does it vary from sample to sample? (\textbf{Variance})
+    \item Is it the best we can possibly do, given the data and assumptions? (\textbf{Efficiency})
+\end{itemize}
 
 \begin{example}
-Suppose we want to estimate the average number of hours students sleep per night at a university. We randomly sample 5 students and record their sleep hours:
+Suppose we sample five students and record their sleep hours:
 
 \[
-x = \{6.5, 7, 8, 5.5, 7.5\}
+x = \{6.5, 7, 8, 5.5, 7.5\}, \quad \hat{\mu} = 6.9
 \]
 
-We use the sample mean as our estimator:
+A second sample might give:
 
 \[
-\hat{\mu} = \frac{1}{5}(6.5 + 7 + 8 + 5.5 + 7.5) = 6.9
+x' = \{6, 6.5, 7.5, 6, 7\}, \quad \hat{\mu}' = 6.6
 \]
 
-This is our estimate of the true average \( \mu \). But if we took another sample—say:
-
-\[
-x' = \{6, 6.5, 7.5, 6, 7\}
-\]
-
-—we’d get:
-
-\[
-\hat{\mu}' = \frac{1}{5}(6 + 6.5 + 7.5 + 6 + 7) = 6.6
-\]
-
-Same estimator, different data, different outcome. This variability is what makes the estimator a random variable.
-
-If we repeatedly sampled and computed \( \hat{\mu} \) each time, the average of all those estimates would tend to converge to the true value \( \mu \). That’s why this estimator is \textbf{unbiased}. But those estimates would still vary from sample to sample—that’s the estimator’s \textbf{variance}.
-
-\textit{Moral of the story:} A good estimator doesn’t just give a number—it gives a trustworthy guess, grounded in data but humble about uncertainty.
+Same estimator, different data, different guess. Over many samples, the estimator would bounce around — but if it’s well-designed, the average of all those estimates would converge to the true value \( \mu \). That’s what makes it \textbf{unbiased} — and the amount of bounce is its \textbf{variance}.
 \end{example}
 
+\medskip
 
+In the next section, we’ll explore how Fisher went beyond the estimator itself — asking how much information a sample contains about the unknown. Not all data is equally informative. And Fisher developed a way to measure that, too.
 
 
 
