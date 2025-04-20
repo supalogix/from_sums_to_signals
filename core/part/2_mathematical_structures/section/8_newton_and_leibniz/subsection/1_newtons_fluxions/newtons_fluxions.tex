@@ -1,30 +1,42 @@
 \subsection{Newton’s Fluxions: From Geometry to Motion (1670s)}
 
-Building on the geometric insights of his teacher Barrow, Isaac Newton carried the idea of infinitesimal change to its logical extreme. While Barrow had described the relation between curves and their tangents through proportions, Newton reframed the entire question in terms of \textit{motion}.
-
-To Newton, quantities were not static magnitudes, but flowing values—changing continuously with time. Instead of drawing triangles on curves, he imagined how a point moved along a curve, and how its position evolved. This shift—from shape to speed, from geometry to kinematics—transformed the mathematics of the curve into the mathematics of change itself.
-
-\begin{tcolorbox}[colback=gray!5!white, colframe=black, 
-  title={Historical Sidebar: Newton’s Time—Absolute, Mathematical, and Always Flowing}, 
-  fonttitle=\bfseries, arc=1.5mm, boxrule=0.4pt]
-  
-  Isaac Newton didn’t just invent calculus—he invented a new way to think about time itself.
+  Isaac Newton didn’t just invent calculus: he invented a new way to think about time itself.
   
   In the \textit{Principia}, he draws a sharp distinction between two kinds of time:
+
   \begin{quote}
-  \textit{“Absolute, true, and mathematical time, of itself, and from its own nature, flows equably without relation to anything external...”}
+  Absolute, true, and mathematical time, of itself, and from its own nature, flows equably without relation to anything external...
   \end{quote}
   
   For Newton, time wasn’t just a coordinate. It was a cosmic river—unseen, unchanging, and universal. All motion, all change, all flux happened within this background flow. It didn’t depend on clocks or planets or observers. Time just \textit{was}, always ticking along in the background like some divine metronome.
   
   This view shaped his entire mathematical framework. The derivative—what he called the \textbf{fluxion}—wasn’t just a slope on a graph. It was a rate of change \textit{with respect to absolute time}. Every evolving quantity had a speed. Every curve had a motion. And every motion happened within the silent rhythm of Newton’s eternal clock.
   
+
   Where others saw geometry, Newton saw \textbf{kinematics}. Where others measured lengths, he measured \textbf{change}. And at the center of it all was time—not as an illusion, but as the most real thing in the universe.
-  
-\end{tcolorbox}
 
+    Before Newton, motion was geometry's unruly cousin — more art than science, more epicycle than equation. Astronomers charted paths. Mathematicians constructed curves. But few asked the deeper question: \textit{how does motion unfold through time?}
 
-Where Barrow described a tangent as the limit of geometric constructions, Newton described it as the result of a process: the \textit{fluxion} of a quantity, or its instantaneous rate of change.
+    \textbf{Kinematics} changed that.
+    
+    In the 17th century, a new discipline emerged — one that stripped away causes and forces and focused only on motion itself. It didn’t ask \textit{why} things moved, only \textit{how fast}, \textit{in what direction}, and \textit{how that changed over time}.
+
+    \textbf{Key Developments:}
+    
+
+    \begin{itemize}
+      \item \textbf{Galileo Galilei} studied uniformly accelerated motion and laid the groundwork for describing motion using time, distance, and velocity — even before calculus.
+      \item \textbf{Isaac Newton} took this further, developing calculus as a tool for describing how quantities change — giving us acceleration, jerk, and higher derivatives as measurable realities.
+      \item Kinematics became the scaffolding for Newton’s deeper theory: \textbf{dynamics}, which added force and mass into the mix.
+    \end{itemize}
+    
+    Kinematics was the first major shift in physics to treat time as a variable rather than a stage. It formalized the idea that motion is not just spatial, but \textbf{temporal}. Every modern theory of motion — from relativity to quantum mechanics — builds on this insight.
+    
+    \begin{quote}
+    Kinematics didn’t explain the universe.  It gave us the vocabulary to describe its dance.
+    \end{quote}
+
+To Newton, quantities were not static magnitudes, but flowing values—changing continuously with time. Instead of drawing triangles on curves, he imagined how a point moved along a curve, and how its position evolved. This shift—from shape to speed, from geometry to kinematics—transformed the mathematics of the curve into the mathematics of change itself.
 
 He denoted this with a dot over the variable:
 
@@ -39,17 +51,12 @@ where:
     \item \( \bar{o} \) is the corresponding change in \( x \).
 \end{itemize}
 
-Unlike his predecessors, Newton did not merely approximate motion—he embedded it into the foundations of his system. Tangents were no longer assumptions, nor constructions: they were consequences of how quantities flowed.
 
-
-\textit{Where Cavalieri stacked indivisibles, and Barrow drew proportional curves, Newton let quantities move—and built calculus on their motion.}
-\begin{tcolorbox}[colback=gray!5!white, colframe=black, 
-  title={Historical Sidebar: How Newton Got to \( F = m\dot{v} \)}, 
-  fonttitle=\bfseries, arc=1.5mm, boxrule=0.4pt]
   
+
+Unlike his predecessors, Newton did not merely approximate motion: he embedded it into the foundations of his system. Tangents were consequences of how quantities flowed.
+
   Newton didn’t invent acceleration—that was Galileo, who noticed that falling objects don’t just move; they \textit{accelerate}. But Galileo stopped at observation. Newton gave it a cause—and a calculus.
-  
-  \medskip
   
   \textbf{Step one: Define acceleration in terms of fluxions.}  
   Using his own notation, Newton described acceleration as the \textit{fluxion of velocity}, written as:
@@ -58,35 +65,37 @@ Unlike his predecessors, Newton did not merely approximate motion—he embedded 
   \]
   
   \textbf{Step two: Define momentum.}  
+
   He understood that the quantity of motion—what we now call momentum—was proportional to mass and velocity:
   \[
   p = m v
   \]
   
   \textbf{Step three: Relate force to the change of momentum.}  
+
   In the \textit{Principia}, Newton writes:
+
   \begin{quote}
   \textit{“The change of motion is proportional to the motive force impressed.”}
   \end{quote}
+
   Here, “motion” means momentum. So mathematically:
+
   \[
   F = \dot{p}
   \]
   
   Now, assuming mass is constant (which Newton generally did), this becomes:
+
   \[
   F = \dot{(mv)} = m\dot{v}
   \]
   
   \textbf{And there it is.} Not \( F = ma \), but \( F = m\dot{v} \): force as the fluxion of momentum.
   
-  \medskip
-  
   \textbf{Galileo saw that velocity changed with time. Newton gave that change a cause—and a law.}
   
   By linking force to motion through fluxions, Newton wasn’t just describing the world. He was explaining it—on Earth, in the heavens, and everywhere time flows.
-  \end{tcolorbox}
-  
 
 
 \begin{figure}[H]
@@ -109,6 +118,7 @@ Unlike his predecessors, Newton did not merely approximate motion—he embedded 
 \vspace{0.5em}
 \caption{\small Newton's conception of calculus was rooted in geometry and motion. He imagined a point moving along a curve, where the instantaneous rate of change — the fluxion — could be represented as the ratio between an infinitesimal vertical change ($o$) and an infinitesimal horizontal change ($\bar{o}$). The resulting quantity corresponds to the slope of the tangent line at that point. This approach reflects Newton’s view of change as inherently tied to physical movement through time.}
 \end{figure}
+
 
 
 

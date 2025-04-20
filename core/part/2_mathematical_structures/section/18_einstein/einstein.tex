@@ -1,0 +1,180 @@
+\section{Einstein Curves the Cosmos: When Orbits Betrayed Newton (1915)}
+
+Kepler watched planets dance. Newton explained their steps. But one orbit refused to follow the beat.
+
+That orbit belonged to Mercury.
+
+For centuries, astronomers noticed that Mercury’s ellipse—its path around the Sun—was slowly shifting. The point of closest approach to the Sun (the perihelion) was drifting forward, ever so slightly, orbit after orbit. Most of this "precession" could be explained by the gravitational pull of other planets.
+
+But not all of it.
+
+There was a stubborn leftover—about 43 arcseconds per century—that Newton’s laws couldn’t account for. Tiny, yes. But physics doesn’t like leftovers. In science, small errors are often big clues.
+
+Some proposed a new planet ("Vulcan") lurking near the Sun. Others blamed observational mistakes. But none of it stuck.
+
+Then came a really smart guy named Albert Einstein.
+
+Einstein had already broken reality once in 1905 when he showed that space and time were relative. That light always moves at the same speed, no matter how fast you’re going. That time can slow down. That length can shrink. That simultaneity isn’t absolute.
+
+But Einstein wasn’t done. He wanted to know how gravity fits into this strange new reality.
+
+So he asked a deceptively simple question:
+
+\begin{quote}
+What if gravity isn’t a force at all? What if it’s geometry?
+\end{quote}
+
+Imagine you’re inside a spaceship, accelerating upward at exactly 1g—the same acceleration we feel due to gravity on Earth. Everything around you would feel normal: apples fall, feet stay on the floor, coffee pours downward.
+
+Einstein called this the \textbf{Principle of Equivalence}: the effects of gravity and acceleration are locally indistinguishable.
+
+This was his happiest thought.
+
+From there, he leapt: if gravity and acceleration are equivalent, and acceleration curves motion, then perhaps \emph{gravity curves space itself}.
+
+He built a new mathematical framework—using the geometry Riemann had introduced 60 years earlier. He described spacetime not as a fixed background, but as a curved surface. Mass tells space how to curve, and space tells mass how to move.
+
+The result: \textbf{General Relativity}.
+
+The test case? Mercury.
+
+Einstein ran the numbers. Using the curved spacetime around the Sun, described by what we now call the \textbf{Schwarzschild metric}, he calculated the precession of Mercury’s orbit.
+
+It matched. Exactly.
+
+The 43 arcseconds. Explained.
+
+No mysterious planet. No measurement error. Just geometry—curved by mass, navigated by motion.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, title={Sidebar: From Dot Products to Deflection}]
+In Newton’s world, force pulls.
+In Einstein’s world, space bends.
+
+Motion follows geometry.
+
+The same metric tensor Riemann invented to measure distance on curved manifolds now shapes the very paths that planets and light follow.
+
+A straight line in curved space becomes a curve.
+A falling apple is simply following a geodesic.
+Mercury’s precession isn’t a deviation—it’s a feature.
+\end{tcolorbox}
+
+With this, Einstein didn’t just patch a hole in Newtonian physics.
+He rewrote the fabric of reality.
+
+And with the same insight, he predicted even stranger phenomena:
+\begin{itemize}
+  \item Light bending around stars (gravitational lensing)
+  \item Time slowing down near massive objects (gravitational time dilation)
+  \item Black holes, where curvature becomes infinite
+\end{itemize}
+
+All from the simple idea that space is not flat. And motion listens to its curvature.
+
+\begin{quote}
+Gravity isn’t a force. It’s the shape of space.
+\end{quote}
+
+
+\subsection{Einstein's Field Equations: When Curvature Became Law}
+
+To turn intuition into a working theory, Einstein needed a precise way to link matter and geometry. His guiding principle was simple:
+
+\begin{quote}
+Mass and energy tell space how to curve. Curved space tells matter how to move.
+\end{quote}
+
+But how do you write that as an equation?
+
+He turned to Riemannian geometry. The curvature of spacetime is encoded in a mathematical object called the \textbf{Riemann curvature tensor}, denoted \( R^a_{\phantom{a}bcd} \).
+
+From this, Einstein built a simpler but still powerful object: the \textbf{Einstein tensor} \( G_{\mu\nu} \), which combines two key pieces:
+
+\begin{itemize}
+  \item The \textbf{Ricci curvature tensor} \( R_{\mu\nu} \), a kind of trace of the full Riemann tensor
+  \item The \textbf{scalar curvature} \( R \), which is the trace of the Ricci tensor
+\end{itemize}
+
+The Einstein tensor is:
+\[
+G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu}
+\]
+
+This object captures how spacetime is curved.
+
+On the other side of the equation, he placed the \textbf{stress-energy tensor} \( T_{\mu\nu} \), which encodes the distribution of mass, energy, momentum, and pressure.
+
+The result was his field equation:
+\[
+G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
+\]
+
+It’s a compact, elegant identity that says:
+
+\begin{quote}
+\textbf{Curvature} \( G_{\mu\nu} \) = \textbf{Stuff} \( T_{\mu\nu} \)
+\end{quote}
+
+This one equation contains the entire dynamic structure of gravity. It is Riemann’s curvature put to work—and it governs everything from black holes to planetary precession.
+
+And if you set \( T_{\mu\nu} = 0 \), you still get fascinating solutions—like the Schwarzschild metric, which describes empty space around a massive object.
+
+In Einstein’s hands, Riemannian geometry was no longer abstract mathematics. It became the stage, the script, and the score for the universe.
+
+\section{Kepler’s Law Revisited: When Symmetry Meets Curvature}
+
+Now that we’ve seen how Einstein rewrote gravity as curvature, we can return to an ancient observation with fresh eyes:
+
+\begin{quote}
+\textit{A planet sweeps out equal areas in equal times as it orbits the Sun.}
+\end{quote}
+
+Kepler’s Second Law, originally derived from empirical observations, takes on a new meaning in the context of general relativity. What once looked like geometric coincidence is now revealed as a deep consequence of symmetry.
+
+At its heart, Kepler’s Second Law is about the \textbf{conservation of angular momentum}. In Newtonian physics, this arises when no external torques act on a system. In general relativity, it arises from something even more fundamental:
+
+\textbf{Spacetime symmetries.}
+
+In general relativity, conserved quantities are linked to symmetries in the geometry of spacetime through \textbf{Noether’s Theorem}. For a central gravitational source like the Sun, the spacetime around it (as described by the Schwarzschild metric) is:
+
+\begin{itemize}
+  \item \textbf{Spherically symmetric} — It looks the same in all directions.
+  \item \textbf{Time-invariant} — The curvature doesn't change over time.
+\end{itemize}
+
+These symmetries yield conserved quantities:
+
+\begin{itemize}
+  \item Time symmetry \( \Rightarrow \) conservation of energy
+  \item Rotational symmetry \( \Rightarrow \) conservation of angular momentum
+\end{itemize}
+
+Thus, in curved spacetime, a planet doesn’t just "happen" to sweep equal areas in equal times. This area-sweeping behavior reflects the \textbf{geodesic motion} of the planet in a spacetime with rotational symmetry. The conserved angular momentum ensures that the areal velocity:
+\[
+\frac{dA}{dt} = \frac{1}{2} \| \vec{r} \times \vec{v} \|
+\]
+remains constant even when space itself is curved.
+
+And here’s the kicker:
+
+This conservation law is compatible with Einstein’s field equations. The spacetime curvature described by 
+\[
+G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
+\]
+ensures that geodesics preserve the quantities dictated by symmetry. The planet’s motion isn’t just constrained by gravity—it’s guided by the geometry that the Sun’s mass imprints on spacetime.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, title={Kepler’s Law in Einstein’s Universe}]
+\begin{itemize}
+  \item In Newton’s world: Angular momentum is conserved because there’s no torque.
+  \item In Einstein’s world: Angular momentum is conserved because spacetime has rotational symmetry.
+\end{itemize}
+
+Both stories match—because both emerge as limits of a deeper structure: the interplay between symmetry, curvature, and motion.
+\end{tcolorbox}
+
+Kepler saw planets tracing arcs across the sky.  
+Einstein saw those arcs as inevitable, carved into the very fabric of space.
+
+\begin{quote}
+\textbf{The orbit isn’t just a path. It’s a preserved symmetry in a curved world.}
+\end{quote}
