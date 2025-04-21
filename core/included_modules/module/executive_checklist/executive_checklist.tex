@@ -1,0 +1,39 @@
+\newcommand{\ExecutiveChecklist}[3]{%
+  \ifthenelse{\equal{#1}{high}}{%
+    \def\boxcolor{red!5}%
+    \def\framecolor{red!60!black}%
+    \def\icon{\faExclamationTriangle\ 🚨}%
+    \def\itemicon{\faTimesCircle}%
+  }{%
+  \ifthenelse{\equal{#1}{medium}}{%
+    \def\boxcolor{orange!5}%
+    \def\framecolor{orange!75!black}%
+    \def\icon{\faExclamationCircle\ ⚠️}%
+    \def\itemicon{\faChevronCircleRight}%
+  }{%
+  \ifthenelse{\equal{#1}{low}}{%
+    \def\boxcolor{green!5}%
+    \def\framecolor{green!60!black}%
+    \def\icon{\faCheckCircle\ ✅}%
+    \def\itemicon{\faCheck}%
+  }{%
+    \def\boxcolor{gray!5}%
+    \def\framecolor{black}%
+    \def\icon{\faCheckCircle}%
+    \def\itemicon{\textbullet}%
+  }}}%
+  \begin{tcolorbox}[
+    colback=\boxcolor,
+    colframe=\framecolor,
+    title={\icon\ \textbf{Executive Checklist: #2}},
+    sharp corners=south,
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    breakable,
+    left=6pt, right=6pt, top=6pt, bottom=6pt
+  ]
+  \begin{itemize}[label=\itemicon]
+    #3
+  \end{itemize}
+  \end{tcolorbox}
+}

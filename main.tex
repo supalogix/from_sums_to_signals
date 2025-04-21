@@ -1,23 +1,12 @@
 \documentclass{article}
 \usepackage{import}
 
-\subimport*{core/package}{package.tex}
+\subimport*{core/included_packages}{included_packages.tex}
+\subimport*{core/included_modules}{included_modules.tex}
 
 \setmainlanguage{english}
 \setotherlanguage{greek}
 \newfontfamily\greekfont{Times New Roman} % or any font that supports Greek
-
-
-\subimport*{module/historical_sidebar}{historical_sidebar.tex}
-\subimport*{module/figure}{figure.tex}
-\subimport*{module/quote}{quote.tex}
-\subimport*{module/example_box}{example_box.tex}
-\subimport*{module/comic_panel}{comic_panel.tex}
-\subimport*{module/footer}{footer.tex}
-\subimport*{module/figure_separator}{figure_separator.tex}
-\subimport*{module/callout_figure}{callout_figure.tex}
-\subimport*{module/dag_node}{dag_node.tex}
-\subimport*{module/title_format}{title_format.tex}
 
 \begin{document}
 
@@ -25,7 +14,9 @@
   \setlength{\parskip}{1.5em} 
 
 
-  \subimport*{module/title_page}{title_page.tex}
+  \subimport*{core/included_modules/module/title_page}{title_page.tex}
+  \subimport*{core/included_modules/module/disclaimer}{disclaimer.tex}
+  
 
 
   \tableofcontents
@@ -34,12 +25,13 @@
 
 
   \subimport*{core/part/1_introduction}{introduction.tex}
-  \subimport*{core/part/2_mathematical_structures}{mathematical_structures.tex}
-  \subimport*{core/part/3_mathematical_analysis}{mathematical_analysis.tex}
-  \subimport*{core/part/4_mathematical_uncertainty}{mathematical_uncertainty.tex}
-  \subimport*{core/part/5_mathematical_computation}{mathematical_computation.tex}
-  \subimport*{core/part/6_mathematical_foundations}{mathematical_foundations.tex}
-  \subimport*{core/part/7_ml_use_case}{ml_use_case.tex}
-  \subimport*{core/part/8_ml_reality}{ml_reality.tex}
+  %\subimport*{core/part/2_mathematical_structures}{mathematical_structures.tex}
+  %\subimport*{core/part/3_mathematical_analysis}{mathematical_analysis.tex}
+  %\subimport*{core/part/4_mathematical_uncertainty}{mathematical_uncertainty.tex}
+  %\subimport*{core/part/5_mathematical_computation}{mathematical_computation.tex}
+  %\subimport*{core/part/6_mathematical_foundations}{mathematical_foundations.tex}
+  %\subimport*{core/part/7_ml_use_case}{ml_use_case.tex}
+  %\subimport*{core/part/8_ml_reality}{ml_reality.tex}
+  %\subimport*{core/part/9_consulting_strategies}{consulting_strategies.tex}
 
 \end{document}
