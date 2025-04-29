@@ -2,12 +2,26 @@
 
 \subsection{Flexible ML Pipelines: Engineering for Change}
 
-Most people don’t believe how dysfunctional real-world machine learning pipelines are...  until they’ve been paged at 3am because the model broke and no one knows why.
+Fred Brooks, in \textbf{The Mythical Man-Month}, famously wrote:
 
+\begin{quote}
+    “The bearing of a child takes nine months, no matter how many women are assigned.”
+\end{quote}
 
-Let’s borrow a lesson from traditional software systems: good systems are designed to evolve. So what makes an ML pipeline flexible enough to keep up with a changing world?
+He wasn’t just talking about project timelines.  He was warning us that software is not a task you can brute-force with headcount or willpower. It’s a living system --- messy, interdependent, and vulnerable to the chaos of small changes.
 
-Here’s the checklist — feel free to expand on each:
+Fast-forward to machine learning pipelines, and the lesson still applies; only now the baby is colicky, retrains itself at 2am, and refuses to tell you why it’s crying.
+
+Most people don’t believe how dysfunctional real-world ML systems are until they’ve lived through a silent data drift, a forgotten preprocessing script, or a model silently degrading in production while dashboards stay green.
+
+The truth is:  \textbf{ML systems aren’t just software — they’re software wrapped around evolving mathematics, hidden assumptions, and probabilistic behavior.}
+
+And like any complex system, they must be engineered to change.
+
+So what makes an ML pipeline flexible enough to survive the real world?
+
+Here’s the checklist — each one a countermeasure to the entropy Fred Brooks warned us about:
+
 
 \begin{itemize}
     \item \textbf{Modularity}: Each stage (ingestion, preprocessing, training, evaluation, deployment) should be separable and swappable. Think DAGs, not monoliths.
@@ -24,6 +38,55 @@ Here’s the checklist — feel free to expand on each:
 
     \item \textbf{Fail-Safes}: Fallback models, circuit breakers, and shadow deployments help contain damage when things go wrong — and they will.
 \end{itemize}
+
+\newpage
+
+\begin{tcolorbox}[title=Historical Sidebar: “One Day at a Time” — How Software Became Self-Aware, colback=gray!5!white, colframe=black!80!white, breakable, fonttitle=\bfseries]
+
+    Fred Brooks didn’t set out to write a manifesto.  He set out to build an operating system — IBM’s OS/360 — one of the most ambitious software engineering projects of the 1960s.
+
+    \medskip
+    
+    It was supposed to be a triumph. It became a disaster.
+
+    \medskip
+    
+    The project ran years behind schedule, consumed hundreds of engineers, and ballooned far beyond its initial scope. It was plagued by shifting requirements, inconsistent documentation, and the naive belief that adding more people could fix late-stage complexity.
+
+    \medskip
+    
+    At one point, a U.S. senator asked Brooks a simple question:
+    
+    \begin{quote}
+    \textit{How did the project get so far behind schedule?}
+    \end{quote}
+    
+    Brooks answered with brutal honesty:
+    
+    \begin{quote}
+    \textit{One day at a time.}
+    \end{quote}
+    
+    It was a quiet indictment of how software really fails—not through explosions, but through the slow accumulation of invisible debt: undocumented hacks, silent bugs, untested assumptions.
+
+    \medskip
+    
+    That failure became the foundation for one of the most influential books in software history:  \textbf{\textit{The Mythical Man-Month}} (1975).
+
+    \medskip
+    
+    Brooks’s central thesis was simple but devastating:  adding manpower to a late software project only makes it later.  Why? Because coordination, communication, and cognitive load grow nonlinearly with team size.
+
+    \medskip
+    
+    It teaches us that complex systems — especially the ones we think we control — are more fragile, entangled, and resistant to shortcuts than we want to admit.  Which, come to think of it, sounds a lot like machine learning pipelines.
+
+    \medskip
+    
+    \textbf{The Mythical Man-Month isn’t about headcount. It’s about humility.}
+    
+\end{tcolorbox}
+
 
 
 \medskip

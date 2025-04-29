@@ -1,0 +1,91 @@
+\section{Sobolev: Differentiation for Grown-Ups (1930s–1950s)}
+
+After Banach and Schwartz expanded what counted as a "function,"  
+\textbf{Sergei Sobolev} realized something even more unsettling:
+
+\begin{quote}
+    Maybe the problem isn’t the functions.  
+    Maybe the problem is our childish idea of what it means to take a derivative.
+\end{quote}
+
+In classical calculus, differentiation is a sacred ritual:  
+you zoom in infinitely close to a point and compute a limit.  
+But what if the function you’re studying isn’t smooth?  
+What if it has kinks, jumps, wrinkles—or it’s only defined \textit{almost everywhere}?
+
+That’s the real world.  
+And Sobolev decided it was time to grow up.
+
+\subsection*{The Big Idea: Derivatives in Disguise}
+
+Instead of demanding that a function \( u(x) \) be differentiable in the classical sense, Sobolev proposed a softer condition:
+
+- Maybe \( u \) doesn’t have a classical derivative.
+- But if there’s another function \( v \) such that:
+\[
+\int u(x) \varphi'(x)\, dx = -\int v(x) \varphi(x)\, dx
+\quad \text{for all smooth test functions } \varphi,
+\]
+then we \textbf{declare} \( v \) to be the "weak derivative" of \( u \).
+
+\smallskip
+
+In other words:
+- Derivatives don’t have to exist point-by-point.
+- They just need to exist when you integrate against test functions.
+
+\textbf{It’s integration by parts turned into a lifestyle.}
+
+\subsection*{Sobolev Spaces: A Safe Home for Rough Functions}
+
+This new idea needed a new habitat.  
+Sobolev introduced the now-famous **Sobolev spaces**, denoted \( W^{k,p} \), where:
+
+\[
+W^{k,p}(\Omega) = \left\{ u : u \text{ and its weak derivatives up to order } k \text{ are in } L^p(\Omega) \right\}
+\]
+
+Translated:
+
+- \( u \) is a function living on a region \( \Omega \),
+- You can meaningfully differentiate \( u \) (in the weak sense) up to \( k \) times,
+- Each of those derivatives lives in the \( L^p \) space (i.e., it’s \( p \)-th power integrable).
+
+\smallskip
+
+\textbf{Sobolev spaces allow us to treat rough functions like civilized citizens.}  
+Functions that are jagged, bumpy, or only "almost everywhere" nice can still be analyzed, differentiated, and studied systematically.
+
+\subsection*{Why It Matters}
+
+Sobolev’s framework revolutionized **Partial Differential Equations (PDEs)**:
+
+- Classical PDEs often demand solutions that are smooth.
+- Real-world problems produce solutions that are only weakly differentiable.
+
+Thanks to Sobolev:
+
+- We can define what it means for rough functions to solve PDEs "weakly."
+- We can prove existence and uniqueness theorems for solutions even when classical derivatives don't exist.
+- We can build entire theories of elasticity, fluid flow, electromagnetism, and quantum fields on messy, physically realistic functions.
+
+\medskip
+
+In short:  
+\textbf{Sobolev let mathematics keep pace with physics.}
+
+\begin{tcolorbox}[title=Historical Sidebar: Mathematics Under Siege, colback=gray!5!white, colframe=black!80!white, fonttitle=\bfseries]
+
+  Sergei Sobolev developed much of his theory during the 1930s while working under extreme political pressure in the Soviet Union.
+
+  Ironically, while Soviet ideology demanded determinism and smooth control, Sobolev's work embraced roughness, uncertainty, and generalized structure—laying the groundwork for modern physics, which would soon reveal that the universe itself is stitched together with probabilities, singularities, and irregularities.
+
+\end{tcolorbox}
+
+\vspace{1em}
+
+\begin{center}
+\textit{Banach measured function spaces.  
+Schwartz generalized functions.  
+Sobolev rescued derivatives from the wreckage.}
+\end{center}

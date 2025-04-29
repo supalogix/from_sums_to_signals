@@ -1,0 +1,112 @@
+\section{Itô: When Randomness Learned Calculus (1940s)}
+
+So far, analysis had tamed infinity (Banach), generalized functions (Schwartz), and even rescued derivatives from chaos (Sobolev).
+
+But one beast still roamed free:  
+\textbf{Randomness itself.}
+
+Classical probability was good at static questions:  
+“What’s the chance of getting heads?”  
+“What’s the distribution of errors in measurement?”
+
+But what about randomness \textit{over time}?  
+What about systems that \textit{evolve unpredictably}, step by jittery step?
+
+That’s where \textbf{Kiyosi Itô} came in.
+
+\subsection*{The Big Idea: Calculus for Random Paths}
+
+In the 1940s, Itô developed a new kind of calculus — one that didn’t just handle curves, but wild, erratic, random paths.
+
+Think of:
+
+- The zigzagging motion of a dust particle in air (Brownian motion),
+- The fluctuating price of a stock on Wall Street,
+- The jittering voltage in a noisy electronic circuit.
+
+These paths aren’t smooth.  
+They're not differentiable at all in the classical sense.  
+Trying to take their derivative explodes into infinity.
+
+Yet Itô managed to define a way to "integrate" and "differentiate" along these wild paths.
+
+The cornerstone is the **Itô integral**:
+\[
+\int_0^t X(s) \, dB(s)
+\]
+where:
+- \( B(s) \) is a \textbf{Brownian motion} (a model of pure randomness),
+- \( X(s) \) is some adapted process (depending on the past but not the future).
+
+\smallskip
+
+\textbf{It looks like a regular integral.}  
+\textbf{It behaves nothing like a regular integral.}
+
+\subsection*{The Itô Correction: Expect the Unexpected}
+
+In classical calculus:
+
+\[
+d(x^2) = 2x \, dx
+\]
+
+But in Itô calculus, randomness adds a new twist:
+
+\[
+d(B_t^2) = 2B_t \, dB_t + dt
+\]
+
+That sneaky extra \( dt \) term is called the **Itô correction**.  
+It shows that random fluctuations accumulate extra variance over time — something classical analysis completely misses.
+
+\textbf{Randomness literally distorts the rules of calculus.}
+
+\subsection*{Stochastic Differential Equations (SDEs)}
+
+Once you have Itô calculus, you can write down dynamic systems driven by noise:
+
+\[
+dX_t = \mu(X_t, t)\,dt + \sigma(X_t, t)\,dB_t
+\]
+
+- The \( \mu \) term represents drift (deterministic motion).
+- The \( \sigma \) term represents diffusion (random jitter).
+
+These equations power modern models of:
+
+- Financial markets (Black-Scholes model),
+- Neural activity (stochastic models of firing),
+- Chemical reactions (diffusion processes),
+- Quantum fields (path integrals under noise).
+
+\subsection*{Why It Matters}
+
+Itô's work fused probability and analysis at a deep level:
+
+- Probability theory could now describe evolving systems, not just static events.
+- Analysis could now tackle objects that were infinitely irregular but statistically stable.
+- The real world — full of randomness and motion — finally had a precise mathematical language.
+
+\smallskip
+
+\textbf{Mathematics became not just a map of certainty, but a dance with chance.}
+
+\begin{tcolorbox}[title=Historical Sidebar: Mathematics Under Occupation, colback=gray!5!white, colframe=black!80!white, fonttitle=\bfseries]
+
+  Kiyosi Itô developed much of stochastic calculus during the chaos of World War II in Japan.
+
+  While cities burned and nations fell, Itô quietly laid down the mathematical infrastructure that would power modern finance, control theory, and machine learning.
+
+  It was a fitting origin: mathematics for a world where nothing stands still.
+
+\end{tcolorbox}
+
+\vspace{1em}
+
+\begin{center}
+\textit{Banach measured infinity.  
+Schwartz tamed singularities.  
+Sobolev saved derivatives.  
+Itô taught randomness to obey calculus.}
+\end{center}
