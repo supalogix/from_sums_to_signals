@@ -1,6 +1,6 @@
-\subsection{Modularity: Because the Intern Deployed a Hardcoded Model to Prod}
+\section{Modularity: Because the Intern Deployed a Hardcoded Model to Prod}
 
-\subsubsection{Act I: The Intern and the Ancient Logs}
+\subsection{Act I: The Intern and the Ancient Logs}
 
 It always starts the same way.
 
@@ -134,7 +134,7 @@ By the time the Jupyter notebook was done, the data \textit{looked} ``clean''.  
 \end{figure}
 
 
-\subsubsection{Act II: The Birth of the Monolith}
+\subsection{Act II: The Birth of the Monolith}
 
 Fresh off the intoxicating high of successfully reading a CSV the intern embarked on their next great odyssey.
 
@@ -227,7 +227,7 @@ And for one brief, cursed moment, the system was in balance.
 
 
 \vspace{1em}
-\subsubsection{Act III: The Fall}
+\subsection{Act III: The Fall}
 
 Weeks passed.
 
@@ -328,7 +328,7 @@ And now it was angry.
 2020-01-10 10:15:36 INFO  | feature1=13.0 feature3=foo status=OK timestamp=2020-01-10T10:15:36Z
 \end{lstlisting}
 
-\subsubsection{Act IV: The Redemption}
+\subsection{Act IV: The Redemption}
 
 Eventually, the ghost was found.
 
@@ -415,7 +415,7 @@ Because deep down, everyone knew the truth:
 The problem wasn’t the intern.  It was the system that let a one-off script become infrastructure.  (Also, the intern was the only one who remembered how \texttt{v2FlagTemp} was derived. So they kind of had to.)
 \end{quote}
 
-\subsubsection{Act V: The Pipeline That Could Have Been}
+\subsection{Act V: The Pipeline That Could Have Been}
 
 In a better world—one with deadlines that flex and teams that plan—this story could’ve gone very differently.
 
@@ -659,7 +659,7 @@ And no one would’ve had to grep for salvation.
 
 
 
-\subsubsection{version 2}
+\subsection{version 2}
 
 
 
@@ -816,7 +816,7 @@ And no one would’ve had to grep for salvation.
     
 
 
-\subsubsection{version 3}
+\subsection{version 3}
 
 
 \begin{lstlisting}[caption={Airflow DAG with parallel data quality validation and feature engineering before training.}, label={lst:airflowdag_parallel}]
@@ -895,7 +895,7 @@ dag = enhanced_pipeline()
 
 
 
-\subsubsection{version 4}
+\subsection{version 4}
 
 \begin{lstlisting}[style=tree, caption={Modular DAG file structure (ASCII-safe)}, label={lst:dag_tree_ascii}]
     dags/
@@ -1038,7 +1038,7 @@ dag = enhanced_pipeline()
 
 
 
-\subsubsection*{Epilogue: Why Modularity Matters}
+\subsection{Epilogue: Why Modularity Matters}
 
 Let’s be honest.
 
@@ -1070,6 +1070,24 @@ A monolithic system? One wrong move, and the whole thing comes crashing down.
 
 Your move.
 
+\subsection{Case Study Revisited: The Intern and the Forgotten Monolith}
+
+Imagine if this methodology had been applied before the intern ever touched \texttt{pandas.read\_csv()}.
+
+A mindful diagnostic session might have revealed:
+\begin{itemize}
+    \item The system was already exhibiting **Shadow** behaviors (ancient scripts no one understood).
+    \item The ownership was ambiguous, signaling a Conway-induced **Orphan**.
+    \item The culture prioritized speed over structure—a breeding ground for Hero-driven quick fixes.
+\end{itemize}
+
+Instead of celebrating the intern’s short-term “success,” the team could have paused, recognized these patterns, and intervened—not with a heavy governance hand, but with lightweight guardrails:
+
+\begin{itemize}
+    \item Mandate modularity not as a rule, but as a reflective practice.
+    \item Document the why, not just the what.
+    \item Treat every ad-hoc script as a potential **patient zero** for future dysfunction.
+\end{itemize}
 
 
 

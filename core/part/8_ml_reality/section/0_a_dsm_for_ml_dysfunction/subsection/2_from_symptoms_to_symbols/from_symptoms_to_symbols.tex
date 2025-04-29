@@ -1,0 +1,56 @@
+\subsection{From Symptoms to Symbols: Jung Enters the Pipeline}
+
+The \textbf{DSM} is a diagnostic manual. It catalogs symptoms, labels syndromes, and classifies dysfunctions with cold, clinical precision. But what it doesn’t do is tell you how things got that way. It describes the “what,” not the “why.” That’s where Carl Jung comes in. While the DSM fragments dysfunction into checkboxes, Jung offered a theory of mind that sought patterns beneath the chaos—archetypes that recur across cultures, histories, and even organizations.
+
+Jung believed that human behavior is shaped not just by personal experience, but by a deeper, collective unconscious—a psychic layer where myths, symbols, and roles live independently of any one person. You don’t just act out your life, in Jung’s view—you channel ancient roles: the Hero, the Shadow, the Trickster, the Wise Old Man. And you do it whether you know it or not.
+
+So what happens when you replace “individual” with “engineering team,” and apply that same lens to the dysfunctions of modern machine learning? You get Conway’s Law with a personality disorder. The infrastructure reflects the psyche of the team that built it. Your bugs are symptoms. Your roles are archetypes. Your Bash script is your Shadow.
+
+\begin{itemize}
+  \item \textbf{The Hero (a.k.a. “The One Who Knows the Configs”)}\\
+  Lone savior of the production branch. Writes code at 3AM. Is also the reason no one else knows how anything works.
+
+  \item \textbf{The Shadow (a.k.a. “That Bash Script from 2019”)}\\
+  It still runs. No one understands it. It controls 40\% of your deploy process.
+
+  \item \textbf{The Trickster (a.k.a. “The Dashboard”)}\\
+  Looks beautiful. Shows results from two years ago. Still cited in quarterly meetings.
+
+  \item \textbf{The Wise Old Man (a.k.a. “Former Employee on Slack”)}\\
+  Knows everything. Left the company. Still gets pinged. Never responds.
+
+  \item \textbf{The Anima/Animus (a.k.a. “The Project Manager”)}\\
+  Oscillates between order and chaos. Tries to align business goals with what the model can’t do. Slowly loses grip on reality.
+
+  \item \textbf{The Orphan (a.k.a. “The Unused Feature Store”)}\\
+  Built with care. Abandoned without ceremony. Still eats up \$600/month in AWS costs.
+\end{itemize}
+
+Jung argued that true individuation comes from integrating these archetypes. Conway, in his own way, warned that your architecture is a psychological artifact.
+
+\textbf{Fixing your pipeline isn’t just about code refactors—it’s about organizational therapy.} Because these roles aren’t just mistakes. They’re patterns. Recurring, unconscious, and often inevitable.
+
+Until you name them.
+
+
+\begin{tcolorbox}[
+    title=Sidebar: Conway’s Law — The Org Chart as Source Code,
+    colback=gray!5,
+    colframe=black,
+    fonttitle=\bfseries,
+    sharp corners=south,
+    boxrule=0.5pt,
+    enhanced,
+    breakable
+  ]
+  In 1967, Melvin Conway submitted a paper with a simple and slightly terrifying claim: \textbf{“Any organization that designs a system will produce a design whose structure is a copy of the organization’s communication structure.”}
+  
+  In other words, your system architecture is just your team dynamics wearing a trench coat.
+  
+  The paper was rejected—too informal, they said. But Fred Brooks quoted it anyway in \textit{The Mythical Man-Month}, and Conway’s Law was born.
+  
+  Since then, it’s been confirmed in every possible way: microservices that reflect turf wars, data silos that mirror departmental ones, and pipelines so fragmented they resemble the reorg that birthed them. Every shadow process, rogue dashboard, or undocumented feature store didn’t just happen. It got \textit{designed that way}—by accident, sure, but no less structurally.
+  
+  In ML pipelines, Conway’s Law shows up in how handoffs happen (or don’t), how metrics are monitored (or ignored), and how ownership maps to people who left two quarters ago. It’s not a bug—it’s a blueprint. Draw the org chart sideways, and you’re looking at the DAG of your system.
+\end{tcolorbox}
+

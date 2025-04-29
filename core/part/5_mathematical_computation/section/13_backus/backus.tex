@@ -1,0 +1,90 @@
+\section{John Backus and the Compiler: Teaching Machines to Read}
+
+After Grace Hopper gave us the linker and loader—separating code from raw addresses—the next problem became painfully obvious:
+\textbf{programming itself was still brutal.}
+
+In the early 1950s, coding a machine meant thinking like a machine:
+binary numbers, memory addresses, opcode tables. Every slight change meant hours (or days) of manual rewiring at the software level.
+
+Enter \textbf{John Backus}.
+
+\subsection{The Problem: Assembly Language Bottleneck}
+
+By the time Hopper had invented symbolic addresses, programmers had a new tool: \textbf{assembly language}—still low-level, but better than raw machine code.
+
+However, it still had serious problems:
+
+\begin{itemize} \item Every program was deeply hardware-specific. \item Writing even simple algorithms was tedious and error-prone. \item Software development couldn't scale to match the growing ambitions of early computing. \end{itemize}
+
+What was missing was a way to program at a higher level—closer to human reasoning, not hardware configuration.
+
+\subsection{Backus’s Insight: A Translator for Code}
+
+While working at IBM, John Backus had a radical idea:
+
+\begin{quote} \textit{``What if you could write programs in a mathematical notation—and have the machine itself translate that into assembly?''} \end{quote}
+
+This wasn’t just a shortcut. It was a new paradigm.
+
+Instead of telling the machine \textit{how} to do everything step-by-step, a programmer could describe \textit{what} they wanted—and trust another program to handle the gritty details.
+
+That "other program" would become known as the \textbf{compiler}.
+
+\subsection{The First Major Compiler: FORTRAN (1957)}
+
+Backus led the IBM team that created the first widely successful high-level programming language: \textbf{FORTRAN} (short for "Formula Translation"). It allowed engineers and scientists to write mathematical formulas directly, using syntax much closer to traditional mathematics.
+
+FORTRAN wasn't just a language—it was the first practical \textbf{compiled language}:
+
+\begin{itemize} \item Programmers wrote source code in a human-readable format. \item The compiler translated it into optimized machine code. \item Programs became faster to write, easier to debug, and portable across different hardware. \end{itemize}
+
+\begin{quote} Compilers didn’t just automate programming.
+They \textbf{abstracted it}. \end{quote}
+
+\subsection{Backus–Naur Form (BNF): Structuring Languages Themselves}
+
+Backus didn’t stop at inventing the compiler.
+Later, in collaboration with Peter Naur, he introduced the \textbf{Backus–Naur Form (BNF)}—a formal system for describing the grammar of programming languages.
+
+BNF wasn’t about implementation—it was about defining what a language even was. It provided a rigorous, mathematical structure for syntax that could be used to build future compilers systematically.
+
+Without BNF, the entire field of compiler design—and modern programming languages—would have been pure chaos.
+
+\subsection{Conclusion: From Gears to Grammars}
+
+John Backus transformed programming from a mechanical craft into a linguistic and mathematical discipline.
+
+Because of Backus:
+
+\begin{itemize} \item Programming languages became expressive and high-level. \item Compilers became the bridge between human logic and machine execution. \item Software engineering became scalable, modular, and portable. \end{itemize}
+
+\begin{quote} Before Backus, programming was a machine-language monologue.
+After Backus, it became a human-machine dialogue. \end{quote}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+      block/.style={rectangle, draw, minimum width=3.5cm, minimum height=1cm, align=center, fill=blue!10},
+      process/.style={rectangle, draw, minimum width=3cm, minimum height=1cm, align=center, fill=yellow!20},
+      executable/.style={rectangle, draw, minimum width=3.5cm, minimum height=1cm, align=center, fill=green!15},
+      arrow/.style={thick, -{Latex}}
+    ]
+    
+    % Nodes
+    \node[block] (source) {Source Code \\ (FORTRAN)};
+    \node[process, right=3.5cm of source] (compiler) {Compiler};
+    \node[block, right=3.5cm of compiler] (assembly) {Assembly Code};
+    \node[process, right=3.5cm of assembly] (assembler) {Assembler};
+    \node[executable, right=3.5cm of assembler] (machine) {Machine Code \\ (Executable)};
+    
+    % Arrows
+    \draw[arrow] (source) -- (compiler);
+    \draw[arrow] (compiler) -- (assembly);
+    \draw[arrow] (assembly) -- (assembler);
+    \draw[arrow] (assembler) -- (machine);
+    
+    \end{tikzpicture}
+    \caption{The Compiler Chain: Translating Human Logic into Machine Execution}
+    \label{fig:compiler-chain}
+\end{figure}
