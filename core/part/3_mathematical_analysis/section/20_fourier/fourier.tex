@@ -53,17 +53,30 @@ f(x) = a_0 + \sum_{n=1}^{\infty} \left( a_n \cos(n x) + b_n \sin(n x) \right).
 This equation says something remarkable: no matter how messy or irregular a function might seem, it could be reconstructed entirely from smooth waves. Fourier discovered that even functions describing complex heat distributions could be rewritten in this way, making it much easier to analyze how temperature evolved over time.
 
 
-\subsection*{A Language for Change: What Differential Equations Tell Us}
+\subsection{A Language for Change: From Leibniz to Partial Differential Equations}
 
-Before we dive into the specific equations used by Fourier, we need to introduce one of the central tools of his work: the differential equation. 
+Before we explore the equations Fourier used, we need to introduce one of the central tools of his work: the differential equation.
 
+The very idea of a differential equation traces back to \textbf{Leibniz}, who didn’t just invent the notation of calculus—he gave us a way to write equations that describe \emph{change itself}.  
+By symbolizing derivatives as \( \frac{dy}{dx} \), Leibniz made it possible to express how one quantity changes with respect to another, setting the stage for equations whose unknowns are not numbers, but \textbf{functions that must behave in a certain way}.
 
-Specifically, Fourier studied the \textit{heat equation}: a partial differential equation (PDE) describing how heat diffuses through a medium over time.
+A \textbf{differential equation} is such an equation: it relates a function to its derivatives, capturing not just what a quantity is, but how it must change.
+
+\begin{quote}
+Think of a differential equation as a recipe for change—it doesn’t give you the answer, but the rules any answer must follow.
+\end{quote}
+
+A simple example: if position is a function of time, its derivative is velocity—how fast position changes. The derivative of velocity is acceleration—how fast velocity changes. A differential equation might describe how acceleration depends on position, velocity, or external forces.
+
+Fourier’s contribution wasn’t just to use differential equations, but to extend them into a more intricate form: the \textbf{partial differential equation}, or PDE.
+
+A \textbf{partial differential equation} describes how a function changes with respect to multiple independent variables. For example, heat spreads through both \emph{space} and \emph{time}: its temperature at a point depends on position \( x \) and time \( t \).
+
+The equation Fourier studied, the \textbf{heat equation}, is a classic PDE:
 
 \[
 \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
 \]
-
 
 Where:
 \begin{itemize}
@@ -71,27 +84,19 @@ Where:
   \item \( \alpha \) is the thermal diffusivity constant.
 \end{itemize}
 
-In the case of the heat equation, it tells us how the temperature \( u(x, t) \) changes over time (\( \frac{\partial u}{\partial t} \)) based on how curved or uneven the temperature is across space (\( \frac{\partial^2 u}{\partial x^2} \)). 
+This equation tells us:  
+\begin{itemize}
+  \item how the temperature changes over time (\( \frac{\partial u}{\partial t} \))  
+  \item depends on how curved or uneven the temperature is across space (\( \frac{\partial^2 u}{\partial x^2} \)).  
+\end{itemize}
 
-Solving this differential equation means figuring out what the temperature is at every point and time, given how it spreads and smooths out.
-
-This isn’t just mathematical machinery: it’s a language for describing how physical systems change, either across space, over time, or both. Understanding this language, even at a basic level, will help us make sense of the ideas that follow.
-
-A \textbf{differential equation} is an equation that relates a function to its derivatives; in other words, it describes how something is changing.
-
-A \textbf{derivative} tells you how a quantity changes at each point. If you have a function for position, its derivative is velocity—how fast and in what direction the position is changing. A second derivative gives acceleration—how fast the velocity is changing.
-
-An \textbf{integral}, by contrast, adds up small changes to find a total. If velocity is the derivative of position, then integrating velocity over time gives you the distance traveled.
-
-A \textbf{differential equation} combines these ideas. It gives a rule that a function must follow—not just what a quantity is, but how it \textit{behaves} and \textit{evolves}. Solving a differential equation means finding a function whose derivatives fit that rule.
+Solving this equation means figuring out how temperature behaves everywhere and at every moment, given how it spreads and smooths out.
 
 \begin{quote}
-Think of a differential equation as a recipe for change. It doesn’t tell you what the answer is; it tells you how the answer must behave.
+\textit{Leibniz gave us the grammar to describe change; Fourier used it to write the dynamics of heat, sound, and waves themselves.}
 \end{quote}
 
-When a differential equation involves more than one independent variable—such as time and space—it becomes a \textbf{partial differential equation}, or PDE. These equations describe how things evolve over both space \textit{and} time. They are the mathematical heart of waves, heat, gravity, fluids, and much more.
-
-In the sections that follow, we’ll see how different PDEs capture two fundamental kinds of behavior: how systems evolve \textit{in time}, and how they are structured \textit{across space}.
+In the sections that follow, we’ll see how different partial differential equations capture two fundamental aspects of physical systems: how they evolve \emph{in time}, and how they are structured \emph{across space}.
 
 
 

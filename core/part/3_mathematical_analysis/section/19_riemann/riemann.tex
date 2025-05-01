@@ -1,25 +1,30 @@
 \section{Riemann and the Reinvention of Integration (1854)}
 
-\subsection{From Waves to Limits: When Fourier Broke the World, Riemann Rebuilt It}
+\subsection{After Cauchy: Cleaning Up Infinity, One Sum at a Time}
 
-Fourier had shown that functions—even jagged, discontinuous, chaotic ones—could be decomposed into infinite sums of smooth sine waves. This was exhilarating. It was also terrifying. Suddenly, the space of “functions” was not limited to the smooth and sensible—it now included pathological beasts like the square wave and the Dirichlet function.
+Cauchy had patched the cracks in calculus. He gave us rigorous limits, continuity, and differentiability. But there was still one place where the old ghosts of infinitesimals lingered: \textbf{integration}.
 
-But there was a catch.
+Sure, mathematicians could differentiate with rigor now. But integration still leaned on old metaphors—“summing infinitely many infinitesimal slices” sounded poetic, but it wasn’t clear what that really meant.
 
-Fourier’s method depended on being able to \emph{integrate} those wild functions. And as mathematicians quickly discovered, classical integration—rooted in intuition and infinitesimals—wasn’t up to the task. For the Dirichlet function, even integration broke down. It wasn’t just hard to compute; it was unclear what “area under the curve” even meant.
+What did it mean to add up infinitely many values?
 
-Mathematical analysis had reached its breaking point.
+How could an infinite sum produce a finite area?
 
-\medskip
+And most awkward of all: \textbf{what counts as an “area” when the function keeps misbehaving?}
 
-Enter \textbf{Bernhard Riemann}.
+For smooth, well-behaved functions, nobody worried. But as analysis matured, mathematicians were no longer content with “functions that played nice.” Fourier had already shown that useful functions—like square waves and discontinuous signals—refused to stay smooth. And if mathematics was going to handle the messy, the jagged, the discontinuous, it needed a new kind of integral.
 
-Where Fourier fractured the boundaries of what a function could be, Riemann stepped in to reconstruct the foundations. He didn’t just redefine integration—he reframed what it meant to measure anything at all. 
+That’s where \textbf{Bernhard Riemann} stepped in.
 
-If functions were going to behave badly, the theory had to grow up.
+He wasn’t just solving technicalities. He was answering a deeper question:
 
-And Riemann made it rigorous.
+\begin{center}
+\emph{How do you measure area when the curve won’t cooperate?}
+\end{center}
 
+Riemann’s answer? Don’t start with infinitesimals—start with \textbf{finite sums}, then make them \textbf{converge}.
+
+And in doing so, he reinvented integration.
 
 \subsection{Riemann Sums: Approximating Area Through Partitions}
 
@@ -147,34 +152,6 @@ This formalization replaced the vague notion of “summing infinitely small quan
 \caption{Left-endpoint Riemann sums: as the number of rectangles increases, the approximation of the area under \( \ln(x) \) becomes more accurate.}
 \end{figure}
 
-\subsection{Why Riemann Had to Happen: Taming the Aftermath of Fourier}
-
-Fourier had cracked something open.
-
-When he showed that even a jagged, discontinuous function like the square wave could be written as an infinite sum of smooth sine waves, the mathematical world gasped—then panicked. What did it mean to say that a wild function was “equal” to an infinite trigonometric series? What was being added together? And more pressingly: how do you even integrate something that jumps?
-
-This wasn’t just a philosophical hiccup. Fourier’s method required integration at every turn—to compute coefficients, to reconstruct signals, to make sense of the whole spectral approach. But the functions he summoned weren’t always well-behaved. Many weren’t continuous. Some weren’t even piecewise smooth. The traditional, intuitive tools of calculus buckled under the weight of these constructions.
-
-Enter Riemann.
-
-His approach—defining integration as a limit of sums over partitions—was the perfect antidote. It didn’t rely on smoothness. It didn’t need curves to be gentle. It just needed the function to behave "well enough" on increasingly small intervals. For many of the functions Fourier dealt with, this was just enough structure to bring them back into the realm of the measurable.
-
-\begin{quote}
-Where Fourier expanded the space of functions,  
-Riemann quietly built the scaffolding to support it.
-\end{quote}
-
-Suddenly, it was possible to make sense of integrating a square wave—not because it became smooth, but because Riemann let us sidestep smoothness altogether. The integral was no longer a philosophical notion of accumulated “area,” but a formalized, calculable limit.
-
-And for a time, that limit held.
-
-But as mathematicians dug deeper into Fourier’s zoo of functions, they began to find creatures that slipped even past Riemann’s grasp. Discontinuity was no longer the exception—it was becoming the rule. Some functions didn’t just jump—they shattered every assumption about local structure and convergence.
-
-Riemann had given analysis new ground to stand on.
-
-But just beyond it, the floor was already starting to crack.
-
-
 \subsection{When Even Riemann Fails: The Dirichlet Function Arrives}
 
 Riemann’s definition of the integral was a triumph of mathematical structure—a way to make sense of wildly misbehaving functions that still held some local order. Where Fourier had cracked open the world of discontinuities, Riemann offered a way to clean up the mess—at least for most of them.
@@ -220,138 +197,9 @@ Soon, someone would open it—and drop us into the abyss.
 
 
 
-
-\subsection{Why the Dirichlet Function Broke Fourier's Approach}
-
-At the heart of Fourier analysis is the idea that a function can be represented as an infinite sum of sine and cosine waves:
-
-\[
-f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos(nx) + b_n \sin(nx) \right).
-\]
-
-where the Fourier coefficients are given by:
-
-\[
-a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos(n x) \,dx, \quad
-b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin(n x) \,dx.
-\]
-
-These coefficients describe how much of each frequency contributes to the function’s reconstruction.
-
-To see this in action, consider the square wave:
-
-\[
-f(x) = 
-\begin{cases}
-1, & -\pi < x < 0 \\\\
--1, & 0 < x < \pi
-\end{cases}
-\quad \text{with } f(-\pi) = f(\pi) = 0
-\]
-
-It’s discontinuous, but integrable. Its Fourier series converges to the function almost everywhere:
-
-\[
-f(x) \sim \frac{4}{\pi} \left( \sin(x) + \frac{1}{3} \sin(3x) + \frac{1}{5} \sin(5x) + \cdots \right)
-\]
-
-\begin{center}
-\begin{tikzpicture}
-    \begin{axis}[
-        domain=-2*pi:2*pi,
-        samples=400,
-        axis x line=middle,
-        axis y line=middle,
-        ymin=-1.5, ymax=1.5,
-        xlabel={$x$}, ylabel={$f(x)$},
-        xtick={-6.28, -3.14, 0, 3.14, 6.28},
-        xticklabels={$-2\pi$, $-\pi$, $0$, $\pi$, $2\pi$},
-        title={Square Wave and Fourier Approximation},
-        legend pos=south east,
-        legend style={draw=none, font=\scriptsize}
-    ]
-
-        % Fourier approximation (3 sine terms)
-        \addplot[blue, thick, domain=-2*pi:2*pi]
-        {4/pi*(sin(deg(x)) + 1/3*sin(deg(3*x)) + 1/5*sin(deg(5*x)))};
-        \addlegendentry{Fourier Approx. (3 terms)}
-
-        % Square wave segments
-        \addplot[black, thick] coordinates {(-2*pi,-1) (-pi,-1)};
-        \addplot[black, thick] coordinates {(-pi,1) (pi,1)};
-        \addplot[black, thick] coordinates {(pi,-1) (2*pi,-1)};
-        
-        % Vertical jump lines (discontinuities)
-        \addplot[black, thick, dashed] coordinates {(-pi,-1) (-pi,1)};
-        \addplot[black, thick, dashed] coordinates {(pi,1) (pi,-1)};
-
-        % Discontinuity markers
-        \node at (axis cs: -pi,-1) {\textcolor{black}{$\circ$}};
-        \node at (axis cs: pi,1) {\textcolor{black}{$\circ$}};
-        \filldraw[black] (axis cs: -pi,1) circle (2pt);
-        \filldraw[black] (axis cs: pi,-1) circle (2pt);
-
-    \end{axis}
-\end{tikzpicture}
-\end{center}
-
-
-The series does a pretty good job at mimicking the shape, and gets better as we add more terms. Even though the function isn’t differentiable at \( x = 0 \), the Fourier series still works.
-
-\vspace{1em}
-\noindent
-However, for the Dirichlet function:
-
-\begin{itemize}
-    \item It takes values 1 on rationals (a dense but countable set) and 0 on irrationals (an uncountable set).
-    \item The Fourier integral sums over both rationals and irrationals.
-    \item Since the rationals have measure zero in the traditional sense of Riemann integration, they contribute nothing to the integral.
-    \item This results in all Fourier coefficients being zero:
-\end{itemize}
-
-\[
-a_n = b_n = 0 \quad \forall n.
-\]
-
-Which means the Fourier series of the Dirichlet function is just:
-
-\[
-f_{\text{Dirichlet}}(x) = 0,
-\]
-
-which is clearly wrong. The function does exist, but it defies the assumptions Fourier’s method relies on.
-
-\begin{center}
-\begin{tikzpicture}[scale=1.2]
-  % Axes
-  \draw[->] (-3.5, 0) -- (3.5, 0) node[right] {\small $x$};
-  \draw[->] (0, -0.5) -- (0, 1.5) node[above] {\small $f(x)$};
-
-  % Dense rational dots at height 1
-  \foreach \x in {-3,-2.5,...,3.5} {
-    \filldraw[blue] (\x,1) circle (0.5pt);
-  }
-
-  % Dense irrational dots at height 0
-  \foreach \x in {-3.2,-2.9,...,3.3} {
-    \filldraw[red] (\x,0) circle (0.5pt);
-  }
-
-  % Labels
-  \node[blue, right] at (2.2,1.1) {\footnotesize Rationals: $f(x)=1$};
-  \node[red, right] at (2.2,0.1) {\footnotesize Irrationals: $f(x)=0$};
-  \node at (0, -0.3) {\small Dirichlet Function};
-\end{tikzpicture}
-\end{center}
-
-\bigskip
-
-This function revealed a serious limitation of Fourier’s approach: not all functions can be decomposed neatly into sinusoids, especially when they violate our intuitive ideas of smoothness and integrability.
-
-
 \subsection{When Riemann Breaks: The Crisis of Convergence}
 
-Riemann had rescued integration from the chaos Fourier unleashed. By replacing the vague idea of “infinitely small quantities” with a rigorous limit of sums over partitions, he made the integral precise, predictable, and powerful.
+Riemann had rescued integration. By replacing the vague idea of “infinitely small quantities” with a rigorous limit of sums over partitions, he made the integral precise, predictable, and powerful.
 
 But as mathematics often does, it asked the next uncomfortable question:
 

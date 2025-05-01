@@ -1,18 +1,13 @@
-\tcbset{
-  sidebarstyle/.style={
-    colback=gray!10!white,
-    colframe=black,
-    fonttitle=\bfseries,
-    title={Historical Sidebar},
-    boxrule=0.5pt,
-    arc=2mm,
-    left=1em,
-    right=1em,
-    top=0.5em,
-    bottom=0.5em,
-    enhanced,
-    sharp corners=south,
-    before skip=1em,
-    after skip=1em
-  }
+% Historical Sidebar Macro
+\newtcolorbox{HistoricalSidebar}[1]{
+  colback=blue!5!white,
+  colframe=blue!50!black,
+  title={Historical Sidebar: #1},
+  fonttitle=\bfseries,
+  breakable,
+  enhanced,
+  sharp corners=south,
+  boxrule=0.5pt,
+  before skip=10pt,
+  after skip=10pt
 }
