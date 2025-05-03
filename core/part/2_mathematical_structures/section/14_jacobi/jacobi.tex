@@ -6,20 +6,41 @@ Enter \textbf{Carl Gustav Jacob Jacobi}.
 
 Where Hamilton reimagined motion, Jacobi reimagined how to **solve** it — especially when the heavens refused to play nice with simple equations. His contributions didn’t just refine Hamiltonian mechanics; they armed mathematicians with powerful methods to tackle the intricate dance of planets, moons, and stars.
 
-\subsection{Turning Dynamics Into Equations of Surfaces}
+\subsection{A New Lens: Turning Dynamics Into Equations of Surfaces}
 
-Jacobi’s genius lay in transforming Hamilton’s flow-based mechanics into a problem of solving **partial differential equations (PDEs)**. He introduced what we now call the **Hamilton–Jacobi equation**:
+Before we dive into Jacobi’s contribution, we need to pause and introduce one of the mathematical tools he wielded: the **partial differential equation (PDE).**
+
+You might remember that a differential equation is an equation where the unknown is not a number, but a \textbf{function}, and the equation tells you how that function must \emph{change}. It’s a way of writing the rules that any valid solution has to obey.
+
+A \textbf{partial differential equation} goes one step further: it describes how a function changes with respect to \emph{several different variables at once}. Imagine you’re trying to describe a landscape. The height of the land depends on both your east-west (\( x \)) and north-south (\( y \)) positions. A PDE would be an equation that tells you how the slope and curvature of the land must behave in all directions.
+
+\begin{quote}
+Think of a PDE as a recipe for a \textit{surface} rather than a curve—a rulebook for how a whole sheet bends and twists in space.
+\end{quote}
+
+Jacobi’s genius was realizing that you could turn the problem of tracking every possible path a system could take into the problem of solving a single PDE—an equation that encoded all the possible motions as different contours or “creases” on a surface.
+
+He introduced what we now call the **Hamilton–Jacobi equation**:
 
 \[
 H\left(q_i, \frac{\partial S}{\partial q_i}, t\right) + \frac{\partial S}{\partial t} = 0
 \]
 
-Here, \( S \) is the **action**, a function whose solution encodes the entire motion of the system. Instead of tracking trajectories step by step, Jacobi showed that you could solve a PDE once — and extract all possible motions from its solution.
+Here:
+\begin{itemize}
+  \item \( S \) is the \textbf{action}, a special function whose shape captures the entire motion of the system,
+  \item \( q_i \) are the coordinates of the system,
+  \item \( H \) is the Hamiltonian, encoding the energy and dynamics.
+\end{itemize}
+
+Instead of calculating every trajectory by hand, Jacobi showed that if you could solve this PDE once—if you could find the right function \( S \)—then every possible path a system could follow was already hidden in its slopes and ridges.
 
 \begin{quote}
-\textit{Why follow every planet by hand,  
-when you can solve for the surface they all glide along?}
+\textit{Why follow every planet one by one,  
+when you can solve for the invisible landscape they all glide along?}
 \end{quote}
+
+This approach reframed mechanics. No longer a step-by-step choreography, it became a problem of geometry: of finding the right surface, the right shape, whose features encoded the motion of the cosmos itself.
 
 This approach reframed mechanics as a problem of finding special functions — a perspective that resonated deeply in celestial mechanics, where direct solutions were often impossible.
 
@@ -80,7 +101,7 @@ Jacobi gave us the master key — and told us to solve for the surface beneath t
 \end{quote}
 
 
-\begin{tcolorbox}[colback=gray!5!white, colframe=gray!50!black, title={Historical Sidebar: Jacobi and the Perils of Mathematical Martyrdom}, breakable]
+\subsection{Jacobi and the Perils of Mathematical Martyrdom}
 
     Carl Gustav Jacob Jacobi wasn’t just known for his brilliance — he was known for his \textbf{relentless dedication} to mathematics. To Jacobi, the pursuit of knowledge wasn’t a profession. It was a calling that demanded everything.
     
@@ -127,4 +148,3 @@ Jacobi gave us the master key — and told us to solve for the surface beneath t
     the human body has limits — whether we choose to respect them or not.}
     \end{quote}
     
-\end{tcolorbox}

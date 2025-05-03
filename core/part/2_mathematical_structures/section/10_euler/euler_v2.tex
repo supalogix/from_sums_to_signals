@@ -1,0 +1,212 @@
+\section{Leonhard Euler: Mechanics, Rotation, and the Birth of the Moment of Inertia}
+
+If Newton gave us the calculus of straight-line motion, and Leibniz gave us the calculus of relations, then \textbf{Leonhard Euler} extended these ideas into the realm of rotation.
+
+For Euler, motion wasn’t limited to points sliding along curves—it also involved bodies spinning, tumbling, and twisting through space. Where Newton’s laws explained how objects move in straight paths under forces, Euler asked:
+
+\begin{quote}
+\textit{How do extended bodies rotate? How do we measure their resistance to being spun?}
+\end{quote}
+
+This question led him to one of his most enduring contributions: the concept of the \textbf{moment of inertia}.
+
+\subsection{A New Quantity for Rotating Bodies}
+
+Imagine trying to spin a wheel. Intuitively, you know it’s harder to spin a heavy wheel than a light one. But it’s also harder to spin a wheel if more of its mass is far from the center. A solid disc and a bicycle rim might weigh the same, but the rim resists spinning more.
+
+Euler formalized this intuition with a mathematical expression that measured how mass is distributed relative to an axis of rotation. He defined the moment of inertia \( I \) as:
+
+\[
+I = \sum m_i r_i^2
+\]
+
+where:
+
+\begin{itemize}
+    \item \( m_i \) is the mass of each particle in the body,
+    \item \( r_i \) is the distance of that particle from the axis of rotation.
+\end{itemize}
+
+This formula told physicists and engineers something profound:  
+\textbf{Not all mass contributes equally to rotational inertia; distance matters quadratically.}
+
+In continuous terms, for a solid body:
+
+\[
+I = \int r^2 \, dm
+\]
+
+Here, \( r \) measures the perpendicular distance from each infinitesimal mass element \( dm \) to the axis.
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=black, title=\textbf{Historical Sidebar: Why “Inertia”?}, fonttitle=\bfseries, arc=1.5mm, boxrule=0.4pt]
+The term “moment of inertia” reflects a conceptual bridge: it extends Newton’s linear inertia (resistance to acceleration) into the rotational domain.
+
+Just as force produces linear acceleration in proportion to mass, a torque (rotational force) produces angular acceleration in proportion to moment of inertia:
+
+\[
+\tau = I \alpha
+\]
+
+Euler’s insight was to see inertia not as a single number, but as a geometric property: how mass is distributed around an axis shapes a body’s resistance to rotational change.
+\end{tcolorbox}
+
+\subsection{Euler’s Equations of Motion}
+
+But Euler didn’t stop at defining \( I \). He developed a full set of equations describing the rotation of rigid bodies:
+
+\[
+\frac{d}{dt} (\mathbf{I} \boldsymbol{\omega}) + \boldsymbol{\omega} \times (\mathbf{I} \boldsymbol{\omega}) = \mathbf{M}
+\]
+
+where:
+
+\begin{itemize}
+    \item \( \mathbf{I} \) is the inertia tensor (a generalization of moment of inertia for three dimensions),
+    \item \( \boldsymbol{\omega} \) is the angular velocity vector,
+    \item \( \mathbf{M} \) is the applied torque.
+\end{itemize}
+
+These \textbf{Euler’s equations of motion} form the foundation of rotational dynamics. They describe how spinning objects behave under applied torques—whether it’s a planet precessing under gravity or a spinning top wobbling on a table.
+
+\subsection{A World Beyond Points}
+
+Euler’s contributions shifted mechanics from the study of point masses to the study of extended bodies. His moment of inertia allowed physicists to calculate how real objects spin, from gears to planets.
+
+Where Newton gave us forces and fluxions, and Leibniz gave us differentials and optimization, Euler connected their ideas to the practical mechanics of the physical world:
+
+\begin{center}
+\begin{tabular}{c|c|c}
+\textbf{Newton} & \textbf{Leibniz} & \textbf{Euler} \\
+\hline
+Force & Relation & Rotation \\
+Fluxion & Differential & Moment of Inertia \\
+Absolute Time & Algebraic Structure & Geometric Distribution \\
+\end{tabular}
+\end{center}
+
+Euler turned motion from an abstract flow or a symbolic ratio into an engineering toolkit.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, 
+  title={Historical Sidebar: Euler and the Calculus of Rotating Worlds}]
+  
+Leonhard Euler wasn’t simply expanding calculus—he was expanding its domain. With his moment of inertia and rotational dynamics, he allowed calculus to describe not just paths, but \textbf{bodies spinning around axes}, tumbling in space, balancing forces.
+
+Euler’s work laid the foundation for structural engineering, celestial mechanics, and modern physics. His equations are still taught to every engineer and physicist who studies rotation.
+
+\medskip
+
+In a universe of spinning planets, rolling wheels, and orbiting moons, Euler gave calculus a new playground: the rotating world.
+
+\end{tcolorbox}
+
+\subsection{The Legacy of Inertia}
+
+Today, the moment of inertia appears in everything from gymnasts adjusting their spin mid-air to satellites controlling their orientation in space.
+
+Whenever we write:
+
+\[
+\tau = I \alpha
+\]
+
+—or calculate how a shape’s geometry affects its spin—we invoke Euler’s insight.
+
+Euler’s mechanics didn’t replace Newton’s. It extended it into dimensions Newton never charted: the rotational, the distributed, the tensorial.
+
+Where Newton saw the flow of time, and Leibniz saw the grammar of infinitesimals, Euler saw the shape of things that spin—and gave us the mathematics to set them in motion.
+
+\subsection{Kepler’s Second Law Reimagined: Moment of Inertia and Angular Momentum}
+
+Newton had shown that Kepler’s Second Law—the law of equal areas swept in equal times—was a consequence of a central force. But with Euler’s insight into rotational dynamics, we can reinterpret this geometric law in a new light: as the conservation of \textbf{angular momentum}.
+
+Consider a planet orbiting the Sun. At each moment:
+
+\[
+L = I \omega
+\]
+
+where:
+
+\begin{itemize}
+    \item \( L \) is the angular momentum,
+    \item \( I \) is the moment of inertia about the Sun (treated as a point mass, so \( I = m r^2 \)),
+    \item \( \omega \) is the angular velocity.
+\end{itemize}
+
+Since no external torque acts perpendicular to the orbital plane, Euler’s rotational equation reduces to:
+
+\[
+\frac{dL}{dt} = 0
+\]
+
+—that is, angular momentum is conserved.
+
+But observe:
+
+\[
+L = m r^2 \omega
+\]
+\[
+\omega = \frac{d\theta}{dt}
+\]
+
+So:
+
+\[
+L = m r^2 \frac{d\theta}{dt}
+\]
+
+Dividing both sides by 2:
+
+\[
+\frac{L}{2} = \frac{1}{2} m r^2 \frac{d\theta}{dt}
+\]
+
+But the expression on the right is none other than:
+
+\[
+\frac{dA}{dt}
+\]
+
+—the rate at which area is swept out (since \( dA = \frac{1}{2} r^2 d\theta \)).
+
+Thus:
+
+\[
+\frac{dA}{dt} = \frac{L}{2m}
+\]
+
+Kepler’s Second Law isn’t just a geometric rule—it’s the projection of angular momentum conservation onto the orbital plane.
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=black, title=\textbf{Historical Sidebar: From Area to Angular Momentum}, fonttitle=\bfseries, arc=1.5mm, boxrule=0.4pt]
+
+In Newton’s geometry, Kepler’s Second Law was a balance of triangles; in Euler’s mechanics, it became the balance of angular momentum.
+
+Where Newton proved that equal areas implied a central force, Euler’s framework showed that this geometric constancy reflected a deeper dynamical invariant: the planet resists changes to its spin around the Sun.
+
+\medskip
+
+In other words: Kepler’s area law and Euler’s moment of inertia are two sides of the same coin. One speaks in triangles; the other speaks in torque.
+
+\end{tcolorbox}
+
+\subsubsection{A Modern Translation}
+
+In modern physics, we state this principle succinctly:
+
+\[
+\text{No external torque} \quad \Rightarrow \quad L = \text{constant}
+\]
+
+\[
+L = m r^2 \frac{d\theta}{dt}
+\quad \Rightarrow \quad
+\frac{dA}{dt} = \frac{L}{2m}
+\]
+
+Kepler saw the planets sweeping equal areas; Newton showed this implied a centripetal force; Euler showed that this was the rotational analog of inertia.
+
+\textbf{Equal areas in equal times is angular momentum in disguise.}
+
+It’s a reminder that what begins as geometry can, over centuries, reveal itself as dynamics.
+

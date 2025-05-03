@@ -1,0 +1,93 @@
+\subsection{Information Geometry: A Statistical Shadow of Kepler's Law}
+
+What if Kepler’s Second Law—the conservation of swept area—had an analogue beyond celestial mechanics?  
+What if, instead of tracing planets around the Sun, we traced trajectories through a space of \textit{probability distributions}?
+
+Enter \textbf{information geometry}.
+
+In information geometry, we treat families of probability distributions as points on a manifold.  
+Each parameterized model—each choice of mean, variance, or other statistical parameter—defines a coordinate on this manifold.
+
+But this space is not flat.  
+It comes equipped with a natural curvature, measured by the \textbf{Fisher information metric}:
+
+\[
+g_{ij}(\theta) = \mathbb{E}\left[ \frac{\partial \log p(x \mid \theta)}{\partial \theta^i} \frac{\partial \log p(x \mid \theta)}{\partial \theta^j} \right]
+\]
+
+This metric turns statistical inference into a geometric journey:  
+Every learning step is a move across this manifold; every update traces a curve through parameter space.
+
+\medskip
+
+\noindent
+\textbf{And here’s the key:}  
+Just as Kepler’s Second Law conserves area in phase space,  
+certain flows in information geometry conserve an “area” in statistical space—  
+a volume element determined by the Fisher information.
+
+\[
+dV = \sqrt{\det g(\theta)} \, d\theta^1 \wedge \dots \wedge d\theta^n
+\]
+
+Under natural gradient flows—introduced by Shun-ichi Amari—this information volume behaves analogously to symplectic area in mechanics.  
+The learning trajectory sweeps out “equal information” in “equal effort” steps.
+
+\begin{quote}
+\textbf{The orbit of a learner mirrors the orbit of a planet.  
+Each preserves a hidden measure:  
+planets conserve geometric area; learners conserve informational divergence.}
+\end{quote}
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title={Analogy Table}]
+\begin{tabular}{ll}
+\textbf{Celestial Mechanics} & \textbf{Information Geometry} \\
+\hline
+Phase space coordinates $(q,p)$ & Parameter space coordinates $\theta$ \\
+Symplectic 2-form $\omega$ & Fisher information metric $g_{ij}$ \\
+Swept area $\int_\gamma \omega$ & Information volume $\int_\gamma \sqrt{\det g}\, d\theta$ \\
+Conserved angular momentum & Conserved information gain \\
+Kepler’s Second Law & Natural gradient flow invariance \\
+\end{tabular}
+\end{tcolorbox}
+
+In this analogy, an inference algorithm—like stochastic gradient descent or Bayesian updating—does not just move arbitrarily.  
+It moves along paths constrained by the underlying information geometry,  
+preserving informational invariants the way a planet preserves angular momentum.
+
+\begin{quote}
+\textit{Learning is not random wandering—it is a geodesic through belief space,  
+respecting the curvature induced by statistical structure.}
+\end{quote}
+
+\subsubsection*{A Unified View}
+
+We can now glimpse a deeper unity:
+
+\begin{itemize}
+    \item In mechanics, dynamics preserve symplectic area: $d\omega = 0$.
+    \item In information geometry, learning preserves informational volume: $d(\sqrt{\det g}) = 0$ along natural flows.
+\end{itemize}
+
+Both reflect an invariant 2-form—whether geometric or statistical.
+
+Both suggest that motion, whether physical or inferential,  
+is shaped not by arbitrary rules, but by the hidden geometry of the space itself.
+
+\begin{tcolorbox}[colback=gray!5!white, colframe=gray!50!black, title={Summary}]
+Kepler’s Law speaks not only to celestial orbits,  
+but to a broader principle:
+
+\begin{quote}
+\textbf{Wherever systems evolve, there exists a geometry that constrains them,  
+and an invariant that measures what they cannot lose.}
+\end{quote}
+\end{tcolorbox}
+
+In this light, Kepler’s discovery is not merely an astronomical law.  
+It is an early glimpse of a universal theme:
+
+\begin{quote}
+\textit{Conservation is geometry’s fingerprint on evolution—  
+whether in the heavens, or in the space of belief.}
+\end{quote}
