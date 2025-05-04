@@ -8,6 +8,50 @@
 \setotherlanguage{greek}
 \newfontfamily\greekfont{Times New Roman} % or any font that supports Greek
 
+
+
+% Macro definition for SunTzuPlaylist
+\newtcolorbox{sunztuplaylistbox}[1][]{
+  colback=gray!5!white,
+  colframe=black!80!white,
+  title=#1,
+  fonttitle=\bfseries,
+  breakable,
+  left=1em,
+  right=1em,
+  top=1em,
+  bottom=1em
+}
+
+\newcommand{\SunTzuPlaylist}[2]{%
+  \begin{sunztuplaylistbox}[#1]
+    \begin{enumerate}
+      #2
+    \end{enumerate}
+  \end{sunztuplaylistbox}
+}
+
+
+
+% Define the tcolorbox environment
+\newtcolorbox{psychologysidebarbox}[1][]{
+  colback=gray!5!white,
+  colframe=black!80!white,
+  title=#1,
+  fonttitle=\bfseries,
+  breakable,
+  left=1em,
+  right=1em,
+  top=1em,
+  bottom=1em
+}
+
+% Define the PsychologySidebar environment
+\newenvironment{PsychologySidebar}[1]
+  {\begin{psychologysidebarbox}[#1]}
+  {\end{psychologysidebarbox}}
+  
+  
 \begin{document}
 
   \onehalfspacing
