@@ -111,3 +111,93 @@ but to calculate how objects move in a curved space.
 And it gave Einstein, just a few years later, the last mathematical tool he needed:  
 a way to write the laws of gravity as the geometry of spacetime itself.
 
+
+\subsection*{Reinterpreting Kepler’s Second Law Through Levi-Civita’s Parallel Transport}
+
+Kepler’s Second Law tells us that a planet sweeps out equal areas in equal times.  
+In earlier frameworks, this became:
+
+\begin{itemize}
+    \item Conservation of angular momentum (Gibbs),
+    \item Invariance under rotational symmetry (Ricci),
+    \item Preservation of areal velocity via covariant derivatives (Christoffel).
+\end{itemize}
+
+But Levi-Civita gave this conservation law a deeper geometric meaning:  
+it is a statement about how vectors move along a curved path in such a way that they remain “as parallel as possible.”
+
+\bigskip
+
+\paragraph{Parallel Transport Along an Orbit.}
+
+Let \( \gamma(t) \) be the worldline of the planet — a curve through a curved space (or spacetime).  
+Let \( \vec{L}(t) = \vec{r}(t) \times \vec{v}(t) \) be the angular momentum vector.
+
+Kepler’s Second Law asserts that the direction and magnitude of \( \vec{L}(t) \) remain constant.
+
+In Levi-Civita’s language, this is expressed as:
+
+\[
+\nabla_{\dot{\gamma}} \vec{L} = 0
+\]
+
+That is: \( \vec{L} \) is **parallel transported** along the orbit.  
+It does not rotate or change in magnitude when moved via the Levi-Civita connection.
+
+\bigskip
+
+\paragraph{From Conservation to Curvature-Invariant Motion.}
+
+In flat space, this reduces to ordinary vector constancy.  
+But in curved space, it means:
+
+\begin{itemize}
+    \item The orbit respects the geometry of the space,
+    \item The geometry preserves certain symmetries (e.g., rotation),
+    \item Those symmetries ensure that certain vectors — like angular momentum — are preserved under parallel transport.
+\end{itemize}
+
+Thus, Kepler’s Law is not just a classical remnant —  
+it is a **geometric consequence of parallel transport in a symmetric, curved manifold**.
+
+\bigskip
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!80!black, title=\textbf{Levi-Civita’s Take on Kepler}]
+Kepler saw areas.  
+Newton saw forces.  
+Levi-Civita saw a vector that moves with the curve,  
+obeying the geometry, never twisting against it.
+\end{tcolorbox}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=2.8, >=stealth]
+    
+    % Central mass (Sun)
+    \filldraw[black] (0,0) circle (0.025) node[below left] {\footnotesize Sun};
+    
+    % Elliptical orbit arc
+    \draw[thick, domain=-60:60, smooth, variable=\t] 
+      plot ({1.2*cos(\t)}, {0.6*sin(\t)});
+    
+    % Angular momentum vectors (parallel transport arrows)
+    \foreach \angle in {-45,-15,15,45} {
+      \draw[->, thick, blue!80!black]
+        ({1.2*cos(\angle)}, {0.6*sin(\angle)})
+        -- ++(0,0.5);
+    }
+    
+    % Labels on vectors
+    \node[blue!70!black] at (0.3,1.0) {\footnotesize $\vec{L}$ (parallel transported)};
+    
+    % Radial vectors to show position (optional)
+    \draw[dashed, gray!60] (0,0) -- ({1.2*cos(-45)}, {0.6*sin(-45)});
+    \draw[dashed, gray!60] (0,0) -- ({1.2*cos(45)}, {0.6*sin(45)});
+    
+    % Curve label
+    \node at (1.3,0.5) {\footnotesize Orbital path $\gamma(t)$};
+    
+    \end{tikzpicture}
+    \caption{Levi-Civita’s interpretation of Kepler’s Second Law: the angular momentum vector \( \vec{L} \) is parallel transported along the orbital path \( \gamma(t) \), maintaining its direction and magnitude in accordance with the Levi-Civita connection.}
+    \end{figure}
+    

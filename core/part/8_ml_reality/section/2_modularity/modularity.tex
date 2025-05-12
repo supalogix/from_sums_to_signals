@@ -81,7 +81,7 @@ A company so deep in perpetual reorgs that entire teams don’t even know which 
 
     \medskip
     
-    Then came \textit{Six Sigma}, \textit{Lean}, \textit{Lean Six Sigma}, \textit{Agile}, \textit{Scaled Agile Framework} \textit{Disciplined Agile Delivery} --- each one a new operating system for the corporation, each one a promise of smoother flow, fewer defects, higher ROI.
+    Then came \textit{Six Sigma}, \textit{Lean}, \textit{Lean Six Sigma}, \textit{Agile}, \textit{Scaled Agile Framework}, and \textit{Disciplined Agile Delivery} --- each one a new operating system for the corporation, each one a promise of smoother flow, fewer defects, higher ROI.
 
     \medskip
     
@@ -95,11 +95,11 @@ A company so deep in perpetual reorgs that entire teams don’t even know which 
 
     \medskip
     
-    A “vertical reporting structure” isn’t about hierarchy—it’s about columns vs. rows.  
+    A “vertical reporting structure” isn’t about hierarchy... it’s about columns vs. rows.  
 
     \medskip
 
-    A “horizontal reorg” isn’t a cultural shift—it’s a filter operation in Excel.  
+    A “horizontal reorg” isn’t a cultural shift... it’s a filter operation in Excel.  
 
     \medskip
 
@@ -110,7 +110,7 @@ A company so deep in perpetual reorgs that entire teams don’t even know which 
     In this worldview, the company isn’t a living organism.  It’s a spreadsheet looking for a macro.
     
     \begin{quote}
-    \textit{“Management isn’t about leading people. It’s about formatting cells.”}
+    \textit{Management isn’t about leading people. It’s about formatting cells.}
     \end{quote}
 \end{HistoricalSidebar}
 
@@ -581,7 +581,7 @@ And now it had become a monument to noncompliance.
 
     \medskip
 
-\begin{HistoricalSidebar}{The Legacy of SOX: "Whatever You Do, Don't Tell Me"}
+\begin{HistoricalSidebar}{The Legacy of SOX --- "Whatever You Do, Don't Tell Me"}
 
     When the Sarbanes-Oxley Act of 2002 (SOX) was passed in the wake of Enron and WorldCom, it didn’t just introduce stricter accounting rules—it rewired executive psychology.
 
@@ -700,7 +700,7 @@ Congratulations. You’re the expert now.
     The title was printed on the org chart.  
     The title was spoken aloud at the compliance review.
     
-    And once compliance had a name—his name—they didn’t care who the actual lead engineer was.
+    And once compliance had a name --- his name --- they didn’t care who the actual lead engineer was.
     
     Every question flowed to him.
     
@@ -708,14 +708,17 @@ Congratulations. You’re the expert now.
     
     Every Slack mention @’ed him.
     
-    “Can you confirm the regression threshold was compliant with SOC-2 subsection 4.3.1(b)?”  
-    “...What’s SOC-2 subsection 4.3.1(b)?”
+    When legal asked “Can you confirm the regression threshold was compliant with SOC-2 subsection 4.3.1(b)?”  
+
+    His response was “...What’s SOC-2 subsection 4.3.1(b)?”
     
-    “Did we validate drift against production telemetry?”  
-    “...What’s telemetry?”
+    When SecOps asked “Did we validate drift against production telemetry?”  
     
-    “Do you have an updated data lineage diagram?”  
-    “...I ...I have a CSV?”
+    His response was “...What’s telemetry?”
+    
+    When Risk Management asked “Do you have an updated data lineage diagram?”  
+
+    His response was “...I ...I have a CSV?”
     
     At first, he answered from memory.
     
@@ -756,7 +759,7 @@ Congratulations. You’re the expert now.
     
     He was accountable.
     
-    And by the time the audit concluded, the outcome was inevitable:
+    And by the time the audit concluded, the outcome was inevitable: the company hired him.
     
     \begin{quote}
     They didn’t hire him because he was brilliant.
@@ -787,8 +790,8 @@ Congratulations. You’re the expert now.
     A little more haunted.
     
     He learned to wear headphones in meetings.  
-    He learned to keep his calendar blocked with “focus time.”  
-    He learned never to sit near Legal at the all-hands.
+    He learned to keep his calendar blocked with “important meetings.”  
+    He learned never to sit near HR at the all-hands.
     
     The box was checked.
     
@@ -909,6 +912,81 @@ Congratulations. You’re the expert now.
     A lesson written not just in Systemantics, but now, in their own compliance audit.
     
 
+
+    \subsection{Aviation Knows: Why DO-178C Could Have Saved Them}
+
+    While the compliance catastrophe at the company unfolded as a textbook failure of software system design, it’s worth noting that entire industries have already solved this category of problem — because they had no choice.
+    
+    Enter \textbf{DO-178C}, the international standard governing airborne software systems.
+    
+    \medskip
+    
+    DO-178C doesn’t just demand that you have software that “works.”  
+    It demands that you can \textbf{prove}, through rigorous, auditable processes, that each piece of software:
+    
+    \begin{itemize}
+        \item Has traceable requirements.
+        \item Has documented design.
+        \item Has verified and validated implementation.
+        \item Has test cases tied explicitly to requirements.
+        \item Passes those test cases under controlled, repeatable conditions.
+    \end{itemize}
+    
+    This is not about vague best practices or aspirational engineering values.  
+    This is about survival.
+    
+    \medskip
+    
+    In aviation, the failure of a single undocumented script doesn’t just cause a Slack firestorm — it can kill people.  
+    That’s why DO-178C emphasizes:
+    
+    \begin{itemize}
+        \item \textbf{Module-level testing}: Each software unit (module) must be verified independently, with clear interfaces and defined functionality.
+        \item \textbf{Requirements-based coverage}: You don’t just write tests to increase code coverage — you write them to satisfy explicitly documented requirements.
+        \item \textbf{Robust traceability}: Every line of code is tied to a requirement, and every requirement is tied to a verification activity.
+        \item \textbf{Change impact analysis}: If the data format changes, or a field disappears, or a flag mutates, the system forces you to analyze how that change propagates through every module and interface.
+    \end{itemize}
+    
+    \medskip
+    
+    \begin{quote}
+    \textbf{In other words: you can’t YOLO an intern script into production — because there’s no such thing as “just a temporary solution” in safety-critical software.}
+    \end{quote}
+    
+    \medskip
+    
+    Had the company applied even a fraction of DO-178C’s rigor — even if not formally required by their domain — they would have caught:
+    
+    \begin{itemize}
+        \item The absence of modular boundaries.
+        \item The lack of interface definitions.
+        \item The missing test cases around log format changes.
+        \item The undocumented assumptions about feature flags.
+        \item The total absence of traceability between inputs, models, outputs, and compliance claims.
+    \end{itemize}
+    
+    \medskip
+    
+    \textbf{Most crucially:} module-level tests would have allowed them to isolate failures.  
+    Instead of the entire system collapsing when a log format shifted, a properly tested preprocessing module would have raised an early, localized failure — which could have been corrected without dragging the entire compliance apparatus down with it.
+    
+    \medskip
+    
+    \begin{quote}
+    \textit{A complex system is not dangerous because it is big.
+    It is dangerous because its parts are invisible, untested, and intertwined.}
+    \end{quote}
+    
+    DO-178C offers a blueprint for breaking that cycle.  
+    Not because it guarantees perfection — but because it enforces separation of concerns, documented interfaces, and module-level accountability.
+    
+    \medskip
+    
+    In short:  
+    \textbf{It’s a roadmap for turning legacy spaghetti into an engineered system.}
+    
+    And even outside aviation, companies with critical dependencies would do well to study its lessons.
+    
 
 
 
