@@ -21,6 +21,7 @@ The harpedonaptae didn’t have laser levels or GPS satellites. What they had we
 
 \begin{figure}[H]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[scale=1, every node/.style={font=\small}]
 
 % --- 3-4-5 Triangle (Left) ---
@@ -53,12 +54,13 @@ The harpedonaptae didn’t have laser levels or GPS satellites. What they had we
 \draw[thick] (12.5,0) -- (15.5,0); % shadow
 \draw[dashed] (12.5,4.5) -- (15.5,0); % hypotenuse
 \node[below] at (14,0) {3 m shadow};
-\node[right] at (12.5,2.5) {Height = ?};
+\node[right] at (9.5,2.5) {Height = ?};
 
 % Labels
 \node[align=center] at (11.5,-1.2) {\textbf{Similar Triangles} \\ (Using shadows to estimate height)};
 
 \end{tikzpicture}
+}
 \caption{Left: The \textbf{3-4-5 triangle} used by the \textit{harpedonaptae} to construct right angles. \\
 Right: \textbf{Shadow ratio trick}—if a 1.5-meter stick casts a 1-meter shadow, and a pyramid casts a 3-meter shadow, then by similar triangles, the pyramid is 4.5 meters tall.}
 \end{figure}

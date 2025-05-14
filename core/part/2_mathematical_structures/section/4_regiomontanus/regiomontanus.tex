@@ -1,5 +1,7 @@
 \section{Regiomontanus and the Birth of Trigonometry as a Discipline}
 
+\subsection{From Tables to Theory: Regiomontanus Defines Trigonometry}
+
 By the 15th century, European mathematics was beginning to reawaken — and one of its clearest signs was the appearance of a book that, for the first time, treated trigonometry as an independent mathematical subject.
 
 That book was \textit{De Triangulis Omnimodis} (On Triangles of Every Kind), written around 1464 by the German mathematician \textbf{Johann Müller}, better known as \textbf{Regiomontanus}.
@@ -17,22 +19,12 @@ Unlike earlier astronomers who embedded trigonometry within celestial models or 
 
 Regiomontanus was also a practicing astronomer and instrument-maker, and his goal was practical as well as theoretical: to provide accurate methods for celestial navigation, eclipse prediction, and positional astronomy — all through a unified geometric lens.
 
-\textbf{Legacy:} Though his book would not be printed until 1533 (after his death), \textit{On Triangles} became the template for trigonometry in the Latin West — a text that signaled the transition from geometry as pure form to geometry as computational science.
-
-\begin{tcolorbox}[colback=gray!5!white, colframe=black, title=\textbf{TL;DR: The First Book of Trigonometry}, fonttitle=\bfseries, arc=1.5mm, boxrule=0.4pt]
-\textit{De Triangulis Omnimodis} by Regiomontanus (1464) was the first European work to define trigonometry as a standalone discipline.  
-It unified the spherical methods of Islamic astronomy with classical geometry, and turned trigonometry into a proper branch of mathematics — not just a set of tables.
-\end{tcolorbox}
-
-
 
 \subsection{Regiomontanus’ Trigonometry: Measuring the Firmament with Triangles}
 
 For Regiomontanus, trigonometry wasn’t just abstract mathematics — it was a way to map the heavens.
 
 In \textit{De Triangulis Omnimodis}, he systematically organized the rules for solving both \textbf{plane} and \textbf{spherical triangles}. While today these distinctions are part of standard curricula, in the 15\textsuperscript{th} century, this was revolutionary — especially because spherical trigonometry was the key to unlocking the geometry of the cosmos.
-
-\subsubsection*{The Core of Regiomontanus’ Trigonometry}
 
 Regiomontanus built his system around fundamental relationships we now recognize as:
 
@@ -50,7 +42,156 @@ He replaced the older chord-based methods inherited from Ptolemy and Islamic ast
 
 But this wasn’t math for math’s sake. Regiomontanus had his eyes on the sky.
 
-\subsubsection*{Applying Trigonometry to the Firmament}
+
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.2, every node/.style={font=\small}]
+    % === Plane triangle ===
+    \begin{scope}[shift={(-4,0)}]
+      % vertices
+      \coordinate (A) at (0,0);
+      \coordinate (B) at (3,0);
+      \coordinate (C) at (1.2,2);
+      % sides with labels
+      \draw (A) -- node[midway, below] {$c$} (B)
+            (B) -- node[midway, right] {$a$} (C)
+            (C) -- node[midway, left]  {$b$} (A);
+      % angle‐labels
+      \node[below left]  at (A) {$A$};
+      \node[below right] at (B) {$B$};
+      \node[above]       at (C) {$C$};
+      % optional little arcs to mark angles
+      \draw pic["$\alpha$", draw=black, angle radius=6mm] {angle=C--A--B};
+      \draw pic["$\beta$",  draw=black, angle radius=6mm] {angle=A--B--C};
+      \draw pic["$\gamma$", draw=black, angle radius=6mm] {angle=B--C--A};
+      \node at (1.5,-1) {Plane triangle};
+    \end{scope}
+
+    % === Spherical triangle ===
+    \begin{scope}[shift={(4,0)}]
+      % circle for sphere’s great circle
+      \draw (0,0) circle (2cm);
+      % three points on the “sphere”
+      \coordinate (A') at (110:2cm);
+      \coordinate (B') at (10:2cm);
+      \coordinate (C') at (250:2cm);
+      \node[fill=black, circle, inner sep=1.2pt] at (A') {};
+      \node[fill=black, circle, inner sep=1.2pt] at (B') {};
+      \node[fill=black, circle, inner sep=1.2pt] at (C') {};
+      % great-circle arcs as triangle edges
+      \draw[thick] (A') arc[start angle=110,end angle=10,radius=2cm]
+                   node[midway, above right] {$c$};
+      \draw[thick] (B') arc[start angle=10,end angle=250,radius=2cm]
+                   node[midway, below right] {$a$};
+      \draw[thick] (C') arc[start angle=250,end angle=110,radius=2cm]
+                   node[midway, left] {$b$};
+      % vertex labels
+      \node[above left]  at (A') {$A$};
+      \node[above right] at (B') {$B$};
+      \node[below]       at (C') {$C$};
+      \node at (0,-2.5) {Spherical triangle};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Left: a plane triangle with sides \(a,b,c\) opposite angles \(A,B,C\) (Law of Sines). Right: a spherical triangle on great‐circle arcs of lengths \(a,b,c\) between vertices \(A,B,C\).}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=3, x={(0.8cm,-0.4cm)}, y={(0cm,0.9cm)}]
+    % A very rough oblique projection of a circle (the “sphere”)
+    \draw[thick] (0,0) circle (1cm);
+    % Three projected points on that “sphere”
+    \coordinate (A) at (  0.3,  0.8);
+    \coordinate (B) at (-0.7,  0.5);
+    \coordinate (C) at (  0.6, -0.7);
+    % straight‐line segments approximate the great‐circle arcs
+    \draw[thick] (A) -- (B) node[midway, above left]  {$c$};
+    \draw[thick] (B) -- (C) node[midway, below left]  {$a$};
+    \draw[thick] (C) -- (A) node[midway, right]      {$b$};
+    % vertices
+    \fill (A) circle (0.8pt) node[above right] {$A$};
+    \fill (B) circle (0.8pt) node[above left]  {$B$};
+    \fill (C) circle (0.8pt) node[below right] {$C$};
+  \end{tikzpicture}
+  \caption{Oblique-projection “3D” view of a spherical triangle.}
+\end{figure}
+
+
+
+\begin{figure}[H]
+  \centering
+  \begin{mplibcode}
+    input featpost;
+
+    beginfig(3);
+      numeric u, basesize, baseheight, alphang, thetang, sfearsize;
+      numeric armsize, marginraise, totalraise, axeray, cardansize;
+      color basepos, tdorigin, oneaxe, otheraxe, rotaxbascenter, axedir;
+      color gluaxbascenter, rotrajcenter, cardanpos, refpoint, anotheraxe;
+      color armdir, armbasonepos, armbastwopos, sfearpos;
+      path glueaxebase, rotataxebase, rotrajector, axepath, sfearpath;
+      numeric armray;
+      u = 0.0125mm;
+      basesize = 30u;
+      baseheight = 3u;
+      alphang = 20;
+      thetang = -18;
+      armsize = 25u;
+      marginraise = 6u;
+      axeray = 3u;
+      cardansize = 3u;
+      sfearsize = 4u;
+      armray = 1.5u;
+      totalraise = armsize*sind(alphang)+marginraise+cardansize*cosd(alphang);
+      basepos = (0,0,-0.5baseheight);
+      f := -2*(-2basesize,-basesize,-5baseheight);
+      kindofcube(false, false, basepos, 0, 0, 0, 2basesize, 2basesize, baseheight );
+      tdorigin = (0,0,0);
+      oneaxe = (0,axeray/cosd(alphang),0);
+      otheraxe = (1,0,0);
+      anotheraxe = (0,cosd(alphang),-sind(alphang));
+      gluaxbascenter = tdorigin - (0,totalraise*sind(alphang),0);
+      glueaxebase = ellipticpath( gluaxbascenter, oneaxe, axeray*otheraxe );
+      axedir = (0,sind(alphang),cosd(alphang));
+      rotrajcenter = (0,0,totalraise);
+      rotaxbascenter = rotrajcenter-axedir*cardansize;
+      refpoint = rotrajcenter+axedir*cardansize;
+      rotataxebase = rigorouscircle( rotaxbascenter, axedir, axeray );
+      rotrajector = rigorouscircle( rotrajcenter, axedir, armsize );
+      axepath = twocyclestogether( glueaxebase, rotataxebase );
+      fill axepath withcolor background;
+      draw axepath;
+      draw rotataxebase;
+      drawarrow subpath (3,10.5) of rotrajector dashed evenly;
+    %  dotlabel.top( btex 1 etex, point 1 of rotrajector );
+    %  dotlabel.top( btex 5 etex, point 5 of rotrajector );
+    %  dotlabel.top( btex 3 etex, point 3 of rotrajector );
+      kindofcube(false,false,rotrajcenter,90,90-alphang,thetang,2cardansize,2cardansize,2cardansize);
+      draw rp(refpoint);
+      armdir := otheraxe*cosd(thetang)+anotheraxe*sind(thetang);
+      armbasonepos = rotrajcenter + cardansize*armdir;
+      armbastwopos = rotrajcenter + (armsize-sfearsize)*armdir; % NOT RIGOROUS
+      sfearpos = rotrajcenter + armsize*armdir;
+      rigorousdisc( 0, true, armbasonepos, armray, armbastwopos-armbasonepos );
+      sfearpath = rigorousfearpath( sfearpos, sfearsize );
+      fill sfearpath withcolor background;
+      draw sfearpath;
+  endfig;
+  
+  \end{mplibcode}
+  \caption{A 3D perspective‐projected spherical triangle rendered via MetaPost in mplibcode.}
+\end{figure}
+
+
+
+
+
+
+
+
+\subsection{Applying Trigonometry to the Firmament}
 
 Like his predecessors, Regiomontanus operated within a geocentric cosmology. The firmament — the outermost celestial sphere containing the fixed stars — was still considered a real, rotating structure. To predict planetary positions, chart eclipses, or navigate by the stars, one had to compute angles and distances on this imagined sphere.
 
@@ -65,10 +206,6 @@ Regiomontanus applied his methods to:
 \end{itemize}
 
 For him, solving triangles wasn’t confined to parchment — it was how you navigated the cosmos, both intellectually and literally.
-
-\subsubsection*{Did Regiomontanus Believe in the Firmament?}
-
-Yes — but with Renaissance nuance.
 
 Regiomontanus inherited the medieval vision of a layered, spherical cosmos:
 
@@ -87,20 +224,43 @@ For Regiomontanus, every star had a place — not just metaphorically, but geome
 
 His trigonometry provided the tools to compute these positions, reinforcing belief in a harmonious, ordered cosmos where divine architecture could be decoded through angles and ratios.
 
-\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, title={Triangles: The Surveyor’s Tool for the Heavens}]
-Regiomontanus didn’t just invent trigonometry as a discipline — he weaponized it against celestial uncertainty.
+\medskip
 
-In a universe built from spheres and circles, triangles became the key to understanding the firmament’s design. Every astronomical problem was, at its heart, a geometric puzzle waiting to be solved.
-\end{tcolorbox}
+\begin{HistoricalSidebar}{Columbus, Regiomontanus, and the Eclipse That Saved a Voyage}
 
-\subsubsection{Legacy: From Firmament to Framework}
+  \textbf{Regiomontanus’ astronomical tables} were not just theoretical—they were used in the field. One of their most dramatic applications came in 1504, when \textbf{Christopher Columbus}, stranded in Jamaica during his fourth voyage to the New World, used an eclipse prediction to manipulate local politics.
+
+  \medskip
+  
+  Columbus had with him a copy of the \textit{Ephemerides} of Regiomontanus—a set of astronomical tables predicting the positions of celestial bodies, including lunar eclipses. He noticed that a total lunar eclipse was expected on \textbf{February 29, 1504}.
+
+  \medskip
+  
+  Facing dwindling supplies and growing hostility from the indigenous population, Columbus warned the local leaders that his Christian God would show disapproval by making the Moon “disappear in anger.” When the eclipse occurred on schedule, the spectacle terrified the locals, who begged Columbus to restore the Moon—and promptly resumed supplying his crew with food.
+  
+  \medskip
+  
+  \textbf{Key insight:} Regiomontanus’ mathematical predictions, grounded in his trigonometric astronomy, gave Columbus not just celestial knowledge—but psychological leverage. His *Ephemerides* bridged scientific computation and strategic diplomacy.
+
+  \medskip
+  
+  \begin{center}
+  \emph{It wasn’t just the stars that guided Columbus—it was the math behind them.}
+  \end{center}
+  
+\end{HistoricalSidebar}
+
+\medskip
+
+
+\subsection{Legacy: From Firmament to Framework}
 
 Ironically, while Regiomontanus' trigonometry was crafted to serve a geocentric, firmament-bound cosmos, his mathematical clarity laid the groundwork for future astronomers — like Copernicus — to question that very structure.
 
 But in his own time, Regiomontanus wasn’t dismantling the firmament. He was measuring it — one triangle at a time.
 
 
-\begin{tcolorbox}[colback=gray!5, colframe=black, title=\textbf{Historical Sidebar: Regiomontanus and the Measurable Firmament}, fonttitle=\bfseries, arc=1.5mm, boxrule=0.4pt]
+\begin{HistoricalSidebar}{Regiomontanus and the Measurable Firmament}
 
   In the 15th century, the \textbf{firmament}—the outermost celestial sphere holding the fixed stars—was still taken as a real, physical part of the cosmos.
   
@@ -118,4 +278,4 @@ But in his own time, Regiomontanus wasn’t dismantling the firmament. He was me
   
   This mathematical approach would quietly set the stage for later astronomers to abstract the firmament into a coordinate framework—even as its physical reality faded from cosmology.
   
-  \end{tcolorbox}
+  \end{HistoricalSidebar}

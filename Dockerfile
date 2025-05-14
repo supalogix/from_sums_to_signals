@@ -16,4 +16,4 @@ RUN apt-get update && \
 WORKDIR /data
 
 # Default command to run LuaLaTeX
-CMD ["lualatex", "main.tex"]
+CMD ["lualatex", "the_survival_guide.tex"]

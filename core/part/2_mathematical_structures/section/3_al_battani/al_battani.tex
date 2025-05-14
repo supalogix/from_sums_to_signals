@@ -6,11 +6,7 @@ By the 9\textsuperscript{th} century, Islamic astronomers had inherited the full
 
 One of the most important of these reformers was \textbf{Al-Battānī} (c.~858–929), a Syrian astronomer whose work bridged classical Greek astronomy and the new Islamic mathematical tradition. In his magnum opus, the \textit{Kitāb az-Zīj}, he did something subtle but revolutionary:
 
-\begin{center}
 \textbf{He replaced chords with sines.}
-\end{center}
-
-\medskip
 
 Where Ptolemy had computed the straight-line segment between arc endpoints, Al-Battānī instead used the vertical projection from a point on the arc down to the circle’s radius — what we now call the \textbf{sine function}.
 
@@ -22,6 +18,8 @@ This was not just notational convenience. It was a conceptual shift:
     \item \textbf{Chords} are geometric: defined by line segments across circles.
     \item \textbf{Sines} are algebraic: functions of angles, definable and tabulatable.
 \end{itemize}
+
+
 
 \subsection{The New Trigonometric Arsenal}
 
@@ -43,8 +41,187 @@ He also derived several trigonometric identities, including:
 
 These were the building blocks of what would eventually become modern trigonometry.
 
-\subsection{Legacy}
+\medskip
 
-Al-Battānī's tables of sine values (using a radius \( R = 60 \), consistent with Babylonian conventions) remained influential for centuries. They were cited by European scholars including Regiomontanus and Copernicus, and helped usher in the transition from geometric astronomy to analytic trigonometry.
+\begin{HistoricalSidebar}{Sines as Divine Ratios}
 
-By abandoning the chord in favor of the sine, Al-Battānī set the stage for a new era — where geometry bent to algebra, and the heavens were no longer just drawn, but calculated.
+In the intellectual climate of 9th-century Islam, mathematics was not merely a technical tool but a means to glimpse the unity of God’s creation. Al-Battānī’s adoption of the \emph{sine} (Arabic \emph{jiba}) over the Greek \emph{chord} carried resonances beyond convenience:
+
+\medskip
+
+\begin{itemize}
+    \item \textbf{Tawḥīd (Divine Unity).}  
+    While a chord partitions a circle into discrete segments, the sine—being a single-valued ratio—mirrors the Qur’anic emphasis on the oneness and indivisibility of the Divine essence.
+
+    \item \textbf{Algebra as God-given Reason.}  
+    Islamic scholars regarded algebra (from al-Khwarizmi’s \emph{al-jabr}) as a gift of prophetic wisdom. Framing celestial arcs in algebraic functions (sines) rather than purely geometric lengths aligned the heavens with the divine Logos.
+
+    \item \textbf{Ritual Precision.}  
+    Exact prayer times and Qibla determinations demanded interpolation. Sine-tables supported systematic arithmetic methods, echoing the belief that God’s laws are both precise and accessible through reason.
+
+    \item \textbf{Metaphor of the “Bosom.”}  
+    In Arabic manuscripts, the unpointed \emph{jb} was read as \emph{jaib} (“bosom”). Later Latin translators rendered this as \emph{sinus}. The image of the circle’s point drawn “into the bosom” of its radius subtly evoked themes of spiritual intimacy with the Divine.
+\end{itemize}
+
+\medskip
+
+Through the sine function, Al-Battānī didn’t just streamline computations—he wove together mathematics, theology, and ritual into a unified vision of the cosmos.
+\end{HistoricalSidebar}
+
+
+\subsection{Trigonometry in the Service of Faith: Calculating Prayer Times}
+
+While Al-Battānī’s trigonometric innovations were groundbreaking in astronomy, they also served a profoundly practical and religious purpose: the precise calculation of \textbf{Islamic prayer times}.
+
+
+In Islam, the five daily prayers (\textit{salāh}) must be performed at specific times tied to the position of the Sun:
+
+\begin{itemize}
+    \item \textbf{Fajr} (dawn): Begins at astronomical twilight, just before sunrise.
+    \item \textbf{Dhuhr} (noon): When the Sun crosses the meridian and casts the shortest shadow.
+    \item \textbf{Asr} (afternoon): When the shadow of an object equals or exceeds its length.
+    \item \textbf{Maghrib} (sunset): Immediately after the Sun sets below the horizon.
+    \item \textbf{Ishā'} (night): When the red twilight disappears and darkness sets in.
+\end{itemize}
+
+These timings depend on the Sun’s \textbf{altitude} and \textbf{azimuth}, which change with the seasons and with one’s geographical latitude. Al-Battānī’s use of \textbf{spherical trigonometry}—particularly sine and tangent functions—made it possible to compute these solar angles with unprecedented precision.
+
+\begin{quote}
+\textit{“Establish regular prayers at the sun's decline till the darkness of the night and the morning prayer.”} \\
+\hfill — \textbf{Qur’an, Surah Al-Isra (17:78)}
+\end{quote}
+
+\subsubsection{Why Accuracy Mattered}
+
+As Islam expanded from the Arabian Peninsula into vastly different latitudes—from North Africa to Central Asia—the variation in solar behavior across geography made fixed timekeeping insufficient. Trigonometry became a vital tool for standardizing observance across the Islamic world.
+
+\begin{itemize}
+    \item \textbf{Muwaqqits} (timekeepers) were appointed at major mosques to use astronomical instruments—often astrolabes and quadrants—to calculate prayer times.
+    \item These experts relied on the trigonometric methods developed by Al-Battānī and others to interpret solar altitudes and shadow lengths in different regions.
+\end{itemize}
+
+
+\subsubsection*{How Timekeepers Used Trigonometry to Determine Prayer Times}
+
+Let’s illustrate how a \textbf{muwaqqit}—a mosque-based timekeeper—might have used Al-Battānī’s trigonometric principles to calculate specific prayer times using the tools available in the medieval Islamic world.
+
+\medskip
+
+\textbf{Instruments used:}
+\begin{itemize}
+    \item A \textbf{gnomon} (vertical stick or column) to measure shadow length,
+    \item An \textbf{astrolabe} or \textbf{quadrant} to measure solar altitude,
+    \item Astronomical tables derived from Al-Battānī’s \textit{Zij} (astronomical handbook).
+\end{itemize}
+
+\medskip
+
+\textbf{Example: Calculating \textit{Dhuhr} and \textit{Asr} in Damascus (Latitude: \( \phi = 33.5^\circ \))}
+
+\begin{enumerate}
+    \item \textbf{Find the Sun’s declination \( \delta \)} for the given day.\\
+    The muwaqqit would consult Al-Battānī’s tables to determine the Sun’s declination—its angular position north or south of the celestial equator.
+
+    \item \textbf{Calculate solar noon altitude \( h_{\text{noon}} \)} using spherical trigonometry:
+    \[
+    h_{\text{noon}} = 90^\circ - |\phi - \delta|
+    \]
+    This gives the Sun’s altitude when it is at the meridian (local noon).
+
+    \item \textbf{Measure when the Sun reaches this maximum altitude.}\\
+    Using an astrolabe or quadrant, the muwaqqit tracks the Sun's rising angle. When it reaches \( h_{\text{noon}} \), it is time for \textit{Dhuhr}.
+
+    \item \textbf{Determine the start of \textit{Asr}} by calculating when the shadow length equals the object’s height (Hanafi: twice the height).\\
+    This uses the basic tangent relationship:
+    \[
+    \tan(\theta) = \frac{\text{height}}{\text{shadow length}}
+    \]
+    Rearranged:
+    \[
+    \theta = \tan^{-1}\left(\frac{1}{L}\right)
+    \]
+    where \( L = 1 \) (standard length) or \( L = 2 \) (Hanafi tradition). The angle \( \theta \) gives the solar altitude at \textit{Asr}.
+
+    \item \textbf{From that solar altitude, calculate the time when the Sun will reach \( \theta \).}\\
+    Using trigonometric time-angle relations from Al-Battānī’s tables, the muwaqqit determines when the Sun will descend to that altitude in the afternoon.
+\end{enumerate}
+
+\begin{HistoricalSidebar}{From Heaven to Hour: The Birth of Algorithmic Thinking}
+    Long before the word “algorithm” became the language of machines, it was the logic of the cosmos.
+
+    \medskip
+
+    The methodical procedure used by medieval Islamic timekeepers—starting with the Sun’s declination and ending with exact prayer times—was more than just a checklist. It was a structured, repeatable \textbf{algorithm}, centuries before the term entered modern computation.
+
+    \medskip
+
+    The very word \textit{algorithm} comes from the Latinization of the name \textbf{al-Khwārizmī}, the 9th-century Persian scholar whose treatises on arithmetic and algebra laid the groundwork for symbolic and procedural thinking.
+
+    \medskip
+
+    Timekeepers like those who followed Al-Battānī were not just observers of the sky—they were \textbf{early algorithmists}, applying fixed inputs (like latitude and solar declination) to generate consistent outputs (prayer times), following a logic-driven sequence of steps.
+
+    \medskip
+
+    \begin{itemize}
+        \item Input: Geographic latitude \( \phi \), date, and solar declination \( \delta \)
+        \item Rule: Compute \( h_{\text{noon}} = 90^\circ - |\phi - \delta| \)
+        \item Trigger: Observe maximum solar altitude → \textit{Dhuhr}
+        \item Condition: Shadow = object height → \( \theta = \tan^{-1}(1) \)
+        \item Output: Time when solar altitude equals \( \theta \) → \textit{Asr}
+    \end{itemize}
+
+    \medskip
+
+    \textbf{Key insight:} Before computer science, before code, there were prayer tables and quadrants. In the Islamic Golden Age, algorithmic thinking was already alive—driven not by data science, but by devotion.
+\end{HistoricalSidebar}
+
+
+\medskip
+
+This cycle was repeated daily, adjusted for seasonal solar motion. Thanks to Al-Battānī’s tables and trigonometric formulations, religious rituals across the expanding Islamic world could be synchronized to the heavens with mathematical precision.
+
+
+\subsection{The Muwaqqit’s Instruments and Calculation Procedures}
+
+Muwaqqits relied on a small suite of observational tools and Al-Battānī’s trigonometric tables to turn raw 
+measurements into exact prayer times:
+
+\begin{itemize}
+  \item \textbf{Gnomon}: A vertical rod of known height \(H\), used to cast a shadow of length \(L\).
+  \item \textbf{Astrolabe or Quadrant}: To measure the Sun’s altitude \(h\) directly when needed (especially near sunrise or sunset).
+  \item \textbf{Al-Battānī’s Zij}: Tables of \(\sin\), \(\cos\), \(\tan\), \(\sec\), etc., plus daily solar declination \(\delta\).
+\end{itemize}
+
+\textbf{Step-by-step procedure:}
+
+\begin{enumerate}
+  \item \textbf{Record local latitude} \(\phi\) and date.  Consult the Zij for the Sun’s declination \(\delta\) on that date.
+  \item \textbf{Measure shadow length} \(L\) of the gnomon.  Compute the Sun’s altitude above the horizon via
+    \[
+      \tan(\alpha) \;=\;\frac{H}{L}
+      \quad\Longrightarrow\quad
+      \alpha \;=\;\tan^{-1}\!\Bigl(\tfrac{H}{L}\Bigr).
+    \]
+    Use the tangent table to find \(\alpha\).
+  \item \textbf{Determine \textit{Dhuhr} (noon)} by computing the meridian altitude
+    \[
+      h_{\mathrm{noon}}
+      = 90^\circ - \bigl|\phi - \delta\bigr|.
+    \]
+    When the measured \(\alpha\) matches \(h_{\mathrm{noon}}\), it is time for Dhuhr.
+  \item \textbf{Compute \textit{Asr} onset} by solving for the altitude \(\theta\) at which an object’s shadow equals its height (or twice its height in the Ḥanafī school):
+    \[
+      \theta = \tan^{-1}\!\Bigl(\tfrac{H}{L_{\mathrm{target}}}\Bigr)
+      \quad\text{with}\quad
+      L_{\mathrm{target}} = H \text{ or } 2H.
+    \]
+    The corresponding hour angle from local noon is then looked up in the Zij, giving the Asr time.
+  \item \textbf{Mark the prayer lines} on the sundial or astrolabe plate: draw the Dhuhr line along the north–south axis, then the Asr line at angle \(q\), where
+    \[
+      \tan q \;=\;\frac{\sin\Delta\lambda}{\sin\Delta\phi}
+    \]
+    from Al-Battānī’s qibla formula, ensuring each prayer face and azimuth is precisely set.
+\end{enumerate}
+
+By following these fixed, table-driven steps—measuring shadows, consulting sines and tangents, and interpolating hour angles—muwaqqits enacted what was effectively an early algorithm, day after day, across the Islamic world.  

@@ -10,11 +10,7 @@ What began as letters turned into a mentorship. Euler quickly recognized Lagrang
 
 While Newton's vision of physics was geometric and visually intuitive, Lagrange aimed to rewrite it as pure algebra. No diagrams, no triangles, no intuitive pushes or pulls. Just symbols. He wanted to understand how systems moved not by drawing them, but by asking what paths nature would prefer — and why.
 
-
-\subsubsection{The Age of Reason Meets the Laws of Motion}
-
 This ambition wasn’t just mathematical — it was deeply philosophical. Lagrange lived in the heart of the Enlightenment, a period obsessed with reason, structure, and determinism. The thinkers of his age believed the universe operated like a rational machine: every part in lawful relation to every other, governed by principles that, if known, could explain everything:  ``Give me the initial conditions,'' said Laplace, ``and I will predict the future.''
-
 
 This idea—that nature was fully intelligible, fully lawful, and fully determined—was the philosophical air Lagrange breathed. Newton had already shown that the planets moved by universal laws. But Newton’s mechanics still relied on force—something that required visualization, contact, sometimes even intuition.
 
@@ -28,31 +24,36 @@ The result was revolutionary: a new formalism built not on forces, but on \textb
     Instead of tracking how forces push on particles, Lagrange asked: out of all possible ways a system could move from one configuration to another, which path does nature actually choose?
 \end{quote}
 
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1, every node/.style={font=\small}]
+      % Points A and B
+      \node[fill=black, circle, inner sep=1.5pt, label=below:{\textbf{A}}] (A) at (0,0) {};
+      \node[fill=black, circle, inner sep=1.5pt, label=below:{\textbf{B}}] (B) at (6,0) {};
+  
+      % Legend
+      \begin{scope}[shift={(3.5,1.8)}]
+        \draw[gray, thick] (0,0) -- (0.5,0) node[right, font=\small]{Possible trajectories};
+        \draw[blue, very thick] (0,-0.5) -- (0.5,-0.5) node[right, font=\small]{Least‐action path};
+      \end{scope}
+  
+      % Multiple possible paths (gray)
+      \foreach \yshift/\tension in {1.5/1, -1/0.8, 0.8/1.2} {
+        \draw[gray, thick]
+          plot [smooth, tension=\tension]
+          coordinates {(A) (1,\yshift) (2,-0.5*\yshift) (3,0.6*\yshift) (4,-0.3*\yshift) (B)};
+      }
+  
+      % Chosen least-action path (blue & thicker)
+      \draw[blue, very thick]
+        plot [smooth, tension=1]
+        %coordinates {(A) (1,0.8) (2,0.3) (3,-0.1) (4,0.2) (B)}
+        coordinates {(A) (B)}
+        node[pos=0.5, above, sloped] {};
+    \end{tikzpicture}
+    \caption{Several possible paths from point A to B (gray) with the path of least action highlighted (blue).}
+\end{figure}
+  
+  
 
-\begin{tcolorbox}[colback=blue!5!white, colframe=blue!50!black, 
-    title={Historical Sidebar: Lagrange and the Calculus of the Best Possible World}]
-    
-        \textbf{Gottfried Wilhelm Leibniz} (1646–1716) believed that the universe was a rational, optimized system—created by a perfect God who chose the \textbf{best of all possible worlds}. For Leibniz, this meant that nature always followed the most elegant, efficient paths. Every event had a sufficient reason, and every motion unfolded with mathematical necessity.
-    
-        \medskip
-    
-        This vision wasn’t just theological—it was mathematical. Leibniz imagined a cosmos that could be described in terms of \textbf{infinitesimals, differentials, and minima}, governed by the principle that nature “does nothing in vain.” These ideas laid the philosophical and technical groundwork for the development of calculus, and they would find their purest mechanical expression in the work of \textbf{Joseph-Louis Lagrange}.
-    
-        \medskip
-    
-        In his 1788 masterpiece, \textit{Mécanique Analytique}, Lagrange reformulated Newtonian mechanics using only algebra and calculus, eliminating the need for geometric diagrams or direct references to physical forces. Instead, he treated the evolution of physical systems as an \textbf{optimization problem}—exactly the kind of principle Leibniz had championed.
-    
-        \medskip
-    
-        Lagrange’s use of the \textbf{principle of least action}—that nature selects the path which minimizes (or extremizes) a certain quantity—was a direct echo of Leibniz’s metaphysics. In Lagrange’s mechanics, the universe behaves not like a machine of levers and weights, but like a system solving an elegant equation: \textbf{minimal effort, maximal coherence}.
-    
-        \medskip
-    
-        \textbf{Quote from Leibniz (1697):}
-        \begin{quote}
-        “In the effects of nature, the greatest variety is brought about with the greatest order; and this is the mark of divine wisdom.”
-        \end{quote}
-    
-        Leibniz dreamed of a universe governed by calculus. Lagrange wrote the equations that made it move.
-    
-\end{tcolorbox}
+
