@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{import}
+
+\subimport*{core/included_packages}{included_packages.tex}
+\subimport*{core/included_modules}{included_modules.tex}
+
+\setmainlanguage{english}
+\setotherlanguage{greek}
+\newfontfamily\greekfont{Times New Roman} % or any font that supports Greek
+
+
+
+% Macro definition for SunTzuPlaylist
+\newtcolorbox{sunztuplaylistbox}[1][]{
+  colback=gray!5!white,
+  colframe=black!80!white,
+  title=#1,
+  fonttitle=\bfseries,
+  breakable,
+  left=1em,
+  right=1em,
+  top=1em,
+  bottom=1em
+}
+
+\newcommand{\SunTzuPlaylist}[2]{%
+  \begin{sunztuplaylistbox}[#1]
+    \begin{enumerate}
+      #2
+    \end{enumerate}
+  \end{sunztuplaylistbox}
+}
+
+
+
+% Define the tcolorbox environment
+\newtcolorbox{psychologysidebarbox}[1][]{
+  colback=gray!5!white,
+  colframe=black!80!white,
+  title=#1,
+  fonttitle=\bfseries,
+  breakable,
+  left=1em,
+  right=1em,
+  top=1em,
+  bottom=1em
+}
+
+% Define the PsychologySidebar environment
+\newenvironment{PsychologySidebar}[1]
+  {\begin{psychologysidebarbox}[#1]}
+  {\end{psychologysidebarbox}}
+  
+  
+\begin{document}
+
+  \onehalfspacing
+  \setlength{\parskip}{1.5em} 
+
+
+  \subimport*{core/included_modules/module/title_page}{title_page.tex}
+  %\subimport*{core/included_modules/module/disclaimer}{disclaimer.tex}
+  
+
+
+  \tableofcontents
+
+  \newpage
+
+
+  \subimport*{core/part/1_introduction}{introduction.tex}
+  \subimport*{core/part/2_mathematical_structures}{mathematical_structures.tex}
+  \subimport*{core/part/3_mathematical_analysis}{mathematical_analysis.tex}
+  \subimport*{core/part/4_mathematical_uncertainty}{mathematical_uncertainty.tex}
+  \subimport*{core/part/5_mathematical_computation}{mathematical_computation.tex}
+  \subimport*{core/part/6_mathematical_foundations}{mathematical_foundations.tex}
+  \subimport*{core/part/7_ml_use_case}{ml_use_case.tex}
+  \subimport*{core/part/8_ml_reality}{ml_reality.tex}
+  \subimport*{core/part/9_consulting_strategies}{consulting_strategies.tex}
+
+\end{document}
